@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6: Teaching Learning Materials</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary: #0284c7;
+            --accent-1: #0d9488;
+            --accent-2: #7c3aed;
+            --accent-3: #d97706;
+            --accent-4: #dc2626;
+            --accent-5: #2563eb;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+        .card.card-alt-5 { border-left-color: var(--accent-5); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+        .card-alt-5 h2 { color: var(--accent-5); }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #4b5563;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #94a3b8;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+        .sub-list {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 6: Teaching Learning Materials</h1>
+        <p>Complete Exhaustive Notes — English & Telugu Bilingual Study Guide</p>
+    </header>
+
+    <!-- Section 1: Introduction to TLM, Curriculum & Syllabus -->
+    <div class="card card-alt-1">
+        <h2>1. TLM, Curriculum & Syllabus (విద్యా ప్రణాళిక మరియు పాఠ్యప్రణాళిక)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Teaching learning materials (TLM) occupy a <strong>pivotal position</strong> in the educational scene. TLM includes syllabus, textbook, workbook, notebook, coursebook etc.</span>
+                    <span class="te">బోధనా అభ్యసన సామాగ్రి (TLM) విద్యా రంగంలో <strong>కీలకమైన స్థానాన్ని (pivotal position)</strong> ఆక్రమిస్తుంది. TLM లో పాఠ్యాంశాలు, పాఠ్యపుస్తకం, వర్క్‌బుక్, నోట్‌బుక్, కోర్సుబుక్ మొదలైనవి ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Among all the TLMs, some are exclusively meant for teachers, some materials are useful both to learners and teachers, while some other materials are useful only to the learners.</span>
+                    <span class="te">అన్ని TLMలలో కొన్ని కేవలం ఉపాధ్యాయుల కోసం, కొన్ని విద్యార్థులు మరియు ఉపాధ్యాయులకు ఇద్దరికీ, మరికొన్ని కేవలం విద్యార్థులకు మాత్రమే ఉపయోగపడతాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Curriculum (విద్యా ప్రణాళిక):</strong>
+                        <br>• Curriculum is a very comprehensive term. It is highly inclusive and includes everything learners do during the course of their study.
+                        <br>• Scholars call curriculum <strong>'a blueprint'</strong> or <strong>'an overall plan'</strong>.
+                        <br>• Curriculum is specific to a course of study. (e.g., A teacher training programme has a curriculum, and within it, methods of teaching English is just one subject. All work done as part of teacher training finds a place in the curriculum).
+                        <br>• A curriculum has <strong>many syllabuses</strong>.
+                    </span>
+                    <span class="te"><strong>కరికులమ్ (Curriculum):</strong>
+                        <br>• ఇది ఒక సమగ్రమైన పదం (comprehensive term). కోర్సు వ్యవధిలో విద్యార్థులు చేసే ప్రతి ఒక్క పని దీని పరిధిలోకి వస్తుంది.
+                        <br>• పండితులు కరికులమ్‌ను <strong>'బ్లూప్రింట్' (blueprint)</strong> లేదా <strong>'ఒక సమగ్ర ప్రణాళిక' (overall plan)</strong> అని పిలుస్తారు.
+                        <br>• ఇది ఒక ప్రత్యేక కోర్సుకు సంబంధించినది. (ఉదా: ఉపాధ్యాయ శిక్షణ కార్యక్రమానికి ఒక కరికులమ్ ఉంటుంది, అందులో ఇంగ్లీష్ బోధనా పద్ధతులు ఒక సబ్జెక్టు మాత్రమే).
+                        <br>• ఒక కరికులమ్‌లో <strong>అనేక సిలబస్‌లు</strong> ఉంటాయి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Syllabus (విషయ ప్రణాళిక / పాఠ్యప్రణాళిక):</strong>
+                        <br>• A syllabus is specific to a course and a group of students.
+                        <br>• (e.g., Methods of teaching English for D.Ed students has a syllabus. This syllabus can be used with only these students and not with others).
+                        <br>• Scholars define a syllabus as a <strong>specific list of teaching items</strong>.
+                        <br>• The list of teaching items is specific to a group of students and a course of study.
+                        <br>• We have a school curriculum for lower or upper primary school. But each subject in each class has a syllabus (e.g., Class VI syllabus for English is part of the upper primary school curriculum).
+                    </span>
+                    <span class="te"><strong>సిలబస్ (Syllabus):</strong>
+                        <br>• సిలబస్ అనేది ఒక నిర్దిష్టమైన కోర్సు మరియు నిర్దిష్ట విద్యార్థుల సమూహానికి సంబంధించినది.
+                        <br>• (ఉదా: D.Ed విద్యార్థుల ఇంగ్లీష్ బోధనా పద్ధతుల సిలబస్ కేవలం ఆ విద్యార్థులకు మాత్రమే ఉపయోగపడుతుంది).
+                        <br>• పండితులు సిలబస్‌ను <strong>బోధనా అంశాల నిర్దిష్ట జాబితా (specific list of teaching items)</strong> గా నిర్వచిస్తారు.
+                        <br>• పాఠశాల కరికులమ్ ప్రాథమిక/ఉన్నత ప్రాథమిక స్థాయిలకు ఉంటుంది, కానీ ప్రతి తరగతిలోని ప్రతి సబ్జెక్టుకు ఒక ప్రత్యేక సిలబస్ ఉంటుంది.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Structure of Curriculum & Syllabus: Learners, Needs, Objectives, Content -->
+    <div class="card card-alt-2">
+        <h2>2. Components & Principles of Curriculum/Syllabus Design</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Structure & Learner Identity:</strong>
+                        <br>• Both Curriculum and Syllabus have a similar structure. They begin with identifying or describing the learners.
+                        <br>• Learners carry their identity in terms of age group, social, economic, and educational backgrounds.
+                        <br>• Describing learners gives a proper understanding of their abilities.
+                        <br>• Learner's age and background help in developing proper teaching materials, appropriate illustrations, and grading concepts according to their maturity and experience.
+                    </span>
+                    <span class="te"><strong>నిర్మాణ రూపం & విద్యార్థి గుర్తింపు:</strong>
+                        <br>• కరికులమ్ మరియు సిలబస్ రెండూ ఒకే రకమైన నిర్మాణాన్ని కలిగి ఉంటాయి. ఇవి విద్యార్థులను గుర్తించడం/వివరించడంతో ప్రారంభమవుతాయి.
+                        <br>• విద్యార్థుల వయస్సు, సామాజిక, ఆర్థిక మరియు విద్యా నేపథ్యం వారి గుర్తింపును నిర్ణయిస్తాయి.
+                        <br>• విద్యార్థుల వయస్సు మరియు నేపథ్యం సరైన బోధనా సామాగ్రిని రూపకల్పన చేయడానికి, ఉదాహరణలను ఎంచుకోవడానికి మరియు వారి పరిపక్వతకు అనుగుణంగా భావనలను వర్గీకరించడానికి తోడ్పడతాయి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Learner Needs & Objectives:</strong>
+                        <br>• Learner's needs are often determined by the teacher.
+                        <br>• Golden Rule for large state-wide groups: <strong>"Average as positive"</strong>.
+                        <br>• Learner identity and needs lead to framing a set of <strong>Objectives</strong>. Objectives are stated to fulfill learner needs to the best possible extent.
+                        <br>• Objectives are also called the <strong>"terminal behaviour"</strong> of the learners or a statement of learning outputs at the end of the course.
+                        <br>• Objectives can be stated in <em>behavioural terms</em> as well as in <em>cognitive terms</em>.
+                        <br>• Objectives specify overall gains (<strong>general objectives</strong>) and smaller steps (<strong>specific objectives</strong>).
+                    </span>
+                    <span class="te"><strong>అవసరాలు & లక్ష్యాలు (Objectives):</strong>
+                        <br>• విద్యార్థుల అవసరాలను ఉపాధ్యాయుడే నిర్ణయిస్తాడు.
+                        <br>• రాష్ట్రమంతటా ఉన్న పెద్ద సంఖ్యలోని విద్యార్థుల కోసం కరికులమ్ తయారుచేసేటప్పుడు పాటించాల్సిన స్వర్ణ నియమం: <strong>"Average as positive"</strong>.
+                        <br>• లక్ష్యాలను (Objectives) విద్యార్థి యొక్క <strong>"అంతిమ ప్రవర్తన" (terminal behaviour)</strong> లేదా కోర్సు ముగింపులో వచ్చే అభ్యసన ఫలితాలు అంటారు.
+                        <br>• లక్ష్యాలను ప్రవర్తనా రూపంలో మరియు జ్ఞానాత్మక (cognitive) రూపంలో పేర్కొనవచ్చు. ఇవి సాధారణ లక్ష్యాలు (general objectives) మరియు నిర్దిష్ట లక్ష్యాలు (specific objectives) గా ఉంటాయి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Characteristics of Objectives (3 Principles):</strong>
+                        <br>1. <strong>Observable (పరిశీలించదగినవి):</strong> The learning imparted should be amenable to observation.
+                        <br>2. <strong>Measurable (కొలవదగినవి):</strong> The learning imparted should be significantly different from the earlier phase and should be better.
+                        <br>3. <strong>Practical (ఆచరణాత్మకమైనవి):</strong> Stated objectives should not be overly ambitious; they must align with the level of the learners.
+                    </span>
+                    <span class="te"><strong>లక్ష్యాల యొక్క 3 ముఖ్య లక్షణాలు:</strong>
+                        <br>1. <strong>పరిశీలించదగినవి (Observable):</strong> అందించిన అభ్యసనం పరిశీలనకు అనువుగా ఉండాలి.
+                        <br>2. <strong>కొలవదగినవి (Measurable):</strong> మునుపటి కంటే అభ్యసనంలో గణనీయమైన అభివృద్ధి నమోదు కావాలి.
+                        <br>3. <strong>ఆచరణాత్మకమైనవి (Practical):</strong> లక్ష్యాలు విద్యార్థుల స్థాయికి తగినట్లుగా ఉండాలి గానీ ఆచరణ సాధ్యం కాని రీతిలో ఉండకూడదు.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Content Organization — Selection & Gradation:</strong>
+                        <br>• From objectives, we move to content and its organization.
+                        <br>• <strong>Selection (ఎంపిక):</strong> Means choosing what learners want/need. Abundant knowledge exists, but we give just a little according to their age and requirement.
+                        <br>• <strong>Gradation (క్రమబద్ధీకరణ):</strong> Content needs to be arranged systematically in terms of difficulty.
+                        <br>• <em>Golden Rules of Gradation:</em> <strong>"From simple to complex"</strong> or <strong>"From known to unknown"</strong>. Making a learner comfortable with what is already known before introducing new concepts aids motivation and understanding.
+                        <br>• Content organization decides <em>what to teach, how much to teach, and when to teach what</em>.
+                    </span>
+                    <span class="te"><strong>విషయ సంస్థానము — ఎంపిక & క్రమబద్ధీకరణ:</strong>
+                        <br>• <strong>సెలెక్షన్ (Selection):</strong> అపారమైన జ్ఞానం అందుబాటులో ఉన్నప్పటికీ, విద్యార్థుల వయస్సు మరియు అవసరాలకు తగిన అంశాలను మాత్రమే ఎంచుకోవడం.
+                        <br>• <strong>గ్రేడేషన్ (Gradation):</strong> విషయ పరిజ్ఞానాన్ని కఠినత్వ స్థాయి ఆధారంగా క్రమబద్ధీకరించడం.
+                        <br>• <em>గ్రేడేషన్ స్వర్ణ సూత్రాలు:</em> <strong>"సులభం నుండి సంక్లిష్టం వైపు" (Simple to Complex)</strong> లేదా <strong>"తెలిసిన అంశం నుండి తెలియని అంశం వైపు" (Known to Unknown)</strong>.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Methodology, Time Budget & Evaluation:</strong>
+                        <br>• <strong>Methodology:</strong> Classroom strategies based on content nature. It is <em>recommendatory and not mandatory</em>. It suggests content organization and provides a <strong>time budget</strong> (rough estimate of time required for units).
+                        <br>• <strong>Evaluation (మదింపు/మూల్యాంకనం):</strong> Provides information on test types and weightage. Helps place learners by achievement levels and provides tools/feedback to revise/modify curriculum for future use.
+                    </span>
+                    <span class="te"><strong>బోధనా పద్ధతి, టైమ్ బడ్జెట్ & మూల్యాంకనం:</strong>
+                        <br>• <strong>మెథడాలజీ:</strong> తరగతి గది వ్యూహాలను సూచిస్తుంది. ఇది <em>శిఫార్సు రూపంలో (recommendatory) ఉంటుంది తప్ప తప్పనిసరి (mandatory) కాదు</em>. ఇది <strong>టైమ్ బడ్జెట్‌ను (Time Budget)</strong> అందిస్తుంది.
+                        <br>• <strong>ఇవాల్యుయేషన్:</strong> పరీక్షల రకాలు, మార్కుల భారత్వం (weightage) గురించి తెలియజేస్తుంది. కరికులమ్‌ను సవరించడానికి ఫీడ్‌బ్యాక్ ఇస్తుంది.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Authentic Materials & English Language Kit -->
+    <div class="card card-alt-3">
+        <h2>3. Authentic Materials & The English Language Kit</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Authentic Materials (ప్రామాణిక బోధనా సామాగ్రి):</strong>
+                        <br>• We learn language to communicate, express ideas/needs, describe things, give directions, request, apologize, say sorry/thank you, and socialize using natural language.
+                        <br>• <strong>V.J. Cook (in 1980s):</strong> Coined the term <em>"authentic materials"</em>.
+                        <br>• <em>V.J. Cook's Definition:</em> <strong>"Those materials that are not produced for purposes of teaching."</strong>
+                        <br>• <em>Examples:</em> Toothpaste cartons, soap wrappers, supermarket bills, electricity bills, railway tickets, tourist brochures.
+                        <br>• Looking at a railway ticket to find information and convey it in a sentence makes the language produced natural and the ticket an authentic material.
+                    </span>
+                    <span class="te"><strong>ప్రామాణిక సామాగ్రి (Authentic Materials):</strong>
+                        <br>• సహజ సిద్ధమైన భాషను నేర్చుకోవడానికి ఇవి తోడ్పడతాయి.
+                        <br>• <strong>V.J. కుక్ (1980లలో):</strong> ఈ పదాన్ని ప్రతిపాదించారు.
+                        <br>• <em>V.J. కుక్ నిర్వచనం:</em> <strong>"బోధనా అవసరాల కోసం తయారు చేయబడని సామాగ్రే ప్రామాణిక సామాగ్రి" (Materials not produced for purposes of teaching)</strong>.
+                        <br>• <em>ఉదాహరణలు:</em> టూత్‌పేస్ట్ పెట్టె, సబ్బు రేపర్లు, సూపర్‌మార్కెట్ బిల్లులు, విద్యుత్ బిల్లులు, రైల్వే టికెట్లు, పర్యాటక ప్రచార పత్రాలు (brochures).
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>English Language Kit (ఇంగ్లీష్ లాంగ్వేజ్ కిట్):</strong>
+                        <br>• If a teacher collects various authentic materials and keeps them in a bag/box to teach English, he has produced an <strong>English Language Kit</strong>.
+                        <br>• <strong>Stones:</strong> Teach shape, size, colour, quality, nouns, adjectives, and degrees of comparison.
+                        <br>• <strong>Flash cards & Paper strips:</strong> Produce strip stories; made with world receipts, stamps, wrappers, cartons, crayons, cardboards.
+                        <br>• <strong>Toys & Models:</strong> Describe objects systematically.
+                        <br>• <strong>Maps:</strong> Provide directions.
+                        <br>• <strong>Masks & Puppets:</strong> Put up role play or simulate situations.
+                        <br>• <strong>Discarded materials:</strong> Knives, scissors, small pencils, erasers, etc.
+                        <br>• Developing your own kit provides low/no-cost teaching aids.
+                        <br>• During <strong>SUPW (Socially Useful Productive Work)</strong> classes, produce teaching aids using chart papers, models, poster colours, waste materials.
+                        <br>• Aids can be used in regular classes or proxy classes. Using self-made aids gives a unique sense of satisfaction. It develops creativity in teachers and children alike.
+                    </span>
+                    <span class="te"><strong>ఇంగ్లీష్ లాంగ్వేజ్ కిట్:</strong>
+                        <br>• ఉపాధ్యాయుడు రకరకాల ప్రామాణిక సామాగ్రిని సేకరించి ఒక పెట్టెలో భద్రపరుచుకుని బోధనకు వాడితే దానిని ఇంగ్లీష్ కిట్ అంటారు.
+                        <br>• <strong>రాళ్లు (Stones):</strong> ఆకారం, పరిమాణం, రంగు, గుణం, నామవాచకాలు, విశేషణాలు, డిగ్రీస్ ఆఫ్ కంపారిజన్ బోధించడానికి.
+                        <br>• <strong>ఫ్లాష్ కార్డ్‌లు & పేపర్ స్ట్రిప్స్:</strong> స్ట్రిప్ స్టోరీస్ (కథలు) తయారు చేయడానికి.
+                        <br>• <strong>బొమ్మలు & నమూనాలు (Toys/Models):</strong> వస్తువులను క్రమబద్ధంగా వర్ణించడానికి.
+                        <br>• <strong>మ్యాప్‌లు (Maps):</strong> దారులు/దిశలు (directions) చెప్పడానికి.
+                        <br>• <strong>మాస్క్‌లు & తోలుబొమ్మలు (Puppets):</strong> పాత్ర అభినయం (role play) చేయించడానికి.
+                        <br>• <strong>SUPW క్లాసులలో:</strong> వేస్ట్ మెటీరియల్స్, చార్ట్ పేపర్‌లతో స్వయంగా టి.ఎల్.ఎమ్ తయారు చేసుకోవచ్చు.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 4: Chalkboard & Classroom Aids -->
+    <div class="card card-alt-4">
+        <h2>4. The Chalkboard & Traditional Visual Aids</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Chalkboard (నల్లబల్ల):</strong>
+                        <br>• Almost all teachers have a chalkboard in their classroom. Effective usage is necessary.
+                        <br>• It is the <strong>cheapest and most useful tool to bring about stimulus variation</strong> (shifts learners periodically from audio stimulus to video/visual stimulus).
+                        <br>• Acts as a <strong>reinforcing agent</strong> and a good <strong>mnemonic device</strong> to recapitulate or consolidate lessons.
+                        <br>• A good teacher develops a summary of the entire teaching on the chalkboard to consolidate at the end of the class.
+                        <br>• Helps learners take down notes easily and aids teachers in explaining concepts via drawings/figures (especially in Science, Maths, Geography, Economics, and Language classes).
+                    </span>
+                    <span class="te"><strong>నల్లబల్ల (Chalkboard):</strong>
+                        <br>• ఉద్దీపన వ్యత్యాసం (stimulus variation - వినడం నుండి చూడటానికి మారడం) తీసుకురావడానికి ఇది <strong>అత్యంత చౌకైన మరియు ఉపయోగకరమైన పరికరం</strong>.
+                        <br>• పునర్బలనం (reinforcing agent) ఇచ్చే సాధనంగా, పాఠాన్ని నెమరువేసుకోవడానికి (mnemonic device) తోడ్పడుతుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Rules for Using Chalkboard Systematically:</strong>
+                        <br>• Write neatly so all learners can clearly see and read.
+                        <br>• Preferable to use <strong>print script</strong> rather than cursive writing on the board (more learner-friendly).
+                        <br>• Start writing from the <strong>top left-hand corner</strong> and progressively go down to the <strong>bottom right-hand corner</strong>.
+                        <br>• Board can be divided into <strong>two or three sections</strong> to organize writing properly.
+                        <br>• Plan what to write and what NOT to write beforehand; ensure no errors are committed.
+                        <br>• <strong>Roller Board:</strong> Resourceful teachers supplement class chalkboard with a roller board (can be carried home to write beforehand to save class time, though difficult for teachers teaching 7-8 classes daily).
+                    </span>
+                    <span class="te"><strong>నల్లబల్ల వాడకంలో నియమాలు:</strong>
+                        <br>• బోర్డుపై కర్సివ్ రైటింగ్ కంటే <strong>ప్రింట్ స్క్రిప్ట్ (Print script)</strong> వాడటం విద్యార్థులకు అనుకూలంగా ఉంటుంది.
+                        <br>• బోర్డును <strong>పైన ఎడమ మూల నుండి రాయడం ప్రారంభించి, కింద కుడి మూల వైపుగా</strong> వెళ్లాలి.
+                        <br>• నల్లబల్లను 2 లేదా 3 విభాగాలుగా విభజించుకోవచ్చు.
+                        <br>• <strong>రోలర్ బోర్డు (Roller board):</strong> తరగతి సమయాన్ని ఆదా చేయడానికి ముందే ఇంటి దగ్గర రాసుకొని రావచ్చు.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 5: Electronic Devices & Educational Technology -->
+    <div class="card card-alt-5">
+        <h2>5. Electronic Media & Modern Educational Technology</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Projection Systems:</strong>
+                        <br>• <strong>Overhead Projectors (OHP):</strong> Substitute for chalkboard. Uses transparencies to project notes on screen/wall without defusing daylight. Material on transparency should support teaching, not reproduce every spoken word.
+                        <br>• <strong>Interactive Boards:</strong> Electronic devices in corporate/high-end schools; allow manipulations and printouts of written summaries.
+                        <br>• <strong>Slide Projectors:</strong> Projected visual photographs to bring the outside world into the classroom (had no audio).
+                        <br>• <strong>Tape Slides & View Masters:</strong> Experiments fused tape recorders and slide projectors to produce video-like effects. Now obsolete.
+                        <br>• <strong>Video Tape Recorder cum Player (VTR):</strong> Brought dynamic (non-static) visuals and real-life drama into the classroom.
+                    </span>
+                    <span class="te"><strong>ప్రొజెక్షన్ పరికరాలు:</strong>
+                        <br>• <strong>ఓవర్‌హెడ్ ప్రొజెక్టర్ (OHP):</strong> వెలుతురును తగ్గించాల్సిన అవసరం లేకుండా పారదర్శక షీట్ల (transparencies) ద్వారా గోడపై/స్క్రీన్‌పై ప్రదర్శించే సాధనం.
+                        <br>• <strong>ఇంటరాక్టివ్ బోర్డ్‌లు:</strong> ఎలక్ట్రానిక్ డివైజ్‌లు, బోర్డుపై రాసిన దాన్ని ప్రింటవుట్ కూడా తీయవచ్చు.
+                        <br>• <strong>స్లైడ్ ప్రొజెక్టర్లు & వ్యూ మాస్టర్లు:</strong> నిశ్చల చిత్రాలను చూపేవి (ప్రస్తుతం ఇవి వాడుకలో లేవు - obsolete).
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Audio Devices — Radio & Tape Recorders:</strong>
+                        <br>• <strong>Radio (రేడియో):</strong> Invented during war for wireless transmission to soldiers in inaccessible areas. Post-war, it became entertainment, then non-formal education (agriculture, cooking, health, child care, languages), and finally formal instruction in curriculum. It brought the best teachers to several schools simultaneously. States bought 'air-time' for lessons. Lost its place with the arrival of TV.
+                        <br>• <strong>Tape Recorder (టేప్ రికార్డర్):</strong> Supplemented radio. Advantages over radio: could be stopped at will, played back, listened to repeatedly, and stored large quantities of listening text. Played classroom-impossible sounds (e.g., lion's roar, famous singer's voice).
+                    </span>
+                    <span class="te"><strong>ఆడియో పరికరాలు — రేడియో & టేప్ రికార్డర్:</strong>
+                        <br>• <strong>రేడియో:</strong> యుద్ధ సమయంలో వైర్‌లెస్ సంభాషణల కోసం కనుగొనబడింది. ఆ తర్వాత అనధికారిక విద్యకు, చివరకు పాఠశాల బోధనకు వాడబడింది. టీవీల రాకతో దీని ప్రాధాన్యత తగ్గింది.
+                        <br>• <strong>టేప్ రికార్డర్:</strong> రేడియో కంటే సౌకర్యవంతమైనది. కావలసినప్పుడు ఆపవచ్చు (stop), తిప్పి వినవచ్చు (play back), మళ్లీ మళ్లీ వినవచ్చు. సింహం గర్జన, గాయకుల గొంతు వంటి తరగతిలో రప్పించలేని శబ్దాలను వినిపించడానికి ఉపయోగపడింది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Computers in Education (కంప్యూటర్లు):</strong>
+                        <br>• Came into existence about <strong>50 years ago</strong>. Initially very large, energy-intensive, and required special input devices; now compact, friendly, and user-friendly.
+                        <br>• Began with numerical operations (+, -, *, /), then evolved to <strong>word processing</strong> using fixed language aspects: <em>English spelling rules</em> and <em>grammatical structures</em>.
+                        <br>• <strong>Cut and Paste facility:</strong> Helps drafting writing, correcting over time, and teaching <strong>editing skills</strong>.
+                        <br>• <strong>Capabilities of Computers:</strong>
+                            <br>&nbsp;&nbsp;- Provides templates for letters, reports, and CVs/resumes (teacher helps with idea organization).
+                            <br>&nbsp;&nbsp;- Programmed for reading texts, questions, auto-verifying answers, awarding marks, and dictionary meanings.
+                            <br>&nbsp;&nbsp;- <strong>Fading text:</strong> Programmed to fade text away to improve student's <em>reading speed</em>.
+                            <br>&nbsp;&nbsp;- Interactive exercises for grammar/vocabulary; acts as audio tape recorder/language lab for pronunciation.
+                            <br>&nbsp;&nbsp;- <strong>PowerPoint Presentations (PPT):</strong> Replaces OHP, video, slide projector, tape recorder; includes <strong>animation</strong> (makes static pictures/words kinetic/dynamic with motion).
+                        <br>• Helps learners become <strong>independent</strong> (the aim of today's education). Can do everything a teacher can do.
+                    </span>
+                    <span class="te"><strong>బోధనలో కంప్యూటర్ల పాత్ర:</strong>
+                        <br>• కంప్యూటర్లు సుమారు <strong>50 సంవత్సరాల క్రితం</strong> ఉనికిలోకి వచ్చాయి.
+                        <br>• ఇంగ్లీష్ స్పెల్లింగ్‌లు మరియు వ్యాకరణ నిర్మాణాలు నిర్దిష్టంగా ఉండటంతో <strong>వర్డ్ ప్రాసెసింగ్ (Word Processing)</strong> సాధ్యమైంది.
+                        <br>• <strong>Cut and Paste:</strong> ఎడిటింగ్ నైపుణ్యాలను నేర్పుతుంది.
+                        <br>• <strong>ఫేడింగ్ టెక్స్ట్ (Fading text):</strong> చదివే వేగాన్ని (reading speed) పెంచడానికి స్క్రీన్ పై ఉన్న పాఠ్యాంశం నెమ్మదిగా మాయమయ్యేలా చేయడం.
+                        <br>• <strong>పావర్ పాయింట్ ప్రెజెంటేషన్ (PPT):</strong> ప్రొజెక్టర్, వీడియో, ఆడియోలన్నింటినీ భర్తీ చేస్తుంది. <strong>యానిమేషన్ (Animation)</strong> ద్వారా నిశ్చల బొమ్మలకు చలనాన్ని (kinetic/motion) అందిస్తుంది.
+                        <br>• కంప్యూటర్ ఉపాధ్యాయుడు చేయగల ప్రతీ పనినీ చేయగలదు మరియు విద్యార్థిని <strong>స్వతంత్ర అభ్యసకుడిగా (independent learner)</strong> మారుస్తుంది.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>

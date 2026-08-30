@@ -1,1 +1,736 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Aspects of English</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary: #0284c7;
+            --accent-1: #0d9488;
+            --accent-2: #7c3aed;
+            --accent-3: #d97706;
+            --accent-4: #dc2626;
+            --accent-5: #2563eb;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+        }
 
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+        .card.card-alt-5 { border-left-color: var(--accent-5); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+        .card-alt-5 h2 { color: var(--accent-5); }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #4b5563;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #94a3b8;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+        .sub-list {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 1: Aspects of English</h1>
+        <p>Complete Exhaustive Notes — English & Telugu Bilingual Study Guide</p>
+    </header>
+
+    <!-- Section 1: Origin & Language Family -->
+    <div class="card card-alt-1">
+        <h2>1. Origin & Language Family (భాషా మూలాలు మరియు భాషా కుటుంబం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The English language began as a language that was spoken by two tribes, 1500 years ago.</span>
+                    <span class="te">ఆంగ్ల భాష 1500 సంవత్సరాల క్రితం రెండు తెగల ప్రజలు మాట్లాడే భాషగా ప్రారంభమైంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">English is a predominant language of the world today.</span>
+                    <span class="te">ఈనాడు ఇంగ్లీష్ ప్రపంచంలోనే అత్యంత ఆధిపత్యం కలిగిన భాషగా ఉంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Language is primarily used for communication.</span>
+                    <span class="te">భాష ప్రధానంగా భావప్రసారం (communication) కోసం ఉపయోగించబడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">In human society language occupies a prime of place and guides our life.</span>
+                    <span class="te">మానవ సమాజంలో భాష అత్యున్నత స్థానాన్ని ఆక్రమించి మన జీవితాన్ని మార్గనిర్దేశం చేస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The English language is part of a large family of languages called the <strong>Indo European family of languages</strong>.</span>
+                    <span class="te">ఆంగ్ల భాష <strong>ఇండో-యూరోపియన్ భాషా కుటుంబం</strong> అని పిలువబడే ఒక పెద్ద భాషా కుటుంబంలో భాగం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The Indo European family of languages is said to be <strong>3000 years old</strong>.</span>
+                    <span class="te">ఇండో-యూరోపియన్ భాషా కుటుంబం <strong>3000 సంవత్సరాల నాటిది</strong> అని చెప్పబడింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The Indo European family of languages is the largest family of language groups and has many branches.</span>
+                    <span class="te">ఇండో-యూరోపియన్ భాషా కుటుంబం అనేది భాషా సమూహాలలో అతిపెద్ద కుటుంబం మరియు అనేక శాఖలను కలిగి ఉంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Germanic</strong> is one of the major branches of the Indo European family of languages. English originated from the Germanic branch.</span>
+                    <span class="te"><strong>జర్మానిక్ (Germanic)</strong> అనేది ఇండో-యూరోపియన్ భాషా కుటుంబంలోని ఒక ప్రధాన శాఖ. ఇంగ్లీష్ జర్మానిక్ శాఖ నుండి ఉద్భవించింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Other branches of the Indo European family of languages: <strong>Slavic, Baltic, Celtic, Romance, and Indo Iranian</strong>.</span>
+                    <span class="te">ఇండో-యూరోపియన్ భాషా కుటుంబంలోని ఇతర శాఖలు: <strong>స్లావిక్, బాల్టిక్, సెల్టిక్, రొమాన్స్ మరియు ఇండో-ఇరానియన్</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Sanskrit</strong> - the language of India, is also a part of the Indo European family of languages. Sanskrit belongs to the <strong>Indo Iranian branch</strong>.</span>
+                    <span class="te">భారతదేశానికి చెందిన <strong>సంస్కృతం</strong> కూడా ఇండో-యూరోపియన్ భాషా కుటుంబంలో భాగమే. సంస్కృతం <strong>ఇండో-ఇరానియన్ శాఖకు</strong> చెందింది.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Historical Stages of English -->
+    <div class="card card-alt-2">
+        <h2>2. Historical Stages of English (ఆంగ్ల భాషా చారిత్రక దశలు)</h2>
+        <p>English language is recognised in three stages:</p>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>a. Old English (500 AD to 1100 AD):</strong></span>
+                    <span class="te"><strong>a. ఓల్డ్ ఇంగ్లీష్ (క్రీ.శ. 500 నుండి క్రీ.శ. 1100 వరకు):</strong></span>
+                </div>
+                <ul class="sub-list">
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Old English began with a tribe of <strong>Angles</strong> coming down from the south of Denmark to occupy the British Islands.</span>
+                            <span class="te">డెన్మార్క్ దక్షణ భాగం నుండి <strong>యాంగిల్స్ (Angles)</strong> అనే తెగవారు బ్రిటిష్ ద్వీపాలను ఆక్రమించుకోవడానికి రావడం ద్వారా ఓల్డ్ ఇంగ్లీష్ ప్రారంభమైంది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Along with the Angles, another tribe called <strong>Saxons</strong> also came to occupy the British Island.</span>
+                            <span class="te">యాంగిల్స్‌తో పాటు <strong>సాక్సన్స్ (Saxons)</strong> అనే మరొక తెగ వారు కూడా బ్రిటిష్ ద్వీపాన్ని ఆక్రమించడానికి వచ్చారు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Both Angles and Saxons spoke their own languages but they were <strong>mutually intelligible</strong> (they were able to understand each other / వారికి భాషలు పరస్పరం అర్థమయ్యేవి).</span>
+                            <span class="te">యాంగిల్స్ మరియు సాక్సన్స్ ఇద్దరూ తమ సొంత భాషలను మాట్లాడినప్పటికీ అవి <strong>పరస్పరం అర్థమయ్యేవి (mutually intelligible)</strong>.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">The common language spoken by Angles and Saxons: <strong>Anglo-Saxon</strong>.</span>
+                            <span class="te">యాంగిల్స్ మరియు సాక్సన్స్ మాట్లాడే ఉమ్మడి భాష: <strong>ఆంగ్లో-సాక్సన్</strong>.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">బ్రిటిష్ ద్వీపంలోని పూర్వపు నివాసులు సెల్టిక్ మాట్లాడేవారు. వారు స్కాట్లాండ్‌ను ఆక్రమించడానికి ఉత్తరం వైపు నడిపించబడ్డారు. (The earlier inhabitants of the British Island spoke Celtic and were driven northwards to occupy Scotland).</span>
+                            <span class="te">బ్రిటిష్ ద్వీపంలోని పూర్వపు నివాసులు సెల్టిక్ మాట్లాడేవారు. వారు స్కాట్లాండ్‌ను ఆక్రమించడానికి ఉత్తరం వైపు తోసివేయబడ్డారు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Some of the words Celts used became part of Anglo-Saxon and exist even today. Words like <strong>skirt and shirt</strong> are examples of Celtic words in use today.</span>
+                            <span class="te">సెల్ట్‌లు ఉపయోగించిన కొన్ని పదాలు ఆంగ్లో-సాక్సన్‌లో భాగమయ్యాయి. <strong>Skirt మరియు Shirt</strong> వంటి పదాలు ఇప్పటికీ వాడుకలో ఉన్న సెల్టిక్ పదాలకు ఉదాహరణలు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Anglo-Saxon language gradually came to be called <strong>Englisc</strong>. The land where Englisc was spoken came to be recognised as <strong>Engla-Land</strong>. Today it has transformed itself as <strong>England</strong>.</span>
+                            <span class="te">ఆంగ్లో-సాక్సన్ భాష క్రమంగా <strong>Englisc</strong> అని పిలువబడింది. Englisc మాట్లాడే ప్రాంతాన్ని <strong>Engla-Land</strong> గా గుర్తించారు. అది నేడు <strong>England</strong> గా రూపాంతరం చెందింది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Anglo-Saxon exhibited <strong>4 dialects</strong> across the British Island:
+                                <br>1. <strong>Northumbrian</strong> - spoken in the Northern part of the island.
+                                <br>2. <strong>Mercian</strong> - spoken in the Midlands.
+                                <br>3. <strong>West Saxon</strong> - spoken in the west and South.
+                                <br>4. <strong>Kentish</strong> - spoken in the southeast.
+                            </span>
+                            <span class="te">ఆంగ్లో-సాక్సన్ బ్రిటిష్ ద్వీపమంతటా <strong>4 యాసలను (dialects)</strong> ప్రదర్శించింది:
+                                <br>1. <strong>నార్తంబ్రియన్ (Northumbrian):</strong> ద్వీపం యొక్క ఉత్తర భాగంలో.
+                                <br>2. <strong>మెర్సియన్ (Mercian):</strong> మిడ్‌లాండ్స్‌లో.
+                                <br>3. <strong>వెస్ట్ సాక్సన్ (West Saxon):</strong> పశ్చిమ మరియు దక్షిణ భాగంలో.
+                                <br>4. <strong>కెంటిష్ (Kentish):</strong> ఆగ్నేయ భాగంలో.
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Though these dialects merged to form unified English, it is possible to see variation in the use of English in these areas today.</span>
+                            <span class="te">ఈ యాసలు కలిసి ఏకీకృత ఇంగ్లీషుగా మారినప్పటికీ, నేటికీ ఆయా ప్రాంతాలలో ఇంగ్లీష్ వాడకంలో వైవిధ్యాలను చూడవచ్చు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Old English was in use for about <strong>600 years</strong>.</span>
+                            <span class="te">ఓల్డ్ ఇంగ్లీష్ సుమారు <strong>600 సంవత్సరాలు</strong> వాడుకలో ఉంది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Old English showed signs of change with the Norman invasion.</span>
+                            <span class="te">నార్మన్ దండయాత్రతో ఓల్డ్ ఇంగ్లీషులో మార్పుల సంకేతాలు కనిపించాయి.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Beowulf</strong> - A book written during the Old English period; available to us today providing samples of Old English.</span>
+                            <span class="te"><strong>Beowulf:</strong> ఓల్డ్ ఇంగ్లీష్ కాలంలో రాయబడిన పుస్తకం; ఇది నేటికీ అందుబాటులో ఉండి ఓల్డ్ ఇంగ్లీష్ నమూనాలను అందిస్తుంది.</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>b. Middle English (1100 AD to 1500 AD):</strong></span>
+                    <span class="te"><strong>b. మిడిల్ ఇంగ్లీష్ (క్రీ.శ. 1100 నుండి క్రీ.శ. 1500 వరకు):</strong></span>
+                </div>
+                <ul class="sub-list">
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Middle English was the result of <strong>Norman invasion</strong> (Attack of French rulers under the leadership of <strong>William the Conqueror</strong>, Duke of Normandy).</span>
+                            <span class="te">నార్మాండీ డ్యూక్ అయిన <strong>విలియం ది కాంకరర్</strong> నాయకత్వంలో ఫ్రెంచ్ పాలకులు చేసిన <strong>నార్మన్ దండయాత్ర</strong> ఫలితంగా మిడిల్ ఇంగ్లీష్ ఏర్పడింది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Normans spoke <strong>Anglo-Norman</strong> (a product of the Germanic branch, highly influenced by Latin).</span>
+                            <span class="te">నార్మన్‌లు <strong>ఆంగ్లో-నార్మన్</strong> మాట్లాడేవారు (ఇది జర్మానిక్ శాఖ ఉత్పత్తే అయినప్పటికీ లాటిన్ చేత తీవ్రంగా ప్రభావితమైంది).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Anglo-Saxon was influenced by Latin, but only in a small measure.</span>
+                            <span class="te">ఆంగ్లో-సాక్సన్ కూడా లాటిన్ చేత ప్రభావితమైంది, కానీ కొద్ది పరిమాణంలోనే.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Normans were more capable compared to Anglo-Saxons, so they became the rulers. It became essential and fashionable to learn the language of Normans.</span>
+                            <span class="te">ఆంగ్లో-సాక్సన్‌లతో పోలిస్తే నార్మన్‌లు మరింత సమర్థులు కాబట్టి వారు పాలకులుగా మారారు. నార్మన్‌ల భాషను నేర్చుకోవడం అత్యవసరంగా మరియు నాగరికంగా మారింది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Middle English - A combination of <strong>Anglo-Saxon and Anglo-Norman</strong>. Survived for about <strong>300 years</strong>. Developed itself as a language of governance.</span>
+                            <span class="te">మిడిల్ ఇంగ్లీష్ - <strong>ఆంగ్లో-సాక్సన్ మరియు ఆంగ్లో-నార్మన్</strong> కలయిక. ఇది సుమారు <strong>300 సంవత్సరాలు</strong> మనుగడ సాగించింది. పాలనా భాషగా రూపాంతరం చెందింది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Chaucer</strong> - Major author in the Middle English period.</span>
+                            <span class="te"><strong>చాసర్ (Chaucer):</strong> మిడిల్ ఇంగ్లీష్ కాలంలో ప్రముఖ రచయిత.</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>c. Modern English (1500 AD to date):</strong></span>
+                    <span class="te"><strong>c. మోడ్రన్ ఇంగ్లీష్ (క్రీ.శ. 1500 నుండి నేటి వరకు):</strong></span>
+                </div>
+                <ul class="sub-list">
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">With the beginning of 16th century and the <strong>Renaissance movement</strong>, Middle English developed into Modern English.</span>
+                            <span class="te">16వ శతాబ్దపు ప్రారంభంలో <strong>పునరుజ్జీవన ఉద్యమం (Renaissance movement)</strong> తో మిడిల్ ఇంగ్లీష్ మోడ్రన్ ఇంగ్లీషుగా మారింది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Renaissance movement brought the influence of languages like <strong>Greek and Latin</strong> on English in a big way. Several words were borrowed from them and are in use today.</span>
+                            <span class="te">పునరుజ్జీవన ఉద్యమం ఇంగ్లీషుపై <strong>గ్రీక్ మరియు లాటిన్</strong> భాషల ప్రభావాన్ని అమితంగా పెంచింది. అనేక పదాలు అప్పుగా తీసుకోబడి నేటికీ వాడుకలో ఉన్నాయి.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">ఇంగ్లండ్ చరిత్రను వివరించిన షేక్స్పియర్ తన లవ్ లేబర్స్ లాస్ట్ నాటకంలో హోలో ఫెర్నెస్ అనే పాత్ర ద్వారా ఆధునిక ఇంగ్లీషుకు సంబంధించిన ఉదాహరణలను ఉపయోగించాడు. (Shakespeare described England's history and used examples related to modern English through the character Holofernes in his play 'Love's Labour's Lost').</span>
+                            <span class="te">షేక్స్‌పియర్ తన <em>'లవ్స్ లేబర్స్ లాస్ట్'</em> నాటకంలో <strong>హోలోఫెర్నెస్ (Holofernes)</strong> అనే పాత్ర ద్వారా ఆధునిక ఇంగ్లీషుకు సంబంధించిన ఉదాహరణలను ఉపయోగించాడు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Holofernes was both a scholar and a school teacher. Shakespeare also made a joke about this character.</span>
+                            <span class="te">హోలోఫెర్నెస్ పండితుడు మరియు పాఠశాల ఉపాధ్యాయుడు. షేక్స్‌పియర్ ఈ పాత్రపై ఒక జోక్ కూడా చేశాడు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Linguistically, Modern English differs from Middle English in what is called the <strong>Great Vowel Shift</strong>.</span>
+                            <span class="te">భాషాశాస్త్రపరంగా, మోడ్రన్ ఇంగ్లీష్ మిడిల్ ఇంగ్లీష్ నుండి <strong>'గ్రేట్ వోవెల్ షిఫ్ట్' (Great Vowel Shift)</strong> ద్వారా విభిన్నంగా ఉంటుంది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en">Middle English had words with vowels pronounced predominantly from the back of the mouth. These gave rise to words with vowels pronounced from the front of the mouth in Modern English. (This shift did not replace all back vowels).</span>
+                            <span class="te">మిడిల్ ఇంగ్లీషులో అచ్చులు నోటి వెనుక భాగం నుండి ఉచ్చరించబడేవి. మోడ్రన్ ఇంగ్లీషులో అవి నోటి ముందు భాగం నుండి ఉచ్చరించే అచ్చులుగా మారాయి.</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Key Events & Growth Factors of Modern English -->
+    <div class="card card-alt-3">
+        <h2>3. Key Historical Events & Growth Factors (ప్రధాన చారిత్రక ఘట్టాలు & విస్తరణ)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Three major events that helped Modern English stabilize:</strong>
+                        <br>1. <strong>Invention of printing:</strong> William Caxton invented printing, leading to mass production of works which necessitated standardisation of spellings.
+                        <br>2. <strong>Translation of Bible:</strong> King James commissioned scholars to translate the English Bible into Modern English for common people. Known as the <em>Authorised Version</em> or <em>King James' Version</em>.
+                        <br>3. <strong>Production of first dictionary:</strong> Robert Cawdrey created <em>'Table Alphabeticall'</em> (first glossary/dictionary). Later, Samuel Johnson's dictionary appeared in <strong>1755 AD</strong>.
+                    </span>
+                    <span class="te"><strong>మోడ్రన్ ఇంగ్లీష్ స్థిరపడటానికి దోహదపడిన 3 ప్రధాన ಘట్టాలు:</strong>
+                        <br>1. <strong>ప్రింటింగ్ ఆవిష్కరణ:</strong> విలియం కాక్స్టన్ ప్రింటింగ్‌ను కనుగొన్నాడు. ఇది స్పెల్లింగ్‌ల ప్రామాణీకరణకు దారితీసింది.
+                        <br>2. <strong>బైబిల్ అనువాదం:</strong> కింగ్ జేమ్స్ సామాన్య ప్రజల కోసం బైబిల్‌ను మోడ్రన్ ఇంగ్లీషులోకి అనువదింపజేశారు (Authorised Version / King James' Version).
+                        <br>3. <strong>మొదటి డిక్షనరీ తయారీ:</strong> రాబర్ట్ కాడ్రీ <em>'Table Alphabeticall'</em> ని రూపొందించాడు. తరువాత <strong>క్రీ.శ. 1755 లో</strong> శామ్యూల్ జాన్సన్ డిక్షనరీ వెలువడింది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Language development received further motivation with the <strong>Industrial Revolution</strong> and expansion of the British Empire.</span>
+                    <span class="te"><strong>పారిశ్రామిక విప్లవం (Industrial Revolution)</strong> మరియు బ్రిటిష్ సామ్రాజ్య విస్తరణతో భాషాభివృద్ధికి మరింత ప్రోత్సాహం లభించింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">బ్రిటీష్ వారి దండయాత్రలు: అనేక భాషల నుండి పదాలను స్వీకరించడానికి దారితీసింది మరియు ఆంగ్ల శబ్దశాస్త్రం (Phonology) మరియు పదనిర్మాణ శాస్త్రానికి (Morphology) అనుగుణంగా వాటిని స్వీకరించింది. (British invasions led to borrowing words from many languages and adapting them to English phonology and morphology).</span>
+                    <span class="te">బ్రిటీష్ వారి దండయాత్రలు అనేక భాషల నుండి పదాలను స్వీకరించడానికి దారితీసింది మరియు ఆంగ్ల శబ్దశాస్త్రం మరియు పదనిర్మాణ శాస్త్రానికి అనుగుణంగా వాటిని స్వీకరించింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Even to this day, English easily borrows words and makes them its own.</span>
+                    <span class="te">నేటికీ ఇంగ్లీష్ ఇతర భాషల పదాలను సులువుగా అప్పుగా తీసుకుని తనవిగా మార్చుకుంటుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>20th Century Growth & World Wars:</strong> Two world wars were a major factor in 20th-century growth. English became the language of Allied forces. Words like <em>ambush, spearhead, charge</em> were borrowed from warfare register into common language.</span>
+                    <span class="te"><strong>20వ శతాబ్దపు ಬೆಳವಣಿಗೆ & ప్రపంచ యుద్ధాలు:</strong> రెండు ప్రపంచ యుద్ధాలు ప్రధాన కారణం. ఇంగ్లీష్ మిత్రరాజ్యాల (Allied forces) భాషగా మారింది. <em>Ambush, spearhead, charge</em> వంటి యుద్ధ పదాలు సాధారణ భాషలోకి వచ్చాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">English is the language of the <strong>United Nations</strong> and all international relations happen through English.</span>
+                    <span class="te">ఇంగ్లీష్ <strong>ఐక్యరాజ్యసమితి (UN)</strong> భాష మరియు అన్ని అంతర్జాతీయ సంబంధాలు ఇంగ్లీష్ ద్వారానే జరుగుతాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Varieties of English:</strong> American, British, Australian, New Zealand, Caribbean, and Indian (Asian) varieties.</span>
+                    <span class="te"><strong>ఇంగ్లీష్ రకాలు:</strong> అమెరికన్, బ్రిటిష్, ఆస్ట్రేలియన్, న్యూజిలాండ్, కరిబీయన్ మరియు ఇండియన్ (ఆసియన్) రూపాలు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">English language has been the cause of death of many minor languages. Hence, some linguists call English a <strong>"Bulldozer"</strong>.</span>
+                    <span class="te">ఆంగ్ల భాష అనేక చిన్న భాషల వినాశనానికి కారణమైంది. అందుకే కొందరు భాషాశాస్త్రవేత్తలు ఇంగ్లీషును <strong>"బుల్‌డోజర్" (Bulldozer)</strong> అని పిలుస్తారు.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 4: Nature & Distinctive Features of Language -->
+    <div class="card card-alt-4">
+        <h2>4. Nature & Distinctive Features of Language (భాషా స్వభావం మరియు ప్రత్యేక లక్షణాలు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">In most countries, language is believed to have originated from a divine source. Earliest theories: <em>Bo-bo theory, Ho-ho theory, Ding-Dong theory</em>, etc. (None established with proper evidence).</span>
+                    <span class="te">చాలా దేశాల్లో భాష దైవిక మూలం (divine source) నుండి వచ్చిందని నమ్ముతారు. ప్రారంభ సిద్ధాంతాలు: <em>బో-బో, హో-హో, డింగ్-డాంగ్ సిద్ధాంతాలు</em> (దేనికీ సరైన ఆధారాలు లేవు).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">We have more than <strong>3000 languages</strong> today. Language is defined as a means of communication. (Some say: <em>"Language itself IS communication, not just a means"</em>).</span>
+                    <span class="te">నేడు ప్రపంచంలో <strong>3000 కంటే ఎక్కువ భాషలు</strong> ఉన్నాయి. భాష అంటే భావప్రసార సాధనం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>8 Distinctive Features of Language:</strong></span>
+                    <span class="te"><strong>భాష యొక్క 8 ప్రత్యేక లక్షణాలు:</strong></span>
+                </div>
+                <ol>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Systematicity:</strong> Has a set of definite rules governing language. Includes <em>Duality of structure</em> (sounds arranged in order, then words arranged in order).</span>
+                            <span class="te"><strong>క్రమబద్ధత (Systematicity):</strong> భాషను నడిపించే ఖచ్చితమైన నియమాలు ఉంటాయి. ఇందులో <em>ద్వంద్వ నిర్మాణం (Duality of structure)</em> ఉంటుంది (ధ్వనులు ఒక క్రమంలో, తరువాత పదాలు ఒక క్రమంలో అమర్చబడతాయి).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Arbitrary (Random/Irrational):</strong> Each language chooses its own system of speech sounds and words for objects. (<em>Onomatopoeia:</em> Formation of a word from a sound associated with what is named).</span>
+                            <span class="te"><strong>యాదృచ్ఛికత (Arbitrary):</strong> ఏ వస్తువుకి ఏ పేరు పెట్టాలో నియమం లేకపోవడం. (<em>Onomatopoeia:</em> శబ్దాన్ని బట్టి పదాన్ని ఏర్పరచడం).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Displacement:</strong> Capability to communicate about things not immediately present (past, future, distant places, or imaginary entities like angels, fairies, Santa Claus, Superman, heaven, hell).
+                                <br><em>Example in Animals:</em> Bees communicate distance/amount of honey using a <strong>"Wiggle dance"</strong>.
+                            </span>
+                            <span class="te"><strong>స్థానభ్రంశత్వం (Displacement):</strong> కంటిముందు లేని విషయాలు (గతం, భవిష్యత్తు, దేవతలు, దెయ్యాలు, శాంతాక్లాస్ మొదలైన ఊహాజనిత విషయాల) గురించి మాట్లాడే సామర్థ్యం.
+                                <br><em>జంతువులలో ఉదాహరణ:</em> తేనెటీగలు <strong>"విగుల్ డాన్స్" (Wiggle dance)</strong> ద్వారా తేనె దూరం మరియు పరిమాణాన్ని తెలియజేస్తాయి.
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Creative:</strong> Ability of users to invent, manipulate, and combine linguistic elements in new/unexpected ways.</span>
+                            <span class="te"><strong>సృజనాత్మకత (Creative):</strong> భాషాంశాలను కొత్త రీతిలో సృష్టించే మరియు ఉపయోగించే సామర్థ్యం.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Redundancy:</strong> Ability to repeat an idea without using the same words and structures. Accounts for both redundancy and creativity.</span>
+                            <span class="te"><strong>పునరుక్తి / రెడండెన్సీ (Redundancy):</strong> ఒకే రకమైన పదాలు లేదా నిర్మాణాలు వాడకుండా ఒక ఆలోచనను మళ్లీ చెప్పగలగడం.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Extendible:</strong> Property of language that enables users to add new words/expressions to fit communicative needs.</span>
+                            <span class="te"><strong>విస్తరణీయత (Extendible):</strong> అవసరాలకు అనుగుణంగా కొత్త పదాలను భాషలోకి చేర్చుకునే గుణం.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Culture transmitter:</strong> Language passes on and shapes culture, and culture shapes language in return.</span>
+                            <span class="te"><strong>సంస్కృతి ప్రసారకం (Culture transmitter):</strong> సంస్కృతిని తరాల తరబడి అందిస్తుంది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Prevarication:</strong> Ability to tell lies or deceive; make false or meaningless statements. Distinguishes human language from animal communication.</span>
+                            <span class="te"><strong>అసత్య కథనం / అబద్ధాలు చెప్పడం (Prevarication):</strong> అబద్ధాలు చెప్పే లేదా మోసం చేసే సామర్థ్యం. మానవ భాషను జంతు సంకేతాల నుండి ఇది వేరు చేస్తుంది.</span>
+                        </div>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">All human languages can be spoken, though not each of them has a script. English uses the <strong>Roman script</strong>.</span>
+                    <span class="te">అన్ని మానవ భాషలు మాట్లాడబడతాయి, కానీ అన్నింటికీ లిపి ఉండకపోవచ్చు. ఇంగ్లీష్ <strong>రోమన్ లిపిని (Roman script)</strong> ఉపయోగిస్తుంది.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 5: English in India & Acquisition Theories -->
+    <div class="card card-alt-5">
+        <h2>5. English in India & Language Acquisition Theories (భారత్‌లో ఇంగ్లీష్ & అభ్యసన సిద్ధాంతాలు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Status in India:</strong> Recognized as an <strong>Associate Official Language</strong> in India and finds a place in the <strong>8th Schedule</strong> of the Constitution.</span>
+                    <span class="te"><strong>భారతదేశంలో హోదా:</strong> <strong>సహ-అధికారిక భాష (Associate Official Language)</strong> గా గుర్తింపు పొందింది. రాజ్యాంగంలోని <strong>8వ షెడ్యూల్‌లో</strong> స్థానం కలిగి ఉంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">A 5-year-old child entering school already knows nearly <strong>300 to 350 words in English</strong>.</span>
+                    <span class="te">బడిలో చేరే 5 సంవత్సరాల పిల్లవాడికి ఇప్పటికే సుమారు <strong>300 నుండి 350 ఇంగ్లీష్ పదాలు</strong> తెలిసి ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">English in India is the language of trade, mass media, travel/tourism, and education. Known as <strong>'Library Language'</strong>, <strong>'Language of Social Status'</strong>, and <strong>'Language of Opportunity'</strong>.</span>
+                    <span class="te">భారత్‌లో ఇంగ్లీష్ వాణిజ్యం, మీడియా, పర్యాటకం, విద్యల భాష. దీనిని <strong>'లైబ్రరీ లాంగ్వేజ్'</strong>, <strong>'ల్యాంగ్వేజ్ ఆఫ్ సోషల్ స్టేటస్'</strong> మరియు <strong>'ల్యాంగ్వేజ్ ఆఫ్ ఆపర్చునిటీ'</strong> అని పిలుస్తారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Famous Quotes on English:</strong>
+                        <br>• Pandit Jawaharlal Nehru: <em>"English is a window on the world."</em>
+                        <br>• Rajaji (C. Rajagopalachari): <em>"English is a gift of goddess Saraswati."</em>
+                    </span>
+                    <span class="te"><strong>ప్రముఖుల వ్యాఖ్యలు:</strong>
+                        <br>• పండిట్ జవహర్‌లాల్ నెహ్రూ: <em>"ఇంగ్లీష్ ప్రపంచాన్ని వీక్షించే కిటికీ (Window on the world)."</em>
+                        <br>• రాజాజీ: <em>"ఇంగ్లీష్ సరస్వతీ దేవి ఇచ్చిన ప్రసాదం (Gift of goddess Saraswati)."</em>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Psychological Theories of Language Learning:</strong></span>
+                    <span class="te"><strong>భాషా అభ్యసన మనోవైజ్ఞానిక సిద్ధాంతాలు:</strong></span>
+                </div>
+                <ul class="sub-list">
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Behaviourists (ప్రవర్తనావాదులు):</strong> B.F. Skinner (supported by Kafka and Watson) believed language is mere <strong>habit formation</strong> through repetition.</span>
+                            <span class="te"><strong>ప్రవర్తనావాదులు:</strong> బి.ఎఫ్. స్కిన్నర్ (కాఫ్కా, వాట్సన్ మద్దతు తెలిపారు) భాష అభ్యాసం/పునరావృతం ద్వారా ఏర్పడే <strong>అలవాటు (habit formation)</strong> అని నమ్మారు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Cognitivists:</strong> Believed language learning involves active thinking through generalisation. <strong>Ruth Wier (Weir)</strong> conducted experiments on her child recorded in her book <em>'The Language of the Crib'</em>.</span>
+                            <span class="te"><strong>సంజ్ఞానాత్మకవాదులు (Cognitivists):</strong> భాషా అభ్యసనంలో ఆలోచన, సాధారణీకరణ ఉంటాయి. <strong>రూత్ వియర్ (Ruth Wier)</strong> తన బిడ్డపై పరిశోధనలు చేసి <em>'The Language of the Crib'</em> పుస్తకంలో నమోదు చేసింది.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Psycholinguists (Noam Chomsky):</strong> Language is <strong>innate to all human beings</strong>. Humans acquire language via innate brain structures present at birth.</span>
+                            <span class="te"><strong>మానసిక భాషాశాస్త్రవేత్తలు (నోమ్ చోమ్‌స్కీ):</strong> భాష మానవులకు <strong>సహజజాతం (innate)</strong>. పుట్టుకతోనే మెదడులో ఉండే సహజ నిర్మాణాలు భాషా గ్రహణకు తోడ్పడతాయి.</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Brain & Language:</strong> The brain has 4 parts. The <strong>left frontal lobe</strong> helps us in learning a language.</span>
+                    <span class="te"><strong>మెదడు - భాష:</strong> మెదడు 4 భాగాలుగా ఉంటుంది. ఇందులో <strong>ఎడమ ఫ్రంటల్ లోబ్ (Left Frontal Lobe)</strong> భాషా అభ్యసనానికి సహాయపడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>6 Stages of Language Learning Development:</strong>
+                        <br>1. <strong>Gurgling Stage:</strong> 0 to 6 months (roll on belly)
+                        <br>2. <strong>Babbling Stage:</strong> 7 to 10 months (begin to crawl)
+                        <br>3. <strong>Single Word Stage:</strong> 11 to 18 months (sit/stand)
+                        <br>4. <strong>Two Words Stage / Holophrases:</strong> 19 to 24 months (walk)
+                        <br>5. <strong>Lisping Stage:</strong> 25 to 36 months (hold things)
+                        <br>6. <strong>Sentence Formation Stage:</strong> 36 to 60 months (eat / wear slippers / button shirt)
+                    </span>
+                    <span class="te"><strong>భాషా అభ్యసన వికాసపు 6 దశలు:</strong>
+                        <br>1. <strong>గర్గ్‌లింగ్ దశ (Gurgling):</strong> 0 నుండి 6 నెలలు (పొట్టపై దొర్లడం)
+                        <br>2. <strong>బాబ్లింగ్ దశ (Babbling):</strong> 7 నుండి 10 నెలలు (ప్రాకడం)
+                        <br>3. <strong>ఏక పద దశ (Single Word):</strong> 11 నుండి 18 నెలలు (కూర్చోవడం/నిలబడడం)
+                        <br>4. <strong>ద్విపద దశ / హోలోఫ్రేసెస్:</strong> 19 నుండి 24 నెలలు (నడవడం)
+                        <br>5. <strong>నత్తిగా మాట్లాడే దశ (Lisping):</strong> 25 నుండి 36 నెలలు (వస్తువులను పట్టుకోవడం)
+                        <br>6. <strong>వాక్య నిర్మాణ దశ:</strong> 36 నుండి 60 నెలలు (తినడం/చెప్పులు వేసుకోవడం/బటన్లు పెట్టుకోవడం)
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Dr. Michael West's New Method (Reading Method):</strong>
+                        <br>• Proposed by Dr. Michael West (former school inspector).
+                        <br>• Opposes Direct Method; gives priority to <strong>judicious use of Mother Tongue</strong>.
+                        <br>• Focuses on <strong>Reading Skill</strong> (Silent reading is key to proficiency) and vocabulary development.
+                        <br>• Created readers graded into <strong>six levels/plateaus</strong>.
+                    </span>
+                    <span class="te"><strong>డాక్టర్ మైఖేల్ వెస్ట్ న్యూ మెథడ్ (రీడింగ్ మెథడ్):</strong>
+                        <br>• డాక్టర్ మైఖేల్ వెస్ట్ ద్వారా ప్రతిపాదించబడింది.
+                        <br>• ఇది డైరెక్ట్ మెథడ్‌కు వ్యతిరేకం; <strong>మాతృభాషను సమర్థవంతంగా ఉపయోగించడానికి</strong> ప్రాధాన్యత ఇస్తుంది.
+                        <br>• <strong>చదివే నైపుణ్యానికి (Silent Reading)</strong> మరియు పదజాలాభివృద్ధికి అత్యున్నత ప్రాధాన్యత.
+                        <br>• రీడర్లను <strong>6 స్థాయిలుగా (plateaus)</strong> వర్గీకరించారు.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Phonology & Rhythm Comparison:</strong>
+                        <br>• English phonology is markedly different from Indian languages.
+                        <br>• English uses word-level and sentence-level stress (rule-bound, depends on spelling & grammar category).
+                        <br>• English has <strong>Stress-timed rhythm</strong>, whereas Indian languages have <strong>Syllable-timed rhythm</strong>.
+                    </span>
+                    <span class="te"><strong>ధ్వనిశాస్త్రం & లయ పోలిక:</strong>
+                        <br>• ఆంగ్ల ధ్వనిశాస్త్రం భారతీయ భాషల కంటే భిన్నమైనది.
+                        <br>• ఇంగ్లీష్ పద మరియు వాక్య స్థాయిలో ఒత్తిడిని (Stress) ఉపయోగిస్తుంది.
+                        <br>• ఇంగ్లీష్ <strong>Stress-timed rhythm</strong> ని కలిగి ఉంటుంది, కానీ భారతీయ భాషలు <strong>Syllable-timed rhythm</strong> ని కలిగి ఉంటాయి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Teacher's Role:</strong> A teacher is one who progressively becomes unnecessary for the learners. A good teacher has language proficiency and is always ready to learn (learning is a never-ending process).</span>
+                    <span class="te"><strong>ఉపాధ్యాయుని పాత్ర:</strong> విద్యార్థులకు క్రమంగా తన అవసరం లేని విధంగా (స్వయం సమృద్ధి సాధించేలా) తీర్చిదిద్దేవాడే ఉపాధ్యాయుడు. మంచి ఉపాధ్యాయుడు నిరంతరం నేర్చుకోవడానికి సిద్ధంగా ఉంటాడు.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Curriculum and Textbooks (Exhaustive Notes)</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary: #0284c7;
+            --accent-1: #0d9488;
+            --accent-2: #7c3aed;
+            --accent-3: #d97706;
+            --accent-4: #dc2626;
+            --accent-5: #2563eb;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            --table-header-bg: #0284c7;
+            --table-header-text: #ffffff;
+            --table-row-alt: #f8fafc;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+            --table-header-bg: #1e293b;
+            --table-header-text: #38bdf8;
+            --table-row-alt: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+               .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--accent-4);
+        }
+
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+        .card.card-alt-5 { border-left-color: var(--accent-5); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+        .card-alt-5 h2 { color: var(--accent-5); }
+
+        h3 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 20px;
+            color: var(--text-color);
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #4b5563;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #94a3b8;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+       /* Responsive Table Wrapper */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--table-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* Ensures readable structure on mobile */
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid var(--table-border);
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Column Specific Fits */
+        th:nth-child(1), td:nth-child(1) {
+            width: 25%;
+            font-weight: 600;
+        }
+
+        th:nth-child(2), td:nth-child(2) {
+            width: 75%;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-row-alt);
+        }
+
+        td ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        td li {
+            margin-bottom: 4px;
+        }
+        .sub-bullet {
+            margin-top: 6px;
+            padding-left: 15px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 8: Curriculum and Textbooks</h1>
+        <p>100% Complete & Unabridged Study Guide (English & Telugu)</p>
+    </header>
+
+    <!-- Section 1: Understanding Curriculum and Syllabus -->
+    <div class="card card-alt-1">
+        <h2>1. Understanding Curriculum & Curriculum vs Syllabus</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Understanding Curriculum (విద్యా ప్రణాళిక నిర్వచనం & అవగాహన):</strong>
+                        <br>• Curriculum is a set of planned activities which are designed to implement well defined educational aims in terms of the content of what is to be taught and the knowledge, skills and attitudes which are to be deliberately fostered, together with statement of criteria for selection of content, and choices in methods, materials and evaluation.
+                        <br>• Curriculum is a source of everything that is done in classrooms and schools towards children's education.
+                        <br>• It tells us what is worth teaching, how much should be taught and in what sequence, with what methods and materials, how learning should be assessed, teachers must be prepared, schools monitored, Curriculum is the source of all works related to education.
+                    </span>
+                    <span class="te"><strong>విద్యా ప్రణాళిక (Curriculum):</strong>
+                        <br>• బోధించాల్సిన విషయాంశాలు (content), సముపార్జించాల్సిన జ్ఞానం, నైపుణ్యాలు మరియు వైఖరులను నిర్దిష్టమైన విద్యా లక్ష్యాల రూపంలో అమలు చేయడానికి రూపొందించిన ప్రణాళికాబద్ధమైన కార్యకలాపాల సమాహారమే కరికులమ్. ఇందులో విషయ ఎంపిక ప్రమాణాలు, పద్ధతులు, సామాగ్రి మరియు మూల్యాంకన ఎంపికలు కూడా ఉంటాయి.
+                        <br>• తరగతి గదులలో మరియు పాఠశాలల్లో పిల్లల విద్య కోసం జరిగే <strong>ప్రతి పనికి కరికులమే మూలం</strong>.
+                        <br>• ఏది బోధించాలి, ఎంత బోధించాలి, ఏ వరుస క్రమంలో బోధించాలి, ఏ బోధనా పద్ధతులు/సామాగ్రి వాడాలి, అభ్యసనాన్ని ఎలా మూల్యాంకనం చేయాలి, ఉపాధ్యాయులను ఎలా సిద్ధం చేయాలి మరియు పాఠశాలలను ఎలా పర్యవేక్షించాలి అనేది కరికులమ్ తెలియజేస్తుంది. విద్యా సంబంధిత సమస్త పనులకు ఇదే ఆధారము.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Curriculum and Syllabus (విద్యా ప్రణాళిక మరియు విషయ సూచిక):</strong>
+                        <br>• <strong>Curriculum:</strong> A plan that interprets educational aim viz-a-viz both individual and society to arrive at an understanding of the kinds of learning experiences schools must provide to children. The curriculum framework document provides direction to take up various educational activities, development of syllabus and textbooks etc.
+                        <br>• <strong>Syllabus:</strong> Refers to the content of what is to be taught in a subject and the knowledge, skills and attitudes which are to be fostered in a child together with state specific objectives.
+                        <br>• <em>Note:</em> Curriculum is the source of all works related to education.
+                    </span>
+                    <span class="te"><strong>కరికులమ్ వర్సెస్ సిలబస్:</strong>
+                        <br>• <strong>కరికులమ్:</strong> వ్యక్తిగత మరియు సామాజిక విద్యా లక్ష్యాలను విశ్లేషించి, పాఠశాలలు పిల్లలకు అందించాల్సిన అభ్యసన అనుభవాల స్వభావాన్ని స్పష్టం చేసే ప్రణాళిక. పాఠ్యాంశ చట్రం (Curriculum framework) వివిధ విద్యా కార్యక్రమాలు, సిలబస్ మరియు పాఠ్యపుస్తకాల రూపకల్పనకు దిశానిర్దేశం చేస్తుంది.
+                        <br>• <strong>సిలబస్:</strong> ఒక నిర్దిష్ట సబ్జెక్టులో బోధించాల్సిన విషయాంశాలు మరియు రాష్ట్ర నిర్దిష్ట లక్ష్యాలతో పాటు విద్యార్థిలో పెంపొందించాల్సిన జ్ఞానం, నైపుణ్యాలు మరియు వైఖరుల వివరణ.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: State Curriculum Framework & Major Challenges -->
+    <div class="card card-alt-2">
+        <h2>2. State Curriculum Framework — Context, Vision & Challenges</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>State Curriculum Frame Work — Context and Challenges:</strong>
+                        <br>• Recent researches on brain development and alternative active learning pedagogies such as higher order thinking skills (HOTS), critical pedagogy, social construction, multiple intelligences, learning styles etc., have changed the landscape of teaching learning processes in schools and this must be reflected in the curriculum.
+                    </span>
+                    <span class="te"><strong>నేపథ్యం & రంగాలు:</strong> మస్తిష్క వికాస పరిశోధనలు, ఉన్నత స్థాయి ఆలోచనా నైపుణ్యాలు (HOTS), విమర్శనాత్మక బోధనా శాస్త్రం, సాంఘిక నిర్మాణవాదం, బహుళ మేధస్సులు మరియు అభ్యసన శైలుల ఆధారంగా మారిన బోధనా వాతావరణాన్ని కరికులమ్‌లో ప్రతిబింబించాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>State Vision (ఆంధ్రప్రదేశ్ రాష్ట్ర దార్శనికత):</strong>
+                        <br>• The vision of AP is that <strong>ALL children should receive high quality education</strong> and become responsible citizens with an acute sense of the other.
+                        <br>• They should be aware of their environment and think about it critically.
+                        <br>• They should listen carefully and speak fearlessly.
+                        <br>• They should be able to understand what they hear and read; but they should also be able to question it.
+                        <br>• Teachers should promote these skills, provide meaningful teaching learning processes in natural and friendly environment that enable children to express themselves freely and ask questions.
+                        <br>• Teachers are <strong>collaborative learners and reflective practitioners</strong>.
+                        <br>• Parents and community should have a sense of ownership and participate in the life of the school.
+                        <br>• In a world which is becoming increasingly materialistic and competitive, school should become a space for reflection, cooperation and promotion of human and ethical values.
+                    </span>
+                    <span class="te"><strong>రాష్ట్ర దార్శనికత:</strong>
+                        <br>• అందరు పిల్లలకు నాణ్యమైన విద్య అందాలి మరియు ఇతరుల పట్ల స్పందనాత్మకత కలిగిన బాధ్యతాయుతమైన పౌరులుగా మారాలి.
+                        <br>• తమ పర్యావరణం పట్ల అవగాహన కలిగి, దాని గురించి విమర్శనాత్మకంగా ఆలోచించాలి.
+                        <br>• శ్రద్ధగా వినాలి మరియు భయం లేకుండా మాట్లాడాలి.
+                        <br>• విన్నది, చదివినది అర్థం చేసుకోవడమే కాకుండా ప్రశ్నించే తత్వాన్ని పెంపొందించుకోవాలి.
+                        <br>• ఉపాధ్యాయులు ప్రశాంత, స్నేహపూర్వక వాతావరణంలో విద్యార్థులు స్వేచ్ఛగా వ్యక్తపరిచేలా ప్రోత్సహించాలి.
+                        <br>• ఉపాధ్యాయులు <strong>సహకార అభ్యసకులు (collaborative learners) మరియు ప్రతిఫలన అభ్యాసకులు (reflective practitioners)</strong>.
+                        <br>• తల్లిదండ్రులు, సమాజం పాఠశాల అభివృద్ధిలో భాగస్వాములు కావాలి.
+                        <br>• పోటీ ప్రపంచంలో పాఠశాలలు మానవీయ, నైతిక విలువలను పెంపొందించే కేంద్రాలుగా ఉండాలి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Major Challenges (ప్రధాన సవాళ్లు):</strong>
+                        <div class="sub-bullet">
+                            <strong>1. Monitoring and Supervision:</strong>
+                            <br>• A higher rate of teacher and pupil absenteeism and poor performance levels of children shows need for urgent measures to improve the system.
+                            <br>• Lack of appropriate supportive academic monitoring focusing on classroom processes, teacher preparation, child performance and providing appropriate on job support.
+                            <br>• The field functionaries lack adequate professional preparation and knowledge of pedagogical processes, tools to improve the situation, reflecting the contemporary pedagogical renewal process.
+                        </div>
+                        <div class="sub-bullet">
+                            <strong>2. Classroom Process and Children Engagement:</strong>
+                            <br>• The teaching learning process is mostly traditional with lectures and textbook oriented exercises.
+                            <br>• The classroom processes show that the children copy from textbooks without any challenging and meaningful engagement with learning tasks.
+                        </div>
+                        <div class="sub-bullet">
+                            <strong>3. Assessment and Examinations:</strong>
+                            <br>• The entire school practices and preparation are increasingly examination oriented.
+                            <br>• The assessment is information oriented and memory based and test paper developed by outside agencies which are not competency based leading to tension and fear of exams among children.
+                        </div>
+                    </span>
+                    <span class="te"><strong>ప్రధాన సవాళ్లు (వివరంగా):</strong>
+                        <br>1. <strong>పర్యవేక్షణ మరియు పర్యవేక్షణ వ్యవస్థ:</strong> ఉపాధ్యాయులు, విద్యార్థుల గైర్హాజరు, పిల్లల అల్ప ప్రదర్శన స్థాయిలు వ్యవస్థలో తక్షణ మార్పులను సూచిస్తున్నాయి. తరగతి గది ప్రక్రియలు, ఉపాధ్యాయుల సన్నాహకత, పిల్లల ప్రదర్శనపై దృష్టి సారించే అకాడమిక్ మానిటరింగ్ మరియు ఆన్-జాబ్ సపోర్ట్ లోపించడం. ఫీల్డ్ అధికారులకు సమకాలీన బోధనా ప్రక్రియలపై తగినంత వృత్తిపరమైన శిక్షణ లేకపోవడం.
+                        <br>2. <strong>తరగతి గది ప్రక్రియలు మరియు విద్యార్థుల భాగస్వామ్యం:</strong> బోధన ప్రధానంగా సాంప్రదాయ ఉపన్యాసాలు మరియు పుస్తకాల విన్యాసాలకే పరిమితమైంది. సవాలుతో కూడిన అభ్యసన కృత్యాలు లేక పిల్లలు టెక్స్ట్‌బుక్స్ నుండి యథాతథంగా కాపీ చేస్తున్నారు.
+                        <br>3. <strong>అంచనా మరియు పరీక్షలు:</strong> విద్యా విధానమంతా పరీక్షల చుట్టూనే తిరుగుతోంది. మూల్యాంకనం కేవలం సమాచారం, జ్ఞాపకశక్తి ఆధారంగా ఉంటోంది. సామర్థ్యాల ఆధారంగా కాకుండా బాహ్య సంస్థలు తయారుచేసే ప్రశ్నపత్రాల వల్ల పిల్లలలో భయం, ఒత్తిడి పెరుగుతున్నాయి.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: NCF-2005 Guiding Principles & Syllabus Development Considerations -->
+    <div class="card card-alt-3">
+        <h2>3. NCF-2005 Guiding Principles & Syllabi/Textbook Considerations</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>National Curriculum Framework (NCF) 2005 — Guiding Principles:</strong>
+                        <br>• Connecting knowledge to life outside the school.
+                        <br>• Ensuring that learning is shifted away from rote methods.
+                        <br>• Enriching the curriculum to provide for overall development of children rather than remain textbook centric.
+                        <br>• Creating multiple texts from given text.
+                        <br>• Teacher role from teaching to facilitator.
+                        <br>• Sharing ideas and collaborative learning.
+                        <br>• Scope must be given for divergent responses in place of a single answer.
+                    </span>
+                    <span class="te"><strong>NCF 2005 మార్గదర్శక సూత్రాలు:</strong>
+                        <br>• పాఠశాల బయటి జీవితంతో జ్ఞానాన్ని అనుసంధానించడం.
+                        <br>• అభ్యసనం భట్టీ పద్ధతుల నుండి మారేలా చూడటం.
+                        <br>• పాఠ్యపుస్తక కేంద్రీకృతంగా కాకుండా పిల్లల సర్వాంగీణ వికాసానికి కరికులమ్‌ను సమృద్ధి చేయడం.
+                        <br>• ఒక మూల పాఠం (given text) నుండి అనేక పాఠాలను/రచనలను సృష్టించడం.
+                        <br>• ఉపాధ్యాయుని పాత్ర బోధకుడి నుండి <strong>సులభతరం చేసే వ్యక్తి (facilitator)</strong> గా మారడం.
+                        <br>• ఆలోచనల మార్పిడి మరియు సహకార అభ్యసనం (collaborative learning).
+                        <br>• ఏకైక సమాధానానికి బదులుగా <strong>విభిన్న ప్రతిస్పందనలకు (divergent responses)</strong> అవకాశం ఇవ్వడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Considerations for Development of Syllabi and Textbooks (13 Key Factors):</strong>
+                        <br>1. Appropriateness of topics and themes for relevant stages of children's development.
+                        <br>2. Continuity from one level to the next.
+                        <br>3. Pervasive resonance of the values enshrined in the Constitution of India in the organization of knowledge in all subjects.
+                        <br>4. Inter-disciplinary and thematic linkages between topics listed for different school subjects, which fall under discrete disciplinary areas.
+                        <br>5. Linkages between school knowledge in different subjects and children's everyday experiences.
+                        <br>6. Infusion of environment related knowledge and concern in all subjects and at all levels.
+                        <br>7. Sensitivity to gender, caste and class parity, peace, health and needs of children with disabilities.
+                        <br>8. Integration of work related attitudes and values in every subject and at all levels.
+                        <br>9. Need to nurture aesthetic sensibility and values.
+                        <br>10. Linkage between school and college syllabi; avoid overlapping.
+                        <br>11. Using the potential of media and new information technology in all subjects.
+                        <br>12. Encouraging flexibility and creativity in all areas of knowledge and its construction by children.
+                        <br>13. Convergence and partnership with NGOs and National level institutions / universities in sharing good practices.
+                    </span>
+                    <span class="te"><strong>సిలబస్ మరియు పాఠ్యపుస్తకాల రూపకల్పనలోని 13 ప్రాథమిక పరిగణనలు:</strong>
+                        <br>1. పిల్లల వికాస దశలకు తగిన విషయాలు/ఇతివృత్తాల ఎంపిక.
+                        <br>2. ఒక స్థాయి నుండి మరొక స్థాయికి నిరంతరత (continuity).
+                        <br>3. అన్ని సబ్జెక్టులలో భారత రాజ్యాంగ విలువల ప్రతిబింబం.
+                        <br>4. విభిన్న సబ్జెక్టుల మధ్య అంతర్విషయ (Inter-disciplinary) మరియు ఇతివృత్త అనుబంధాలు.
+                        <br>5. పాఠశాల జ్ఞానానికి, పిల్లల రోజువారీ అనుభవాలకు మధ్య లింకేజీ.
+                        <br>6. అన్ని స్థాయిలలో పర్యావరణ స్పృహను పొందుపరచడం.
+                        <br>7. లింగ, కుల, వర్గ సమానత్వం, శాంతి, ఆరోగ్యం మరియు దివ్యాంగ పిల్లల అవసరాల పట్ల సున్నితత్వం.
+                        <br>8. పని పట్ల ధోరణులు, విలువలను ప్రతి సబ్జెక్టులో అనుసంధానించడం.
+                        <br>9. సౌందర్యాత్మక స్పృహ మరియు విలువలను పెంపొందించడం.
+                        <br>10. పాఠశాల మరియు కళాశాల సిలబస్‌ల మధ్య పునరావృతం (overlapping) లేని అనుబంధం.
+                        <br>11. సమాచార సాంకేతికత (IT) మరియు మీడియాని వినియోగించడం.
+                        <br>12. నమ్యత (flexibility), సృజనాత్మకత మరియు జ్ఞాన నిర్మాణాన్ని ప్రోత్సహించడం.
+                        <br>13. మంచి పద్ధతులను పంచుకోవడానికి ఎన్జీఓలు (NGOs), జాతీయ సంస్థలు/యూనివర్సిటీలతో భాగస్వామ్యం.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+<div class="card">
+        <h2>4. Target Discourses & Details of Indicators (Classes VI to X)</h2>
+        <p>Classes VI నుండి X వరకు గల భాషా డిస్కోర్సులు మరియు వాటి నిబంధనలు/సూచికల సమగ్ర పట్టిక:</p>
+        
+        <!-- Table Responsive Wrapper -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Target Discourse (ప్రక్రియ)</th>
+                        <th>Details of Indicators (అధికారిక సూచికలు & నియమాలు)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Conversations</strong></td>
+                        <td>Contains dialogues with five to ten exchanges — proper sequence of exchanges — sustaining the conversation with social norms — discourse markers (well, precisely, etc.) — dialogues apt to the context — appropriate cohesive devices — voice modulation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Descriptions</strong></td>
+                        <td>Description of objects/things/persons creating vivid images — variety of sentence forms — proper sequence of the ideas — personal reflections on the event or person — appropriate cohesive devices.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Poems / Songs</strong></td>
+                        <td>Suitable structural patterns — rhyme scheme — specific patterns (rhythm / structure / metre / music / theme, etc.) — expressing emotions and reflections — use of images, thoughts and feelings — use of figures of speech — assonance and alliteration — point of view.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Narrative / Story</strong></td>
+                        <td>Sequence of events and dialogues — evoking of sensory perceptions and emotions — images, setting and other details — use characterization — coherence — point of view.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diary</strong></td>
+                        <td>Expression of personal reflections, thoughts and feelings — use of variety of sentences — use of language appropriate to the mood — self criticism and future plans — point of view — coherence.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Letter</strong></td>
+                        <td>Appropriate language to the context — appropriate format, layout and conventions — expressing ideas sequentially — use of persuasive language — maintaining coherence.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Messages / e-mail / SMS</strong></td>
+                        <td>Relevant ideas to the context — maintaining brevity — use of conventions, layout and format — appropriate language to the content and context.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Notice / Poster / Ads / Invitation</strong></td>
+                        <td>Occasions and purposes showing the context — details of venue, date, time, salutation, invitation, programme — persuasive language — organisation, layout and design — maintaining brevity — design and graphics — rhythm in language (for ads).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Slogans / Placards</strong></td>
+                        <td>Appropriate to the context — maintaining brevity and rhythm.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Play / Skit</strong></td>
+                        <td>Dialogues relevant to the context with emotions and feelings — stage directions, movements and settings — dramatic conflict: beginning, rising actions and ending — reference to costumes and props — dramatisation — theatrical performance like dialogue delivery, actions, stage sense, costumes, etc.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compering</strong></td>
+                        <td>Arrangement of the programme sequentially as required by the context — presenting the background — highlighting the persons and the events — reviews and reflections relevant to the context — use of polite and entertaining expressions — following the conventions of the stage — use of spontaneous language in a lively manner — modulation of voice in an appealing way.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Choreography</strong></td>
+                        <td>Identification of the main theme and stanza wise themes — bringing out a single and multiple themes — identification and sequences of actions of the protagonists (main characters) — identification and sequence of actions of the chorus — maintaining proper layout of script — performance of the actions of the protagonist and the chorus.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Essay (All types)</strong></td>
+                        <td>Title, introduction, thesis statement, body and conclusion — appropriate paragraphing with main ideas — supporting details and examples — organization of ideas and use of cohesive devices — maintaining coherence — point of view.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>News report / Report</strong></td>
+                        <td>Appropriate headline — lead sentence (five W's) — body of the news — organisation and use of cohesive devices — coherence — reporting style (reported speech, passivization, appropriate tense) — point of view.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Speech</strong></td>
+                        <td>Making speeches/talks contextually — organisation of ideas — use of argumentative / persuasive / interactive language to substantiate views and ideas — use of discourse markers — citation of examples, quotations, etc. — coherence, voice modulation and body language.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Review</strong></td>
+                        <td>Stating the context of the review (story/novel/drama/essay/film) — highlighting and commenting on certain features of the item reviewed (e.g. characters/theme/setting/events/turning points etc.) — brevity — citation from the text to substantiate the point (authenticity) — making personal impressions — maintaining coherence.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Debates and Discussions</strong></td>
+                        <td>Expression of ideas as main points and sub points — presentation of arguments in a sequential order — citing suitable examples, quotations, and evidences — defending one's own point of view and rebutting opponent's point of view — use of discourse markers for agreeing, disagreeing, substantiating, enumerating, etc. — use of polite expressions respecting other's views — use of logical and emotional appeals.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biographical sketch / Profile / Autobiography</strong></td>
+                        <td>Details of the person — presentation of relevant ideas and information — organization of the data — interpretation of data and drawing inference — reflections, thoughts and feelings — anecdotes, events, achievements — point of view — organisation and the use of cohesive devices — maintaining coherence and flow.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+   
+
+    <!-- Section 5: Salient Features of the New Textbooks -->
+    <div class="card card-alt-5">
+        <h2>5. 10 Salient Features of the New Textbooks (నూతన పాఠ్యపుస్తకాల 10 ముఖ్య లక్షణాలు)</h2>
+        <ol>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Previously, we had separate textbooks, supplementary readers and workbooks. The new English readers are designed in an integrated manner. We have a single book that is a combination of the main reader, listening material, workbook at the unit level.</span>
+                    <span class="te">గతంలో టెక్స్ట్‌బుక్, సప్లిమెంటరీ రీడర్, వర్క్‌బుక్‌లు విడివిడిగా ఉండేవి. కొత్త ఇంగ్లీష్ పుస్తకాలు సమైక్యంగా (integrated) రూపొందించబడ్డాయి. మెయిన్ రీడర్, లిజనింగ్ మెటీరియల్, వర్క్‌బుక్ అన్నీ కలిపి ఒక్కటే పుస్తకంగా అందుబాటులోకి వచ్చాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The present textbooks are brought out in multicolours. Earlier, we had textbooks in single colour.</span>
+                    <span class="te">ప్రస్తుత పాఠ్యపుస్తకాలు బహుళ వర్ణాలలో (multicolours) ముద్రించబడ్డాయి. పూర్వం ఏకవర్ణం (single colour) లో ఉండేవి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The previous textbooks were skill-based. Development of language skills was given priority. The content was isolated. It had no relevance to each other. The present textbooks are based on certain themes. Every unit is based on a theme that is familiar to the learners. The theme recurs throughout the unit: in all the activities of the unit. The thematic approach facilitates construction of knowledge along with development of language skills.</span>
+                    <span class="te">పాత పుస్తకాలు నైపుణ్యాల ఆధారితంగా (skill-based) ఉండి సబ్జెక్టు కంటెంట్ వేర్వేరుగా ఉండేది. కొత్త పుస్తకాలు ఇతివృత్తం (Thematic approach) ఆధారంగా రూపొందాయి. విద్యార్థికి తెలిసిన ఒక ఇతివృత్తం యూనిట్ అంతటా కొనసాగుతూ జ్ఞాన నిర్మాణం మరియు నైపుణ్యాల అభివృద్ధికి తోడ్పడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Holistic treatment of language is taken care of in the present textbooks. Grammar and vocabulary have relevance to the content. Whereas in the earlier textbooks, the treatment of grammar and vocabulary have no relation to the content.</span>
+                    <span class="te">నూతన పుస్తకాలలో భాషకు సమగ్ర చికిత్స (Holistic treatment) జరిగింది. వ్యాకరణం మరియు పదజాలం నేరుగా పాఠ్యాంశ అంశాలతో సంబంధం కలిగి ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">In the present textbooks, authentic (real) communication in writing and speaking is attempted. In the previous textbooks, writing activity was either controlled or guided; speaking was also not authentic.</span>
+                    <span class="te">ప్రస్తుత పుస్తకాలలో సహజసిద్ధమైన/ప్రామాణికమైన (authentic/real) రాయడం మరియు మాట్లాడటం పొందుపరచబడింది. గతంలో ఇది నియంత్రిత (controlled/guided) రూపంలో ఉండేది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The earlier textbooks were developed by experts. There was not much to address the problems of teachers and learners, whereas the present textbooks were the outcome of combined efforts of experts in the ELT, linguists and the textbook development committees that include teacher trainers and teachers.</span>
+                    <span class="te">గతంలో కేవలం నిపుణులు మాత్రమే పుస్తకాలను తయారుచేసేవారు. ఇప్పుడు ELT నిపుణులు, భాషాశాస్త్రవేత్తలు, టీచర్ ట్రైనర్లు మరియు ఉపాధ్యాయుల ఉమ్మడి కృషితో రూపొందాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Present textbooks include activities that result in the production of language in the name of 'Project'. The learners literally use language in solving real life problems. This helps the learners in internalizing the language.</span>
+                    <span class="te">కొత్త పుస్తకాలలో 'ప్రాజెక్టు' (Project) పేరుతో కృత్యాలు ఉన్నాయి. విద్యార్థులు నిజ జీవిత సమస్యల సాధనకు భాషను ఉపయోగిస్తూ భాషను అంతర్గతీకరించుకుంటారు (internalizing).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">In the earlier textbooks, each unit began with a listening activity. Experience proved that, by doing so the learners were receiving the reading input a bit late. To put it in other words, listening texts were longish. By the time the teacher completed reading, the learners were exhausted and lost interest.</span>
+                    <span class="te">గతంలో ప్రతీ యూనిట్ సుదీర్ఘమైన వినికిడి (listening) కృత్యంతో ప్రారంభమయ్యేది. దీనివల్ల విద్యార్థులు నీరసించి ఆసక్తి కోల్పోయేవారు. నూతన పుస్తకాలలో ఈ లోపం సరిదిద్దబడింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The earlier textbooks had listening passages that have no contextual relevance. The present books have contextually relevant listening texts. They are reasonably long. Hence, they will be interesting to the learners.</span>
+                    <span class="te">గతంలో వినికిడి భాగాలకు సందర్భ సంబంధం ఉండేది కాదు. ఇప్పుడు సందర్భోచితమైన మరియు తగిన నిడివి ఉన్న ఆసక్తికర లీజనింగ్ పాఠాలు చేర్చబడ్డాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Earlier we were using two series of textbooks; one for the English medium stream and the other for the non-English medium. This year there is a common book for these two streams.</span>
+                    <span class="te">గతంలో ఇంగ్లీష్ మీడియం మరియు నాన్-ఇంగ్లీష్ మీడియం (తెలుగు మీడియం) లకి వేర్వేరు పుస్తకాలు ఉండేవి. ఇప్పుడు రెండింటికీ కలిపి <strong>ఒకే ఉమ్మడి పుస్తకం (common book)</strong> అమలులో ఉంది.</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: Language Skills</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary: #0284c7;
+            --accent-1: #0d9488;
+            --accent-2: #7c3aed;
+            --accent-3: #d97706;
+            --accent-4: #dc2626;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #4b5563;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #94a3b8;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+        .example-box {
+            background-color: rgba(2, 132, 199, 0.05);
+            border-left: 3px solid var(--primary);
+            padding: 10px 15px;
+            margin-top: 5px;
+            border-radius: 4px;
+        }
+
+        [data-theme="dark"] .example-box {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.6rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 3: Language Skills</h1>
+        <p>Complete Exhaustive Notes — English & Telugu Bilingual Study Guide</p>
+    </header>
+
+    <!-- Section 1: Introduction to Language Skills -->
+    <div class="card card-alt-1">
+        <h2>1. Overview of Language Skills (భాషా నైపుణ్యాల సమగ్ర పరిశీలన)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Listening and speaking go hand in hand.</span>
+                    <span class="te">వినడం (Listening) మరియు మాట్లాడడం (Speaking) ఒకదానితో ఒకటి కలిసి నడుస్తాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Reading helps the understanding of the language better.</span>
+                    <span class="te">చదవడం (Reading) భాషను మరింత మెరుగ్గా అర్థం చేసుకోవడానికి సహాయపడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Writing makes our learning of the language complete.</span>
+                    <span class="te">రాసే నైపుణ్యం (Writing) మన భాషా అభ్యసనాన్ని సంపూర్ణం చేస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Listening and reading - <strong>Process oriented</strong> (Receptive skills). Speaking and writing - <strong>Product oriented</strong> (Expressive/Productive skills).</span>
+                    <span class="te">వినడం మరియు చదవడం అనేవి <strong>ప్రక్రియ-ఆధారిత (Process oriented)</strong> నైపుణ్యాలు. మాట్లాడడం మరియు రాయడం అనేవి <strong>ఉత్పత్తి-ఆధారిత (Product oriented)</strong> నైపుణ్యాలు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Reading can be developed systematically. We read different texts for different purposes, and the strategies we use in reading also differ with the purpose.</span>
+                    <span class="te">చదివే నైపుణ్యాన్ని క్రమబద్ధంగా అభివృద్ధి చేయవచ్చు. మనం విభిన్నమైన ప్రయోజనాల కోసం వేర్వేరు పాఠ్యాంశాలను చదువుతాము; మన పఠన వ్యూహాలు కూడా ఆ ప్రయోజనాన్ని బట్టే మారతాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">In the early stages of learning a language, it is important to learn the mechanics of writing.</span>
+                    <span class="te">భాషా అభ్యసనం యొక్క ప్రారంభ దశలలో రాత యొక్క యాంత్రిక నియమాలను (mechanics of writing) నేర్చుకోవడం చాలా ముఖ్యం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Learning a language means learning to speak, read and write in the language. All the language skills help us in communicating better and with efficiency.</span>
+                    <span class="te">ఒక భాషను నేర్చుకోవడం అంటే ఆ భాషలో మాట్లాడటం, చదవటం మరియు రాయడం నేర్చుకోవడం. భాషా నైపుణ్యాలన్నీ మన భావప్రసారాన్ని మరింత సమర్థవంతంగా చేయడానికి దోహదపడతాయి.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Listening Skill -->
+    <div class="card card-alt-2">
+        <h2>2. Listening Skill (వినికిడి నైపుణ్యం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Listening:</strong> An activity of paying attention to and trying to get meaning from something we hear. Listening is a conscious mental process.</span>
+                    <span class="te"><strong>లిజనింగ్ (వినడం):</strong> మనం వినే దానిపై దృష్టిని నిలిపి, దాని నుండి అర్థాన్ని గ్రహించడానికి చేసే ప్రయత్నమే వినడం. ఇది స్పృహతో కూడిన మానసిక ప్రక్రియ.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Hearing:</strong> A physical process of receiving sounds. Many a times mere hearing is not sufficient; what we need is a conscious attempt to listen.</span>
+                    <span class="te"><strong>హియరింగ్ (వినబడటం):</strong> శబ్దాలను స్వీకరించే ఒక శారీరక ప్రక్రియ మాత్రమే. చాలా సార్లు కేవలం వినబడటం సరిపోదు, స్పృహతో కూడిన ఆలోచనాత్మక శ్రద్ధ అవసరం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Mary Underwood (1989):</strong> Merely to hear what the speaker says is insufficient for communication to occur. When nobody listens to a speaker or when a listener fails to understand the message, we say that communication has broken down.</span>
+                    <span class="te"><strong>మేరీ అండర్‌వుడ్ (1989):</strong> మాట్లాడే వ్యక్తి చెప్పేది కేవలం వినబడటం ద్వారా భావప్రసారం పూర్తి కాదు. వక్త చెప్పేది ఎవ్వరూ విననప్పుడు లేదా శ్రోత సందేశాన్ని అర్థం చేసుకోవడంలో విఫలమైనప్పుడు కమ్యూనికేషన్ దెబ్బతిన్నదని అంటాము.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Diogenes Laertius (Greek philosopher):</strong> "We have 2 ears and only one tongue in order that we may hear more and speak less."</span>
+                    <span class="te"><strong>డియోజీన్స్ లార్టియస్ (గ్రీకు తత్వవేత్త):</strong> "మనం ఎక్కువగా విని, తక్కువగా మాట్లాడటం కోసమే మనకు రెండు చెవులు, ఒకే నాలుక ఉన్నాయి."</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Active Listening / 'Listening to listen':</strong> To attend to what is heard, to process it, to understand it, to interpret it, to evaluate it and to respond to it. Listening requires the listener to attend to the message fully and try to construct a coherent interpretation.</span>
+                    <span class="te"><strong>యాక్టివ్ లిజనింగ్:</strong> విన్నదానిపై దృష్టి పెట్టడం, దానిని విశ్లేషించడం, అర్థం చేసుకోవడం, వివరణ ఇవ్వడం, మూల్యాంకనం చేయడం మరియు ప్రతిస్పందించడం. శ్రోత సందేశాన్ని నిశితంగా విని సరైన అర్థాన్ని ఏర్పరచుకోవాల్సి ఉంటుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Brown and Yule (1983) Classification of Talk:</strong>
+                        <br>• <strong>Interactional Language:</strong> Has a social purpose and is listener-oriented.
+                        <br>• <strong>Transactional Language:</strong> Message-oriented where the main purpose is to achieve successful transfer or exchange of information.
+                    </span>
+                    <span class="te"><strong>బ్రౌన్ మరియు యూల్ (1983) సంభాషణల వర్గీకరణ:</strong>
+                        <br>• <strong>ఇంటరాక్షనల్ లాంగ్వేజ్:</strong> సామాజిక ప్రయోజనం కలిగి ఉండి, శ్రోత కేంద్రీకృతంగా ఉంటుంది.
+                        <br>• <strong>ట్రాన్సాక్షనల్ లాంగ్వేజ్:</strong> సమాచార మార్పిడే ప్రధాన ధ్యేయంగా ఉండి, సందేశ కేంద్రీకృతంగా ఉంటుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Types of Listening & Examples:</strong></span>
+                    <span class="te"><strong>లిజనింగ్ రకాలు మరియు ఉదాహరణలు:</strong></span>
+                </div>
+                <ol>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Listening to follow directions or instructions:</strong> Message given is slow, broken into segments, parts repeated to facilitate comprehension.
+                                <div class="example-box">Examples: Listening to instructions given by a sports coach, a chef telling a recipe, or a health club instructor giving first-aid steps for a snake bite/injury.</div>
+                            </span>
+                            <span class="te"><strong>సూచనలను అనుసరించడానికి వినడం:</strong> సందేశం నెమ్మదిగా, భాగాలుగా విభజించబడి పునరావృతం చేయబడుతుంది. (ఉదా: స్పోర్ట్స్ కోచ్, హెల్త్ క్లబ్ ఇన్స్ట్రక్టర్ ఇచ్చే సూచనలు లేదా వంటల రెసిపీ వినడం).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Listening for information:</strong> Objective is to extract clearly stated information.
+                                <div class="example-box">Examples: News bulletins, weather forecasts, announcements made at railway stations, airports, or over radio/TV.</div>
+                            </span>
+                            <span class="te"><strong>సమాచారం కోసం వినడం:</strong> స్పష్టంగా చెప్పబడిన సమాచారాన్ని స్వీకరించడం. (ఉదా: వార్తలు, వాతావరణ నివేదికలు, రైల్వే స్టేషన్/ఎయిర్‌పోర్ట్ ప్రకటనలు).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Listening for enjoyment:</strong> Objective is entertainment.
+                                <div class="example-box">Examples: Listening to poetry, plays on the radio, stories.</div>
+                            </span>
+                            <span class="te"><strong>ఆనందం/వినోదం కోసం వినడం:</strong> (ఉదా: రేడియోలో కవితలు, నాటకాలు, కథలు వినడం).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Listening to evaluate:</strong> Listener listens to main points, analyses, notes contradictions, checks authenticity, and evaluates supporting evidence.</span>
+                            <span class="te"><strong>మూల్యాంకనం చేయడానికి వినడం:</strong> నిశితంగా విని, విశ్లేషించి, సత్యసంధతను, ఆధారాలను పరిశీలించడం.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Listening to discriminate speech sounds:</strong> Happens in a deliberate language learning situation.
+                                <div class="example-box">Example: Listener pays attention to specific speech sounds and imitates them when teacher speaks or a record is played back.</div>
+                            </span>
+                            <span class="te"><strong>ధ్వనుల వ్యత్యాసాన్ని గుర్తించడానికి వినడం:</strong> ఉపాధ్యాయుడు మాట్లాడుతున్నప్పుడు ధ్వనులను శ్రద్ధగా విని అనుకరించడం.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Listening to solve problems:</strong> Needs the ability to analyse cues and key elements from the chunk of information provided.</span>
+                            <span class="te"><strong>సమస్యలను పరిష్కరించడానికి వినడం:</strong> ఇచ్చిన సమాచారం నుండి కీలక ఆధారాలను విశ్లేషించడం.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Listening to communicate:</strong> A two-way process requiring sustained interest, sensitivity to what is being said, and suitable responses. (A good conversationalist is a good listener).
+                                <div class="example-box">Examples: Conversations, group discussions, language games, telephone talks.</div>
+                            </span>
+                            <span class="te"><strong>భావప్రసారం కోసం వినడం:</strong> ద్విముఖ ప్రక్రియ. (ఉదా: గ్రూప్ డిస్కషన్స్, ఫోన్ సంభాషణలు, భాషా క్రీడలు).</span>
+                        </div>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Activities to develop listening skills:</strong>
+                        <br>• Should be suited to the level of the listener.
+                        <br>• Should keep the purposes of listening in view.
+                        <br>• Dictation of words having same sounds except one.
+                        <br>• Short story narration and re-narration.
+                        <br>• Telling jokes suitable to learner level.
+                        <br>• Quizzes with simple answers.
+                        <br>• Games like Chinese whisper.
+                        <br>• Reading aloud English rhymes and stories to enjoy rhythm.
+                    </span>
+                    <span class="te"><strong>వినికిడి నైపుణ్యాభివృద్ధికి కృత్యాలు:</strong>
+                        <br>• శ్రోత స్థాయికి అనుగుణంగా ఉండాలి.
+                        <br>• కథలను విని మరలా చెప్పమనడం, చైనీస్ విస్పర్ వంటి ఆటలు, డిక్టేషన్, క్విజ్‌లు, జోక్స్ చెప్పడం మరియు ప్రాసలను (rhymes) బిగ్గరగా చదివించడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Language Games Benefits & Examples:</strong>
+                        <br>• Create interest, drive off fear of learning English, and enable learning without conscious pressure.
+                        <br>• <strong>Game 1:</strong> Creating maximum words from letters of a big word.
+                        <br>• <strong>Game 2:</strong> Story in small strips — students read and order them.
+                        <br>• <strong>Game 3:</strong> Drawing pictures using questions.
+                        <br>• <strong>Game 4:</strong> Rewriting a story replacing the main character.
+                    </span>
+                    <span class="te"><strong>భాషా క్రీడల ప్రయోజనాలు & ఉదాహరణలు:</strong> భయాన్ని పోగొట్టి ఆసక్తిని పెంచుతాయి. పెద్ద పదం నుండి చిన్న పదాలను తయారు చేయడం, స్టోరీ స్ట్రిప్స్‌ను వరుసలో పెట్టడం, చిత్రాలు గీయడం వంటివి.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Speaking Skill -->
+    <div class="card card-alt-3">
+        <h2>3. Speaking Skill (భాషణ నైపుణ్యం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Speech is the most important tool for communication. An individual uses speech to control and influence others in society and is also influenced by it. Speech is a convenient and time-saving form of communication.</span>
+                    <span class="te">మాట్లాడటం అనేది అత్యంత ముఖ్యమైన భావప్రసార సాధనం. ఇది సమాజంలో ఇతరులను ప్రభావితం చేయడానికి ఉపయోగపడుతుంది. ఇది సమయాన్ని ఆదా చేసే సౌకర్యవంతమైన సాధనం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Spoken English Characteristics:</strong> A string of utterances in context constituting elements of speech act. Basic elements are <strong>Clarity and Fluency</strong>.</span>
+                    <span class="te"><strong>సంభాషణా ఇంగ్లీష్ లక్షణాలు:</strong> సందర్భోచిత ఉచ్ఛారణల సమాహారం. దీని ప్రాథమిక అంశాలు <strong>స్పష్టత (Clarity) మరియు ధారాళత (Fluency)</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Activities to Develop Speaking:</strong>
+                        <br>1. Know each other.
+                        <br>2. "Which word do you like the most? Why?"
+                        <br>3. Same and different (identifying differences in pictures).
+                        <br>4. Describing friends.
+                    </span>
+                    <span class="te"><strong>భాషణ నైపుణ్యాభివృద్ధికి కృత్యాలు:</strong> ఒకరినొకరు పరిచయం చేసుకోవడం, ఇష్టమైన పదాన్ని వివరించడం, చిత్రాల వ్యత్యాసాలను చెప్పడం, మిత్రులను వర్ణించడం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Role of Rhymes in Language Functions:</strong>
+                        <br>Rhymes help learners enjoy pronunciation and understand functions like greetings, requesting, thanking, giving directions.
+                        <br>• <em>"Pussy sits behind the log"</em> — teaches language functions to children.
+                        <br>• <em>"Pray, Which is the Way to London Town?"</em> — teaches language functions/directions.
+                    </span>
+                    <span class="te"><strong>రైమ్స్ (గేయాల) పాత్ర:</strong> ఉచ్చారణను ఆస్వాదించడానికీ, గ్రీటింగ్స్, అభ్యర్థనలు, ధన్యవాదాలు వంటి భాషా విధులను నేర్చుకోవడానికి దోహదపడతాయి.
+                        <br>• <em>"Pussy sits behind the log"</em> మరియు <em>"Pray, Which is the Way to London Town?"</em> అనేవి భాషా విధులను నేర్పించే గేయాలకు ఉదాహరణలు.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">It is important to teach students to use language in real life. The sole aim of these activities is to make learners listen to and speak in English.</span>
+                    <span class="te">నిజ జీవితంలో భాషను ఉపయోగించడం నేర్పించడమే ఈ కృత్యాల యొక్క ప్రధాన ధ్యేయం.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 4: Reading Skill -->
+    <div class="card card-alt-4">
+        <h2>4. Reading Skill (పఠన నైపుణ్యం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Reading is a <strong>receptive skill</strong> and an active process. It helps learners understand language, structure, spelling system, and nuances better, while improving knowledge through written text.</span>
+                    <span class="te">చదవడం అనేది ఒక <strong>గ్రాహ్య నైపుణ్యం (Receptive skill)</strong> మరియు చురుకైన ప్రక్రియ (active process). ఇది భాషా నిర్మాణం, అక్షర క్రమాన్ని అర్థం చేసుకోవడానికి సహాయపడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Balance of Comprehension & Speed:</strong> Reading means understanding content. One skill cannot be developed at the cost of the other. Teachers must train learners to read with both comprehension and speed. Reading in word groups, anticipating meaning, silent reading, and thinking while reading help increase speed.</span>
+                    <span class="te"><strong>అవగాహన మరియు వేగంల సమతుల్యత:</strong> గ్రహణశక్తి (comprehension) మరియు వేగం (speed) ఒకదానికొకటి సమతుల్యంగా ఉండాలి. పదాల సమూహాలుగా చదవడం, అర్థాన్ని ఊహించడం వేగాన్ని పెంచుతాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Types of Reading: Extensive vs Intensive</strong>
+                        <br>• <strong>Extensive Reading:</strong> Reading quickly for pleasure, getting the gist, or overall passage idea. Reader does not read every sentence. Rapid extensive reading develops <em>reference skills</em>.
+                        <br>• <strong>Intensive Reading:</strong> Done for getting every detail. Each sentence is read carefully to extract and retain complete meaning (e.g., students reading textbooks for exams, lawyers reading case files, reading critical report summaries).
+                    </span>
+                    <span class="te"><strong>విస్తృత పఠనం vs విస్తృత-లోతైన పఠనం:</strong>
+                        <br>• <strong>ఎక్స్‌టెన్సివ్ రీడింగ్ (విస్తృత పఠనం):</strong> ఆనందం కోసం, సారాంశం కోసం వేగంగా చదవడం. ఇది రెఫరెన్స్ నైపుణ్యాలను పెంచుతుంది.
+                        <br>• <strong>ఇంటెన్సివ్ రీడింగ్ (గ్రాహ్య/లోతైన పఠనం):</strong> ప్రతి వివరానికీ, ప్రతి వాక్యాన్ని క్షుణ్ణంగా చదవడం (ఉదా: పరీక్షల కోసం విద్యార్థులు పాఠ్యపుస్తకాలు చదవడం, లాయర్లు కేస్ ఫైళ్లు చదవడం).
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Reading Aloud vs Silent Reading:</strong>
+                        <br>• <strong>Reading Aloud:</strong> Encouraged at primary level. Allows sharing information, develops correct pronunciation, syllable stress, intonation, and proper pausing.
+                        <br>• <strong>Silent Reading:</strong> Emphasized at higher levels. Enhances comprehension, concentration, and reading speed.
+                    </span>
+                    <span class="te"><strong>బిగ్గరగా చదవడం vs మౌన పఠనం:</strong>
+                        <br>• <strong>బిగ్గరగా చదవడం (Reading Aloud):</strong> ప్రాథమిక స్థాయిలో ప్రోత్సహించబడుతుంది. ఉచ్చారణ, శ్వాస నిలుపుదల, స్వర శైలి (intonation) మెరుగుపడతాయి.
+                        <br>• <strong>మౌన పఠనం (Silent Reading):</strong> ఉన్నత స్థాయిలో ముఖ్యం. గ్రహణశక్తి, ఏకాగ్రత మరియు వేగాన్ని పెంచుతుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Three Primary Reading Strategies:</strong></span>
+                    <span class="te"><strong>మూడు ప్రధాన పఠన వ్యూహాలు:</strong></span>
+                </div>
+                <ol>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Skimming:</strong> Adopted to review, cover large text quickly, get main idea/gist, and discard irrelevant info.
+                                <br>• Techniques: Reading titles, headings/subheadings, first & last paragraphs, looking at illustrations/captions, refreshing memory.
+                                <div class="example-box">Example: Reading newspaper headlines before picking detailed news.</div>
+                            </span>
+                            <span class="te"><strong>స్కిమ్మింగ్ (Skimming):</strong> పాఠ్యాంశం యొక్క ప్రధాన సారాంశాన్ని త్వరగా గ్రహించడానికి చదవడం. (ఉదా: న్యూస్‌పేపర్ హెడ్‌లైన్స్ చదవడం).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Scanning:</strong> Looking for specific information. Eyes run methodically and quickly over material and stop at the required spot.
+                                <div class="example-box">Examples: Looking at a Railway timetable, searching telephone directory for names/numbers, searching character names in stories, dictionary searches.</div>
+                            </span>
+                            <span class="te"><strong>స్కానింగ్ (Scanning):</strong> ఒక నిర్దిష్ట సమాచారం కోసం మాత్రమే చదవడం. (ఉదా: రైల్వే టైమ్‌టేబుల్, ఫోన్ డైరెక్టరీ, డిక్షనరీలో పదాన్ని వెతకడం).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Intensive Reading Strategy:</strong> Thorough understanding of content/concepts.</span>
+                            <span class="te"><strong>ఇంటెన్సివ్ రీడింగ్ వ్యూహం:</strong> భావాలను లోతుగా అర్థం చేసుకోవడానికి నిశితంగా చదవడం.</span>
+                        </div>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Methods of Teaching Reading:</strong>
+                        <br>1. <strong>Alphabetical Method:</strong> Letters taught first → Words → Short sentences → Continuous text. (Spelling & pronunciation can be tricky).
+                        <br>2. <strong>Phonic Method:</strong> Vowels taught first → Syllables → Words & Phrases. Focuses on pronunciation.
+                        <br>3. <strong>Syllabic Method:</strong> Syllable is basic unit. Divided into words and sentences.
+                        <br>4. <strong>Word Method (Look and Say):</strong> Word is basic unit. Presented with pictures representing the words to convey meaning.
+                        <br>5. <strong>Sentence Method:</strong> Emphasises that sentence continuity offers meaning.
+                        <br>6. <strong>Story Method:</strong> Improvised sentence method where event sequence aids comprehension.
+                    </span>
+                    <span class="te"><strong>పఠన బోధనా పద్ధతులు:</strong>
+                        <br>1. <strong>ఆల్ఫాబెటికల్ మెథడ్:</strong> అక్షరాలు → పదాలు → వాక్యాలు.
+                        <br>2. <strong>ఫోనిక్ మెథడ్:</strong> అచ్చులు (Vowels) → అక్షర గుచ్ఛాలు (Syllables) → పదాలు.
+                        <br>3. <strong>సిలబిక్ మెథడ్:</strong> సిలబుల్ ప్రాథమిక ప్రమాణం.
+                        <br>4. <strong>వర్డ్ మెథడ్:</strong> పదం ప్రాథమిక ప్రమాణం; బొమ్మల ద్వారా పదాలను నేర్పడం.
+                        <br>5. <strong>సెంటెన్స్ మెథడ్:</strong> వాక్యం ద్వారా అర్థాన్ని గ్రహించడం.
+                        <br>6. <strong>స్టోరీ మెథడ్:</strong> కథా సన్నివేశాల క్రమం ద్వారా చదవడం నేర్పడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Contextual Clues & Inferring Meaning (Christine Nuttall Example):</strong>
+                        <br>Syntactic, lexical, and contextual clues help guess unfamiliar words without knowing every single word.
+                        <br><em>Example:</em>
+                        <br>1. She poured the water into a <strong>tock</strong>.
+                        <br>2. Then, lifting the <strong>tock</strong>, she drank.
+                        <br>3. Unfortunately, as she was setting down again, the <strong>tock</strong> slipped from her hand and broke.
+                        <br>4. Only the handle remained in one piece.
+                        <br>→ Here, "tock" is a nonsense word, but context proves it means a cup/glass.
+                        <br>• <strong>Reading between the lines:</strong> Inferring hidden/implicit meanings.
+                        <br>• <strong>Reading beyond the lines:</strong> Deducing lessons and applying them to real life.
+                    </span>
+                    <span class="te"><strong>సందర్భోచిత ఆధారాలు & క్రిస్టిన్ నట్టల్ ఉదాహరణ:</strong>
+                        <br>అన్ని పదాల అర్థాలు తెలియకపోయినా వాక్య నిర్మాణం మరియు సందర్భం ద్వారా అర్థాన్ని ఊహించవచ్చు. క్రిస్టిన్ నట్టల్ ఇచ్చిన "tock" అనే ఊహాజనిత పదం ఉదాహరణ దీనిని నిరూపిస్తుంది.
+                        <br>• <strong>రీడింగ్ బిట్వీన్ ది లైన్స్:</strong> నిగూఢార్థాన్ని/పరోక్ష అర్థాన్ని గ్రహించడం.
+                        <br>• <strong>రీడింగ్ బియాండ్ ది లైన్స్:</strong> చదివిన దాని నుండి పాఠాలను గ్రహించి జీవితానికి వర్తింపజేయడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Strategies to Develop Reading:</strong>
+                        <br>1. <strong>Cloze Passage:</strong> Passages where words are removed at regular intervals for learners to fill in.
+                        <br>2. <strong>Jumbled Reading:</strong> Sentences are jumbled up; learners use <strong>discourse markers</strong> (e.g., <em>however, although, furthermore, namely</em>) to order them. (Variations include mixing two stories).
+                        <br>3. <strong>Graphic / Organic Reading:</strong> Reading non-textual materials like maps, graphs, figures, or railway timetables.
+                    </span>
+                    <span class="te"><strong>పఠనాభివృద్ధి వ్యూహాలు:</strong> క్లోజ్ ప్యాసేజ్, జంబుల్డ్ సెంటెన్సెస్ (డిస్కోర్స్ మార్కర్స్ సహాయంతో అమర్చడం), మరియు మ్యాప్‌లు, గ్రాఫ్‌లు, రైల్వే టైమ్‌టేబుల్స్ చదివే <strong>గ్రాఫిక్/ఆర్గానిక్ రీడింగ్</strong>.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 5: Writing Skill -->
+    <div class="card card-alt-1">
+        <h2>5. Writing Skill (లేఖన నైపుణ్యం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Writing completes language learning. It involves mechanics, structure, and organisation. Because it requires multiple sub-skills, writing is considered a <strong>complex skill</strong>.</span>
+                    <span class="te">రాయడం అనేది భాషా అభ్యసనాన్ని పరిపూర్ణం చేస్తుంది. అనేక ఉప-నైపుణ్యాలు ఉండటం వల్ల దీనిని ఒక <strong>సంక్లిష్టమైన నైపుణ్యం (complex skill)</strong>గా భావిస్తారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Mechanics of Writing (Primary Level):</strong> Includes handwriting, spelling, and punctuation. Strokes of English alphabet differ from Indian languages. Proper spacing, punctuation, and correct size/shape of letters (upward & downward strokes) determine legibility. Double-ruled books and copybooks help practice.</span>
+                    <span class="te"><strong>లేఖన యాంత్రిక నియమాలు:</strong> చేతిరాత, అక్షరక్రమం (spelling) మరియు విరామ చిహ్నాలు (punctuation). ఇంగ్లీష్ అక్షరాల నిలువు గీతలు (strokes) భారతీయ భాషలకు భిన్నంగా ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Capital Letters & Spelling Nuances:</strong> English uses capital letters (absent in Indian languages). English lacks a 1:1 sound-to-spelling ratio (unlike Indian languages). A single sound may have multiple spellings, letters like 'ch' have multiple sounds, and there are silent letters and consonant doubling.</span>
+                    <span class="te"><strong>క్యాపిటల్ అక్షరాలు & అక్షరక్రమం:</strong> భారతీయ భాషలలోలాగా ఇంగ్లీషులో ధ్వనికి, అక్షరానికి 1:1 నిష్పత్తి ఉండదు. సైలెంట్ లెటర్లు, కాన్సోనెంట్ రెట్టింపు కావడం వంటి సవాళ్లు ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Methods for Spelling Mastery:</strong>
+                        <br>• Syllabification (breaking words into syllables).
+                        <br>• Memorisation.
+                        <br>• <strong>Mnemonic Devices:</strong> Word association techniques (e.g., distinguishing <em>stationery</em> vs <em>stationary</em>, or <em>disease</em> vs <em>decease</em>).
+                    </span>
+                    <span class="te"><strong>స్పెల్లింగ్ గుర్తుంచుకునే పద్ధతులు:</strong> పదాలను సిలబుల్స్‌గా విడగొట్టడం, జ్ఞాపకం ఉంచుకోవడం, మరియు <strong>నిమోనిక్ డివైజెస్ (Mnemonic devices)</strong> ద్వారా పదాల అనుబంధాన్ని గుర్తుపెట్టుకోవడం (ఉదా: stationery - stationary).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Paragraph & Composition Writing Steps:</strong>
+                        <br>• Stringing words into sentences → sentences into organized paragraphs → compositions.
+                        <br>• Primary level picture compositions: Describing animals/buildings using visual clues & vocabulary.
+                        <br>• Stage 1: Paragraph with blanks to fill.
+                        <br>• Stage 2: Brainstorming points on the chalkboard, then writing the composition.
+                    </span>
+                    <span class="te"><strong>పారాగ్రాఫ్ మరియు కాంపోజిషన్ లేఖన దశలు:</strong> చిత్రాలను చూపిస్తూ ఖాళీలు పూరించడం ద్వారా ప్రారంభించి, ఆపై బోర్డుపై ఆలోచనలను సేకరించి (brainstorming) సొంతంగా రాయించడం.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 6: Communication & Teacher's Role -->
+    <div class="card card-alt-2">
+        <h2>6. Communication Principles & Teacher's Role (భావప్రసార సూత్రాలు మరియు ఉపాధ్యాయుని పాత్ర)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Nature of Communication:</strong> Exchange between conveyor and receiver carrying a purposeful message. Expresser conveys thoughts/feelings and receiver provides feedback. Communication can <em>never be one-sided</em>; if one-sided, it fails.</span>
+                    <span class="te"><strong>భావప్రసార స్వభావం:</strong> ప్రసారకుడికి, స్వీకర్తకు మధ్య జరిగే సందేశ మార్పిడి. కమ్యూనికేషన్ ఎప్పుడూ <strong>ఏకపక్షంగా ఉండకూడదు</strong>; ఏకపక్షమైతే కమ్యూనికేషన్ విఫలమవుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Principles of Effective Communication:</strong> Understanding the audience, subject, and manner of conveyance. Message must be relevant, interesting, and within reach of the receiver.</span>
+                    <span class="te"><strong>సమర్థవంతమైన భావప్రసార సూత్రాలు:</strong> శ్రోతల స్థాయి, విషయం మరియు సందేశ ప్రాముఖ్యత ఆధారంగా భావప్రసారం జరగాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Politeness Principles & Personality Development:</strong> Teaching learners how to speak, greet, thank, and use appropriate social functions. Personality goes beyond looks — human beings are social beings. Developing self-esteem, tolerance, and respect for others' views builds personality.</span>
+                    <span class="te"><strong>మర్యాదపూర్వక సూత్రాలు (Politeness Principles):</strong> అభివాదం చేయడం, ధన్యవాదాలు తెలపడం వంటి సామాజిక మర్యాదలను నేర్పించడం విద్యార్థుల వ్యక్తిత్వ వికాసానికి (Personality Development) దోహదపడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Multiple Roles of a Teacher:</strong> Disciplinarian, counsellor, assessor, model language user, partner in learning, and resource of knowledge. Teacher acts as a role model in values (punctuality, discipline, patriotism) and academic language.</span>
+                    <span class="te"><strong>ఉపాధ్యాయుని పాత్రలు:</strong> క్రమశిక్షకుడు, కౌన్సిలర్, మూల్యాంకనకర్త, భాషా నమూనాకర్త, అభ్యసన భాగస్వామి మరియు జ్ఞాన వనరు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Reference Tools (Picture Dictionary & Thesaurus):</strong>
+                        <br>• Primary learners should be taught to use a <strong>Picture Dictionary</strong> for word meanings.
+                        <br>• <strong>Thesaurus:</strong> Not a standard dictionary, but a reference tool that helps find <em>synonyms and antonyms</em>. Learners must first understand its structure to expand vocabulary.
+                    </span>
+                    <span class="te"><strong>నిఘంటువు మరియు థిసారస్ (Thesaurus) వాడకం:</strong>
+                        <br>• ప్రాథమిక స్థాయి విద్యార్థులకు <strong>పిక్చర్ డిక్షనరీ</strong> వాడటం నేర్పించాలి.
+                        <br>• <strong>థిసారస్ (Thesaurus):</strong> ఇది సాధారణ డిక్షనరీ కాదు; సమానార్థకాలు (Synonyms) మరియు వ్యతిరేకార్థకాలు (Antonyms) కనుగొనడానికి ఉపయోగపడే గ్రంథం.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>

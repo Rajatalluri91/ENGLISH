@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5: Teaching of Structures and Vocabulary</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary: #0284c7;
+            --accent-1: #0d9488;
+            --accent-2: #7c3aed;
+            --accent-3: #d97706;
+            --accent-4: #dc2626;
+            --accent-5: #2563eb;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+        .card.card-alt-5 { border-left-color: var(--accent-5); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+        .card-alt-5 h2 { color: var(--accent-5); }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #4b5563;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #94a3b8;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+        .sub-list {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 5: Teaching of Structures and Vocabulary</h1>
+        <p>Complete Exhaustive Notes — English & Telugu Bilingual Study Guide</p>
+    </header>
+
+    <!-- Section 1: Introduction to Structures & Methods -->
+    <div class="card card-alt-1">
+        <h2>1. Teaching of Structures (నిర్మాణాల బోధన)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">There are words and words in a language. The arrangement of some of the words in a sentence is called a <strong>sentence structure</strong>.</span>
+                    <span class="te">ఒక భాషలో లెక్కలేనన్ని పదాలు ఉంటాయి. ఒక వాక్యంలోని కొన్ని పదాల అమరికను <strong>వాక్య నిర్మాణం (sentence structure)</strong> అంటారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">If structure is the <strong>skeleton</strong> of a sentence, words form its <strong>flesh</strong>.</span>
+                    <span class="te">నిర్మాణం అనేది వాక్యానికి <strong>అస్థిపంజరం (skeleton)</strong> లాంటిదైతే, పదాలు దానికి <strong>మాంసకండరాలు (flesh)</strong> వంటివి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Four Key Methods/Techniques for Teaching Structures:</strong></span>
+                    <span class="te"><strong>నిర్మాణాలను బోధించే 4 ముఖ్యమైన పద్ధతులు/టెక్నిక్‌లు:</strong></span>
+                </div>
+                <ol>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Substitution Tables (ఆదేశ పట్టికలు):</strong>
+                                <br>• Learners studying a second language find substitution tables easy to read from.
+                                <br>• They frame sentences by taking words from different columns of the table.
+                                <br>• With the help of substitution tables, many correct sentences can be framed by learners with ease and confidence.
+                                <br>• At the practice level, learners get the satisfaction that they are making sentences without any mistakes.
+                                <br>• Teachers should take care to see that mechanical framing gives way to meaningful use of such sentences.
+                            </span>
+                            <span class="te"><strong>ఆదేశ పట్టికలు (Substitution Tables):</strong>
+                                <br>• రెండవ భాష నేర్చుకునే అభ్యసకులకు ఆదేశ పట్టికల నుండి చదవడం సులువుగా ఉంటుంది.
+                                <br>• పట్టికలోని వివిధ నిలువు వరుసల (columns) నుండి పదాలను తీసుకుని వాక్యాలను నిర్మిస్తారు.
+                                <br>• వీటి సహాయంతో విద్యార్థులు ఎటువంటి తప్పులు లేకుండా ఆత్మవిశ్వాసంతో సరియైన వాక్యాలను నిర్మిస్తారు.
+                                <br>• యంత్రవత్తైన అమరిక (mechanical framing) నుండి ఈ వాక్యాలను అర్థవంతంగా ఉపయోగించేలా చూడటంపై ఉపాధ్యాయులు శ్రద్ధ వహించాలి.
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Classroom Situational Approach (తరగతి గది సన్నివేశాలు):</strong>
+                                <br>• Teachers can create a situation with the things available in the classroom and make the students understand the language used.
+                                <br>• Coupled with some description, an action can be performed.
+                                <br>• As a child's attention is drawn to the situation described, meaningful interaction takes place and the structure used is learnt very easily.
+                            </span>
+                            <span class="te"><strong>తరగతి గది సన్నివేశాలు (Classroom Situations):</strong>
+                                <br>• తరగతి గదిలో అందుబాటులో ఉన్న వస్తువులతో ఉపాధ్యాయులు ఒక సన్నివేశాన్ని సృష్టించి, ఉపయోగించిన భాషను విద్యార్థులు అర్థం చేసుకునేలా చేయవచ్చు.
+                                <br>• వివరణతో పాటు ఒక పనిని (action) ప్రదర్శించవచ్చు.
+                                <br>• పిల్లల దృష్టి ఆ సన్నివేశంపైకి మళ్లినప్పుడు అర్థవంతమైన సంభాషణ జరిగి, ఆ నిర్మాణం చాలా సులభంగా నేర్చుకోబడుతుంది.
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Pictures (చిత్రాలు):</strong> Pictures aid comprehension. We can teach structures through pictures too.</span>
+                            <span class="te"><strong>చిత్రాలు (Pictures):</strong> బొమ్మలు గ్రహణశక్తికి (comprehension) తోడ్పడతాయి. చిత్రాల ద్వారా కూడా నిర్మాణాలను బోధించవచ్చు.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bilingual-item">
+                            <span class="en"><strong>Role Plays and Games (పాత్ర అభినయం మరియు ఆటలు):</strong>
+                                <br>• We can ask students to perform some action, get something, respond, take the role of somebody, or play a language game. Then learning becomes meaningful and enjoyable.
+                                <br>• In many such instances, pupils are not consciously learning but acquire language in a meaningful way without any inhibitions.
+                                <br>• <strong>Touch and Say Game:</strong> Blindfold a child by tying a handkerchief over her eyes and ask her to touch a thing and name it.
+                                <br>• <strong>Masks' Game:</strong> Children imagine themselves to be the character of the mask that they are using.
+                                <br>• <strong>Squiggles:</strong> Irregular lines with twists and curls.
+                                <br>• <strong>Squiggles' Game:</strong> Pupils can imagine squiggles to be anything they like.
+                                <br>• <strong>Interview Questions:</strong> Interview-type questions also help students to learn through structures.
+                            </span>
+                            <span class="te"><strong>పాత్ర అభినయం మరియు ఆటలు (Role plays and games):</strong>
+                                <br>• విద్యార్థులను ఒక పని చేయమని, ఏదైనా తీసుకురమ్మని, స్పందించమని లేదా ఒక పాత్రను పోషించమని లేదా భాషా క్రీడ ఆడమని అడగవచ్చు. దీనివల్ల అభ్యసనం అర్థవంతంగా, ఆనందదాయకంగా మారుతుంది.
+                                <br>• <strong>టచ్ అండ్ సే గేమ్ (Touch and say game):</strong> కళ్లకు గుడ్డ కట్టి, ఏదైనా వస్తువును తాకి చెప్పమనడం.
+                                <br>• <strong>మాస్క్స్ గేమ్ (Masks' game):</strong> ధరించిన ముసుగు (mask) పాత్రలో తమను తాము ఊహించుకోవడం.
+                                <br>• <strong>స్క్విగ్గల్స్ (Squiggles):</strong> మెలికలు మరియు వంకరలతో కూడిన క్రమరహిత గీతలు.
+                                <br>• <strong>స్క్విగ్గల్స్ గేమ్:</strong> విద్యార్థులు ఈ గీతలను తమకు నచ్చిన రూపంగా ఊహించుకుంటారు.
+                                <br>• ఇంటర్వ్యూ రకం ప్రశ్నలు కూడా నిర్మాణాల ద్వారా నేర్చుకోవడానికి సహాయపడతాయి.
+                            </span>
+                        </div>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Word Types & Lexical Relations -->
+    <div class="card card-alt-2">
+        <h2>2. Content vs Structural Words & Lexical Relations (పద రకాలు & సంబంధాలు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Content Words (అర్థవంతమైన పదాలు):</strong>
+                        <br>• Words which carry the main meaning of the sentence.
+                        <br>• Unlimited in number. Some new words of this sort are always added to the existing words in a language.
+                        <br>• Include: <strong>Nouns, Adjectives, Verbs, Adverbs</strong>.
+                        <br>• <strong>Newspaper Headlines:</strong> Prepared mainly with content words. All or some of the structural words are missing in headlines.
+                    </span>
+                    <span class="te"><strong>కంటెంట్ వర్డ్స్ (Content Words):</strong>
+                        <br>• వాక్యం యొక్క ప్రధాన అర్థాన్ని మోసుకెళ్లే పదాలు.
+                        <br>• ఇవి పరిమితి లేని సంఖ్యలో (unlimited) ఉంటాయి. ఎప్పటికప్పుడు కొత్త పదాలు చేరుతూ ఉంటాయి.
+                        <br>• ఉదాహరణలు: <strong>నామవాచకాలు (Nouns), విశేషణాల (Adjectives), క్రియలు (Verbs), క్రియావిశేషణాలు (Adverbs)</strong>.
+                        <br>• వార్తాపత్రికల హెడ్‌లైన్‌లు ప్రధానంగా కంటెంట్ వర్డ్‌లతోనే తయారు చేయబడతాయి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Structural Words (నిర్మాణాత్మక పదాలు):</strong>
+                        <br>• Words which don't carry the main meaning of the sentence.
+                        <br>• Useful in making the sentence grammatically acceptable.
+                        <br>• Limited in number. They are very often used in speech and writing.
+                        <br>• Include: <strong>Determiners, Helping Verbs, Pronouns, Prepositions, Conjunctions</strong>.
+                    </span>
+                    <span class="te"><strong>స్ట్రక్చరల్ వర్డ్స్ (Structural Words):</strong>
+                        <br>• వాక్యానికి ప్రధాన అర్థాన్ని ఇవ్వని పదాలు, కానీ వాక్యాన్ని వ్యాకరణబద్ధంగా మార్చడానికి ఉపయోగపడతాయి.
+                        <br>• ఇవి పరిమిత సంఖ్యలో (limited) ఉంటాయి. మాటలలో, రాతలో తరచూ వాడబడతాయి.
+                        <br>• ఉదాహరణలు: <strong>డిటర్మినర్లు, సహాయక క్రియలు (Helping verbs), సర్వనామాలు (Pronouns), విభక్తులు/ప్రెపోజిషన్లు, సముచ్చయాలు (Conjunctions)</strong>.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Lexical Terminology (పదజాల భావనలు):</strong>
+                        <br>• <strong>Synonym (పర్యాయపదం):</strong> A word having the same or nearly the same meaning as another word in the same language.
+                        <br>• <strong>Antonym (వ్యతిరేకపదం):</strong> A word that means the opposite of another word.
+                        <br>• <strong>Homonyms (నానార్థాలు/సమరూప పదాలు):</strong> A word spelt like another word but having a different meaning.
+                        <br>• <strong>Homophones (సమధ్వని పదాలు):</strong> Two words having the same pronunciation, but different spelling and meaning.
+                    </span>
+                    <span class="te"><strong>పదజాల భావనలు:</strong>
+                        <br>• <strong>సినానిమ్ (Synonym):</strong> ఒకే రకమైన అర్థాన్ని ఇచ్చే పదం (పర్యాయపదం).
+                        <br>• <strong>యాంటోనిమ్ (Antonym):</strong> వ్యతిరేక అర్థాన్ని ఇచ్చే పదం (వ్యతిరేక పదం).
+                        <br>• <strong>హోమోనిమ్ (Homonyms):</strong> ఒకే రకమైన స్పెల్లింగ్ ఉండి వేర్వేరు అర్థాలు ఇచ్చే పదం.
+                        <br>• <strong>హోమోఫోన్ (Homophones):</strong> ఒకే రకమైన ఉచ్చారణ (pronunciation) ఉండి, వేర్వేరు స్పెల్లింగ్ మరియు అర్థాలు కలిగిన పదాలు.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Types of Vocabulary & Teaching Techniques -->
+    <div class="card card-alt-3">
+        <h2>3. Types of Vocabulary & Teaching Techniques (పదజాల రకాలు & బోధనా పద్ధతులు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Classification of Vocabulary:</strong>
+                        <br>• <strong>Active Vocabulary (సక్రియ పదజాలం):</strong> Words that a student can use when he speaks or writes. Must be presented with utmost care.
+                        <br>• <strong>Recognition / Passive Vocabulary (గుర్తింపు పదజాలం):</strong> Words that students understand when listening or reading, but don't actively use in speech/writing yet.
+                        <br>• <strong>Adhoc Vocabulary (తత్కాలిక పదజాలం):</strong> Vocabulary used to describe something formed or used for a special and immediate purpose, without previous planning.
+                    </span>
+                    <span class="te"><strong>పదజాల వర్గీకరణ:</strong>
+                        <br>• <strong>యాక్టివ్ వొకాబులరీ (Active Vocabulary):</strong> విద్యార్థి మాట్లాడేటప్పుడు లేదా రాసేటప్పుడు స్వయంగా ఉపయోగించగల పదాలు. వీటిని అత్యంత జాగ్రత్తగా నేర్పించాలి.
+                        <br>• <strong>రెకగ్నిషన్ వొకాబులరీ (Recognition Vocabulary):</strong> ఇతరులు మాట్లాడేటప్పుడు విని లేదా చదివి అర్థం చేసుకునే పదాలు, కానీ వారు సొంతంగా వాడలేరు.
+                        <br>• <strong>యాడ్‌హాక్ వొకాబులరీ (Adhoc Vocabulary):</strong> ఎటువంటి ముందస్తు ప్రణాళిక లేకుండా, ఒక ప్రత్యేక మరియు తక్షణ అవసరం కోసం ఉపయోగించే పదజాలం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Techniques of Teaching Vocabulary:</strong>
+                        <br>• <strong>Realia (ప్రత్యక్ష వస్తువులు):</strong> Showing the real object that a word represents if small enough to bring into the classroom. When realia are used, mother tongue need NOT be used in the classroom.
+                        <br>• <strong>Pictures and Photographs:</strong> Collected from newspapers, magazines, and the internet.
+                        <br>• <strong>Matchstick Diagrams (పుల్లల రేఖాచిత్రాలు):</strong> Simple line drawings used to teach objects, professions, describing words, action words, prepositions, etc. 
+                            <br><em>Reference Book:</em> <strong>'1000 Pictures' written by Andrew Wright</strong> is a useful book for matchstick diagrams.
+                        <br>• <strong>Gestures, Expressions, and Actions:</strong> Using facial expressions and bodily actions to convey meanings.
+                        <br>• <strong>Using Dictionary:</strong> Encouraging pupils to use a dictionary to become self-reliant learners.
+                        <br>• <strong>Eliciting Related Words:</strong> Eliciting words from students and building a word web/list.
+                        <br>• <strong>Definitions:</strong> Giving clear definitions in English.
+                        <br>• <strong>Limited Translation into Mother Tongue:</strong> Translating a few difficult words (NOT the entire text) avoids very long definitions in English and serves as a useful <em>time-saving tool</em>.
+                        <br>• <strong>Crossword Puzzles and Games:</strong> Help learners consolidate words already learnt.
+                        <br>• <strong>Classroom Library:</strong> Textbook is not the only book students read. In the teaching-learning process, <em>"text is only a pretext"</em>. Encourage reading library books in leisure time.
+                    </span>
+                    <span class="te"><strong>పదజాల బోధనా పద్ధతులు:</strong>
+                        <br>• <strong>రియాలియా (Realia):</strong> తరగతికి తేగలిగే చిన్న ప్రత్యక్ష వస్తువులను చూపించి బోధించడం. రియాలియా వాడినప్పుడు మాతృభాషను ఉపయోగించాల్సిన అవసరం లేదు.
+                        <br>• <strong>చిత్రాలు మరియు ఫోటోగ్రాఫ్‌లు:</strong> వార్తాపత్రికలు, మ్యాగజైన్‌ల నుండి సేకరించినవి.
+                        <br>• <strong>మ్యాచ్‌స్టిక్ డయాగ్రమ్స్ (Matchstick Diagrams):</strong> కొన్ని గీతలతో చాలా సులభంగా వేసే బొమ్మలు.
+                            <br><em>ముఖ్యమైన పుస్తకం:</em> ఆండ్రూ రైట్ (Andrew Wright) రాసిన <strong>'1000 Pictures'</strong> అనే పుస్తకం దీనికి చాలా ఉపయోగకరమైనది.
+                        <br>• <strong>అభినయం మరియు సైగలు:</strong> హావభావాలు, సైగలు ద్వారా బోధించడం.
+                        <br>• <strong>డిక్షనరీ వాడకం:</strong> విద్యార్థులను స్వయం సమృద్ధి గల అభ్యసకులుగా (self-reliant learners) మార్చడానికి డిక్షనరీని ఉపయోగించమని ప్రోత్సహించడం.
+                        <br>• <strong>పరిమిత మాతృభాషా అనువాదం:</strong> మొత్తం పాఠాన్ని కాకుండా కేవలం కొన్ని పదాలను మాత్రమే అనువదించడం వల్ల సమయం ఆదా అవుతుంది (time-saving tool).
+                        <br>• <strong>క్రాస్‌వర్డ్ పజిల్స్ మరియు గేమ్‌లు:</strong> నేర్చుకున్న పదాలను పునశ్చరణ చేసుకోవడానికి సహాయపడతాయి.
+                        <br>• <strong>తరగతి గది లైబ్రరీ:</strong> బోధనా-అభ్యసన ప్రక్రియలో <em>"Text is only a pretext"</em> (పాఠ్యపుస్తకం ఒక నెపం మాత్రమే).
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 4: Grammar Concepts & Miscellany -->
+    <div class="card card-alt-4">
+        <h2>4. Grammar Concepts & Key Points (వ్యాకరణ అంశాలు & ఇతర నియమాలు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>CIEFL:</strong> Central Institute of English and Foreign Languages (Hyderabad).</span>
+                    <span class="te"><strong>CIEFL:</strong> సెంట్రల్ ఇన్‌స్టిట్యూట్ ఆఫ్ ఇంగ్లీష్ అండ్ ఫారిన్ లాంగ్వేజెస్.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Prescriptive Grammar (విధాయక వ్యాకరణం):</strong> Gives many rules and tells what is right and wrong in a language. However, language is NOT acquired merely by learning such rules. Exposure to language in all its forms is what is important. Even while teaching grammar, opportunities must be provided to speak, write, read, and listen.</span>
+                    <span class="te"><strong>ప్రిస్క్రిప్టివ్ గ్రామార్ (Prescriptive Grammar):</strong> అనేక నియమాలను ఇస్తూ భాషలో ఏది తప్పు, ఏది ఒప్పో చెబుతుంది. కానీ నియమాలు చదవడం వల్ల మాత్రమే భాష రాదు. భాషతో సంబంధం/ఎక్స్‌పోజర్ ముఖ్యం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Conditionals (Type I vs Type II):</strong>
+                        <br>• Conditional Type-II does NOT refer to past events.
+                        <br>• In matters of time, both Type I and Type II refer to the same situation, but differ in meaning.
+                        <br>• <strong>Type I:</strong> Refers to <em>probable conditions</em>.
+                        <br>• <strong>Type II:</strong> Refers to <em>improbable conditions</em>.
+                    </span>
+                    <span class="te"><strong>కండిషనల్స్ (Type I & Type II):</strong>
+                        <br>• కండిషనల్ టైప్-II అనేది గతాన్ని (past events) సూచించదు.
+                        <br>• సమయం దృష్ట్యా Type I మరియు Type II రెండూ ఒకే పరిస్థితిని సూచించినప్పటికీ అర్థంలో భిన్నంగా ఉంటాయి.
+                        <br>• <strong>Type I:</strong> సంభవించే అవకాశం ఉన్న షరతులు (probable conditions).
+                        <br>• <strong>Type II:</strong> సంభవించే అవకాశం లేని/అసంభవమైన షరతులు (improbable conditions).
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Tense vs Time & Aspect:</strong>
+                        <br>• Tense and time are two different concepts.
+                        <br>• <strong>Aspect:</strong> Tells us whether an action is continuing or has been completed.
+                    </span>
+                    <span class="te"><strong>టెన్స్ మరియు టైమ్ & ఆస్పెక్ట్:</strong>
+                        <br>• కాలం (Time) మరియు టెన్స్ (Tense) రెండూ వేర్వేరు భావనలు.
+                        <br>• <strong>ఆస్పెక్ట్ (Aspect):</strong> ఒక పని ఇంకా కొనసాగుతుందో లేక పూర్తయిందో తెలియజేస్తుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Question Tags:</strong>
+                        <br>• A question tag is a short question coming after a statement.
+                        <br>• Formed using an <strong>auxiliary verb and a pronoun</strong>.
+                        <br>• Usually <strong>negative after affirmative statements</strong> and <strong>not negative (positive) after negative statements</strong>.
+                    </span>
+                    <span class="te"><strong>క్వశ్చన్ టాగ్స్ (Question Tags):</strong>
+                        <br>• వాక్యం ముగింపులో వచ్చే చిన్న ప్రశ్న.
+                        <br>• <strong>సహాయక క్రియ (auxiliary verb) మరియు సర్వనామం (pronoun)</strong> లతో ఏర్పడుతుంది.
+                        <br>• అనుకూల వాక్యం (affirmative statement) తర్వాత నెగెటివ్ టాగ్, వ్యతిరేక వాక్యం (negative statement) తర్వాత పాజిటివ్ టాగ్ వస్తుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Prepositions & Noun Phrases:</strong> Prepositions are usually followed by a <strong>noun phrase</strong>.</span>
+                    <span class="te"><strong>విభక్తులు (Prepositions):</strong> ప్రెపోజిషన్ల తర్వాత సాధారణంగా <strong>నామవాచక పదబంధం (noun phrase)</strong> వస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Error Tolerance (దోష సహనం):</strong> All of us make errors at the time of learning a language. Some teachers are very kind towards their students and show <em>error tolerance</em> to encourage learning.</span>
+                    <span class="te"><strong>ఎర్రర్ టాలరెన్స్ (Error Tolerance):</strong> భాష నేర్చుకునేటప్పుడు అందరూ తప్పులు చేస్తారు. కొంతమంది దయాహృదయులైన ఉపాధ్యాయులు విద్యార్థుల పట్ల <strong>దోష సహనం (error tolerance)</strong> ప్రదర్శిస్తారు.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9: Evaluation / మూల్యాంకనం</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --card-border: #e0e6ed;
+            --primary: #4a90e2;
+            --secondary: #50e3c2;
+            --accent-1: #e74c3c;
+            --accent-2: #8e44ad;
+            --accent-3: #f39c12;
+            --accent-4: #27ae60;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --card-border: #333333;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #666;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #aaa;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.6rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 9: Evaluation (మూల్యాంకనం)</h1>
+        <p>Comprehensive Study Material — Complete English & Telugu Breakdown</p>
+    </header>
+
+    <!-- Section 1: Introduction to Evaluation -->
+    <div class="card card-alt-1">
+        <h2>1. General Principles of Evaluation (మూల్యాంకనం యొక్క సాధారణ సూత్రాలు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evaluation should be seen as an <strong>integral part</strong> of the teaching and learning process.</span>
+                    <span class="te">మూల్యాంకనాన్ని బోధనా-అభ్యాస ప్రక్రియలో ఒక <strong>అవిభాజ్య భాగంగా</strong> చూడాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">There are a variety of factors that influence evaluation. They are <strong>teaching-learning process</strong> in the classroom, the <strong>syllabus</strong>, <strong>materials</strong>, <strong>classroom procedures</strong>, the teacher inputs such as <strong>aptitude, training, experience</strong> and the <strong>students inputs</strong>.</span>
+                    <span class="te">మూల్యాంకనాన్ని ప్రభావితం చేసే అంశాలు అనేకంగా ఉన్నాయి. అవి: తరగతి గదిలోని <strong>బోధనా-అభ్యాస ప్రక్రియ</strong>, <strong>సెలబస్</strong>, <strong>బోధనా సామగ్రి</strong>, <strong>తరగతి గది పద్ధతులు</strong>, ఉపాధ్యాయుని <strong>సహజ సామర్థ్యం, శిక్షణ, అనుభవం</strong> వంటి అంశాలు మరియు <strong>విద్యార్థుల భాగస్వామ్యం/అంశాలు</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Designing tests</strong> is another area that needs careful attention.</span>
+                    <span class="te"><strong>పరీక్షలను రూపొందించడం</strong> అనేది తీవ్రమైన శ్రద్ధ వహించాల్సిన మరొక అంశం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evaluation is a <strong>very natural activity</strong>, something that we normally do as a part of our everyday work. We may do this either <strong>consciously or unconsciously</strong> and <strong>formally or informally</strong>.</span>
+                    <span class="te">మూల్యాంకనం అనేది ఒక <strong>చాలా సహజమైన ప్రక్రియ</strong>, దీనిని మనం సాధారణంగా నిత్య జీవితంలో చేస్తాం. దీనిని మనం <strong>సచేతనంగా (తెలిసి) లేదా అచేతనంగా (తెలియక)</strong>, మరియు <strong>సాంప్రదాయకంగా (ఫార్మల్) లేదా అసాంప్రదాయకంగా (ఇన్‌ఫార్మల్)</strong> చేయవచ్చు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">We <strong>pass judgements</strong> in conversation, while reading, while shopping, while eating and while watching television or movies, often being quite <strong>unaware that we are doing so</strong>.</span>
+                    <span class="te">మనం సంభాషిస్తున్నప్పుడు, చదువుతున్నప్పుడు, షాపింగ్ చేస్తున్నప్పుడు, తింటున్నప్పుడు, టీవీ లేదా సినిమాలు చూస్తున్నప్పుడు <strong>తీర్పులు/అభిప్రాయాలు చెబుతుంటాం</strong>, తరచుగా మనం అలా చేస్తున్నామని <strong>మనకు తెలియకుండానే</strong> ఇది జరుగుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evaluation involves the <strong>interpretation of what is measured</strong>.</span>
+                    <span class="te">మూల్యాంకనంలో <strong>కొలవబడిన (మాపనం చేయబడిన) దాని యొక్క వ్యాఖ్యానం (Interpretation)</strong> ఇమిడి ఉంటుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">In addition to the description of behaviour in terms of numbers, evaluation also includes <strong>value judgements</strong> about the things described.</span>
+                    <span class="te">ప్రవర్తనను సంఖ్యల రూపంలో వివరించడంతో పాటు, వివరించబడిన అంశాలకు సంబందించిన <strong>విలువలతో కూడిన వ్యాఖ్యలను (Value Judgements)</strong> కూడా మూల్యాంకనం కలిగి ఉంటుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The <strong>primary/basic criteria</strong> - for evaluation - the <strong>course objectives</strong> or <strong>instructional objectives</strong> or criteria by which worth is determined.</span>
+                    <span class="te">మూల్యాంకనానికి <strong>ప్రాథమిక ప్రమాణాలు</strong> — <strong>కోర్సు లక్ష్యాలు</strong> లేదా <strong>బోధనా లక్ష్యాలు</strong>, వీటి ఆధారంగానే విలువ అనేది నిర్ధారించబడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Defining the instructional objectives clearly in terms of the <strong>learner's terminal behaviour</strong> would be the <strong>first step</strong> in the process of evaluation.</span>
+                    <span class="te">మూల్యాంకన ప్రక్రియలో <strong>మొదటి సోపానం</strong>: బోధనా లక్ష్యాలను <strong>అభ్యసకుడి తుది ప్రవర్తన (Terminal Behaviour)</strong> రూపంలో స్పష్టంగా నిర్వచించడం.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Steps in Evaluation -->
+    <div class="card card-alt-2">
+        <h2>2. Steps Followed in the Evaluation of Students Achievement (విద్యార్థుల సాధన మూల్యాంకనంలో సోపానాలు)</h2>
+        <ol>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Identification of course objectives</strong> (the expected outcome).</span>
+                    <span class="te"><strong>కోర్సు లక్ష్యాలను గురించడం</strong> (ఆశించిన ఫలితాలు).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Defining the objectives in behavioural terms</strong> (in terms of the learner's terminal behaviour).</span>
+                    <span class="te"><strong>లక్ష్యాలను ప్రవర్తనా రూపంలో నిర్వచించడం</strong> (అభ్యసకుడి తుది ప్రవర్తన రూపంలో).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Constructing appropriate tools</strong> or instruments for measuring the behaviour.</span>
+                    <span class="te">ప్రవర్తనను కొలవడానికి <strong>సముచితమైన సాధనాలు/పరికరాలను తయారు చేయడం</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Applying the tools and analysing the results</strong> to determine the degree of learner's achievement in the instructional programme.</span>
+                    <span class="te">బోధనా కార్యక్రమంలో అభ్యసకుడి సాధన స్థాయిని నిర్ధారించడానికి <strong>సాధనాలను ఉపయోగించడం మరియు ఫలితాలను విశ్లేషించడం</strong>.</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Section 3: Measurement Process -->
+    <div class="card card-alt-3">
+        <h2>3. Measurement and Evaluation (మాపనం మరియు మూల్యాంకనం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Both the measurement and evaluation require a variety of tools or instruments such as <strong>tests, rating scales, inventories, checklist, questionnaires</strong> etc.</span>
+                    <span class="te">మాపనం మరియు మూల్యాంకనం రెండింటికీ <strong>పరీక్షలు, రేటింగ్ స్కేళ్లు, ఇన్వెంటరీలు, చెక్‌లిస్ట్‌లు, ప్రశ్నాపత్రాలు</strong> వంటి వివిధ రకాల సాధనాలు అవసరం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Measurement in education broadly consists of <strong>arranging or ordering of individual learners</strong> in accordance with their responses to specific tests connected with the learning that takes place in an instructional programme.</span>
+                    <span class="te">విద్యలో మాపనం అంటే బోధనా కార్యక్రమంలో జరిగిన అభ్యసనానికి సంబంధించి నిర్వహించిన పరీక్షలలో విద్యార్థులు ఇచ్చిన సమాధానాల ఆధారంగా <strong>వారిని ఒక వరుసలో అమర్చడం లేదా ర్యాంక్ చేయడం</strong>.</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3>The Three Important Elements in the Measurement Process (మాపన ప్రక్రియలోని 3 ముఖ్యమైన అంశాలు):</h3>
+        <ol>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Test situation</strong></span>
+                    <span class="te"><strong>పరీక్షా సన్నివేశం (Test Situation)</strong></span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>The individual learner's response</strong> to such situations</span>
+                    <span class="te">ఆ సన్నివేశాలకు <strong>అభ్యసకుడి ప్రతిస్పందన</strong></span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Ordering of individual learners</strong> based on the assessment judgement of their responses expressed in terms of scores / grades.</span>
+                    <span class="te">విద్యార్థుల ప్రతిస్పందనల అంచనా ఆధారంగా వారి మార్కులు/గ్రేడ్లను బట్టి <strong>వారిని ఒక వరుస క్రమంలో అమర్చడం</strong>.</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Section 4: Nature of Evaluation -->
+    <div class="card card-alt-4">
+        <h2>4. Continuous and Comprehensive Nature of Evaluation (నిరంతర సమగ్ర మూల్యాంకన స్వభావం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Education is a <strong>continuous process</strong>. Therefore, evaluation and development must <strong>go hand in hand</strong>.</span>
+                    <span class="te">విద్య అనేది ఒక <strong>నిరంతర ప్రక్రియ</strong>. కాబట్టి మూల్యాంకనం మరియు అభివృద్ధి <strong>జంటగా ముందుకు సాగాలి</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evaluation has to be carried out in <strong>every possible situation or activity</strong> and throughout the period of formal education of a student.</span>
+                    <span class="te">విద్యార్థి యొక్క పాఠశాల విద్య సమయమంతటా ప్రతీ <strong>అవకాశం లేదా కృత్యంలో</strong> మూల్యాంకనం జరగాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evaluation has to be <strong>continuous and comprehensive</strong>.</span>
+                    <span class="te">మూల్యాంకనం <strong>నిరంతరం మరియు సమగ్రంగా (Continuous and Comprehensive)</strong> ఉండాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">By comprehensive evaluation, we mean that evaluation should not concern itself only with knowledge, but it shall also take into account the factors that are inherent in students' growth such as <strong>skills, understanding, appreciation, interest, attitude and habits</strong>.</span>
+                    <span class="te">సమగ్ర మూల్యాంకనం అంటే కేవలం జ్ఞానాన్ని మాత్రమే కాకుండా విద్యార్థుల ఎదుగుదలకు తోడ్పడే <strong>నైపుణ్యాలు, అవగాహన, ప్రశంస, ఆసక్తి, వైఖరులు మరియు అలవాట్లను</strong> కూడా పరిగణనలోకి తీసుకోవడం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evaluation should cover all the learning experiences of the learner in <strong>curricular, as well as co-curricular areas</strong>.</span>
+                    <span class="te">మూల్యాంకనం <strong>పాఠ్యాంశ (Curricular) మరియు సహ-పాఠ్యాంశ (Co-curricular)</strong> రెంటిలోని అభ్యసన అనుభవాలను కవర్ చేయాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evaluation should be carried out in relation to learners' <strong>cognitive, affective and psychomotor growth</strong>.</span>
+                    <span class="te">మూల్యాంకనం అభ్యసకుడి <strong>జ్ఞానాత్మక (Cognitive), భావావేశ (Affective), మరియు మానసిక చలనాత్మక (Psychomotor) రంగాల</strong> అభివృద్ధికి సంబంధించి జరగాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Cognitive growth</strong> refers to the intellectual development of the learners. It includes learner's <strong>knowledge, comprehension, application, analysis, synthesis and evaluation</strong>.</span>
+                    <span class="te"><strong>జ్ఞానాత్మక రంగం</strong> అనేది విద్యార్థి మేధో సంపత్తికి సంబంధించినది. ఇందులో <strong>జ్ఞానం, అవగాహన, వినియోగం, విశ్లేషణ, సంశ్లేషణ మరియు మూల్యాంకనం</strong> ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Affective growth</strong> emphasises the learner's <strong>attitude, interest and personal development</strong>.</span>
+                    <span class="te"><strong>భావావేశ రంగం</strong> విద్యార్థి యొక్క <strong>వైఖరులు, ఆసక్తులు మరియు వ్యక్తిత్వ వికాసాన్ని</strong> నొక్కి చెబుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Psychomotor growth</strong> deals with learners' ability to <strong>perform some activity or do some practical work</strong>.</span>
+                    <span class="te"><strong>మానసిక చలనాత్మక రంగం</strong> విద్యార్థి <strong>పనులు చేయడం లేదా ప్రయోగాత్మక పనులు (Practical work) చేసే</strong> సామర్థ్యంతో వ్యవహరిస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">If you want that teaching learning process to be really effective, you should <strong>evaluate the learners continuously and comprehensively</strong>.</span>
+                    <span class="te">బోధనా-అభ్యసన ప్రక్రియ నిజంగా ప్రభావవంతంగా ఉండాలంటే, విద్యార్థులను <strong>నిరంతరం మరియు సమగ్రంగా మూల్యాంకనం చేయాలి</strong>.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 5: Test Items and Media -->
+    <div class="card card-alt-1">
+        <h2>5. Test Items, Media & Responses (పరీక్ష ప్రశ్నలు, మాధ్యమం మరియు ప్రతిస్పందనలు)</h2>
+        <h3>Types of Test Items (పరీక్ష ప్రశ్నల రకాలు):</h3>
+        <ul>
+            <li><span class="en"><strong>A. Essay questions</strong> (వ్యాసరూప ప్రశ్నలు)</span></li>
+            <li><span class="en"><strong>B. Paragraph questions</strong> (పారాగ్రాఫ్ ప్రశ్నలు)</span></li>
+            <li><span class="en"><strong>C. Short answer questions</strong> (లఘు సమాధాన ప్రశ్నలు)</span></li>
+            <li><span class="en"><strong>D. True/false questions</strong> (సరి/కాదు ప్రశ్నలు)</span></li>
+            <li><span class="en"><strong>E. Multiple choice questions</strong> (బహుళ ఐచ్ఛిక ప్రశ్నలు)</span></li>
+        </ul>
+        <br>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Apart from these usual types of test items, certain situations may involve <strong>role play, construction of material objects or manipulation of apparatus</strong> etc.</span>
+                    <span class="te">ఈ సాధారణ రకాలే కాకుండా, కొన్ని పరిస్థితులలో <strong>పాత్రపోషణ (Role play), వస్తువుల తయారీ లేదా పరికరాలను ఉపయోగించడం (Manipulation of apparatus)</strong> మొదలైనవి కూడా ఉండవచ్చు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Test situations may be administered through various types of media namely, <strong>authentic materials, audio-visual equipment, oral instructions, physical gestures</strong> or combination of two or more of these.</span>
+                    <span class="te">పరీక్షలు <strong>ప్రామాణిక సామగ్రి (Authentic materials), దృశ్య-శ్రవణ పరికరాలు, మౌఖిక సూచనలు, శారీరక సంకేతాలు</strong> లేదా వీటి కలయిక ద్వారా నిర్వహించబడవచ్చు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The mode of responses elicited by the test situations may be <strong>verbal, non-verbal, cognitive, affective or manipulative</strong>.</span>
+                    <span class="te">పరీక్షల ద్వారా రాబట్టే ప్రతిస్పందనలు <strong>శాబ్దిక (Verbal), అశాబ్దిక (Non-verbal), జ్ఞానాత్మక, భావావేశ లేదా నిర్వహణ రకాలుగా (Manipulative)</strong> ఉండవచ్చు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Learner's responses to test situations are the <strong>most crucial and important</strong> in the process of measurement.</span>
+                    <span class="te">మాపన ప్రక్రియలో పరీక్షా సన్నివేశాలకు విద్యార్థి ఇచ్చే <strong>ప్రతిస్పందనలే అత్యంత కీలకమైనవి మరియు ముఖ్యమైనవి</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The scores or numbers which form the quantitative measurements are <strong>based upon what the learner does</strong> in response to the test situations.</span>
+                    <span class="te">పరిమాణాత్మక (Quantitative) మాపనమైన మార్కులు లేదా సంఖ్యలు అనేవి <strong>విద్యార్థి పరీక్షలో ఏమి చేశాడు అనే దాని ఆధారంగానే</strong> నిర్ణయించబడతాయి.</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3>Two Factors Concerned with Learners' Responses (ప్రతిస్పందనలకు సంబంధించి 2 అంశాలు):</h3>
+        <ol>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Direct measurement:</strong> Deals with responses as products. It is concerned with the product in and of itself, its qualities and its desirable characteristics.</span>
+                    <span class="te"><strong>ప్రత్యక్ష మాపనం (Direct Measurement):</strong> ఇది ప్రతిస్పందనను ఒక ఉత్పత్తిగా (Product) చూస్తుంది. ఉత్పత్తి యొక్క గుణాత్మకత మరియు ఆశించిన లక్షణాలతో ఇది వ్యవహరిస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Indirect measurement:</strong> Deals with a symbolic response, one that stands for some kind of process that has gone on behind the scene.</span>
+                    <span class="te"><strong>పరోక్ష మాపనం (Indirect Measurement):</strong> ఇది ప్రతీకాత్మక (Symbolic) ప్రతిస్పందనలతో వ్యవహరిస్తుంది, అనగా వెనుక జరిగిన ఆలోచనా ప్రక్రియను సూచించేది.</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Section 6: Subjectivity & Dyer's Suggestions -->
+    <div class="card card-alt-2">
+        <h2>6. Subjectivity in Evaluation & Dyer's Suggestions (వ్యక్తిగత పక్షపాతం / ఆత్మాశ్రయత నివారణకు డయ్యర్ సూచనలు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The fundamental strategy in the process of testing involves the <strong>judgement by the examiners</strong> of the quality or correctness of the response with respect to a given situation.</span>
+                    <span class="te">పరీక్ష ప్రక్రియలో ప్రధాన వ్యూహం ఏమిటంటే — అడిగిన ప్రశ్నకు విద్యార్థి ఇచ్చిన ప్రతిస్పందన యొక్క సరైన తనాన్ని <strong>పరీక్షకుడు మూల్యాంకనం చేయడం</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The responses of the students will be rewarded by <strong>allotting scores</strong>.</span>
+                    <span class="te">విద్యార్థుల ప్రతిస్పందనలకు <strong>మార్కులు కేటాయించడం</strong> ద్వారా బహుమతి ఇవ్వబడుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The judgements on the part of the examiners are <strong>in a way subjective</strong> as the decisions in general depend upon what the examiners look for in the student responses, their backgrounds, habits of perception and frames of references.</span>
+                    <span class="te">పరిశీలకుల తీర్పులు ఒక రకంగా <strong>ఆత్మాశ్రయమైనవి (Subjective - వ్యక్తిగత అభిప్రాయాలపై ఆధారపడేవి)</strong>, ఎందుకంటే అవి వారి నేపథ్యం, ఆలోచనా సరళి మరియు వారు విద్యార్థుల జవాబుల్లో ఏమి వెతుకుతున్నారు అనే దానిపై ఆధారపడతాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The <strong>minimisation of subjectivity</strong> is the most essential characteristic of good measurement.</span>
+                    <span class="te"><strong>ఆత్మాశ్రయతను/పక్షపాతాన్ని తగ్గించడం</strong> అనేది మంచి మాపనం యొక్క అతి ముఖ్యమైన లక్షణం.</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3>Dyer Suggests 3 Ways to Minimise Subjectivity (డయ్యర్ సూచించిన 3 మార్గాలు):</h3>
+        <ol>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The examiner makes his judgements <strong>following the actual productions</strong> of the responses by students.</span>
+                    <span class="te">విద్యార్థులు <strong>సమాధానాలు రాసిన తర్వాత</strong> మాత్రమే మూల్యాంకకుడు తన తీర్పు/మూల్యాంకనం చేయాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The examiner <strong>anticipates what the response to the test situation will be</strong> and makes his judgement.</span>
+                    <span class="te">సమాధానం ఎలా ఉండవచ్చో <strong>ముందే అంచనా వేసి</strong> దాని ప్రకారం నిర్ణయం తీసుకోవడం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The examiner attempts in advance to <strong>develop models of likely responses</strong> (good, bad and indifferent), and then matches the actual student responses to the appropriate model.</span>
+                    <span class="te">పరీక్షకుడు ముందే కొన్ని <strong>మాదిరి (మంచి, సగటు, పేలవమైన) సమాధాన నమూనాలను (Models) తయారుచేసుకుని</strong>, విద్యార్థుల సమాధానాలను వాటితో సరిపోల్చి మార్కులు వేయాలి.</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Section 7: Formative vs Summative -->
+    <div class="card card-alt-3">
+        <h2>7. Formative and Summative Evaluation (రూపణ మరియు సంగ్రహణాత్మక మూల్యాంకనం)</h2>
+        <h3>Formative Evaluation (రూపణ మూల్యాంకనం):</h3>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Is a process of <strong>ongoing feedback</strong> on performance.</span>
+                    <span class="te">ఇది ప్రతిభపై <strong>నిరంతర ఫీడ్‌బ్యాక్ (పునర్బలనం)</strong> ఇచ్చే ప్రక్రియ.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Purposes:</strong> To identify aspects of performance that <strong>need to improve</strong> and to <strong>offer corrective suggestions</strong>.</span>
+                    <span class="te"><strong>లక్ష్యం:</strong> మెరుగుపడాల్సిన అంశాలను గుర్తించడం మరియు <strong>సవరణ సూచనలను అందించడం</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Be <strong>generous</strong> with formative evaluation. Need <strong>not make a judgement</strong>.</span>
+                    <span class="te">రూపణ మూల్యాంకనం విషయంలో <strong>ఉదారంగా ఉండాలి</strong>. ఇది ఎటువంటి <strong>కఠినమైన తీర్పును ఇవ్వాల్సిన అవసరం లేదు</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Teacher should <strong>offer some alternatives</strong> to the student and use student's documentation like <strong>portfolios, journal entries, diary</strong>, and observations.</span>
+                    <span class="te">ఉపాధ్యాయుడు విద్యార్థికి <strong>ప్రత్యామ్నాయాలను చూపించాలి</strong>, మరియు విద్యార్థుల <strong>పోర్ట్‌ఫోలియోలు, జర్నల్ ఎంట్రీలు, డైరీలు, పరిశీలనలను</strong> ఉపయోగించాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">It is important that the teacher <strong>points out the improvement</strong> of the student.</span>
+                    <span class="te">విద్యార్థిలో వచ్చిన <strong>మెరుగుదలను ఉపాధ్యాయుడు స్పష్టంగా ప్రస్తావించడం</strong> చాలా ముఖ్యం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>When to give:</strong> At the end of an incident; at the end of a day; weekly progress.</span>
+                    <span class="te"><strong>ఎప్పుడు ఇవ్వాలి:</strong> ఒక సన్నివేశం ముగిసాక, రోజు చివరలో, లేదా వారపు పురోగతి ఆధారంగా.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Needed if <strong>precautionary concerns arise</strong> in a student's behaviour within a group.</span>
+                    <span class="te">సమూహంలో విద్యార్థి ప్రవర్తనలో ఏవైనా <strong>ముందస్తు హెచ్చరికలు లేదా ఆందోళనలు ఉన్నప్పుడు</strong> ఇది అవసరం.</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3>Summative Evaluation (సంగ్రహణాత్మక మూల్యాంకనం):</h3>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">A process of <strong>identifying larger patterns and trends</strong> in performance and judging these summary statements against criteria to obtain <strong>performance ratings</strong>.</span>
+                    <span class="te">విద్యార్థి యొక్క మొత్తం ప్రతిభను ఒకేసారి అంచనా వేసి <strong>రేటింగ్‌లు లేదా గ్రేడ్‌లు ఇవ్వడం</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The faculty assumes responsibility for completing this at the <strong>end of the course</strong>.</span>
+                    <span class="te">కోర్సు చివరలో దీనిని పూర్తి చేసే బాధ్యతను ఉపాధ్యాయుడే తీసుకుంటారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>When to give:</strong> Midpoint in the course; end of the course.</span>
+                    <span class="te"><strong>ఎప్పుడు ఇవ్వాలి:</strong> కోర్సు మధ్యలో (Mid-term) మరియు కోర్సు చివరలో (End-term).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">One should give <strong>both formative and summative evaluations</strong> to the student as a general rule.</span>
+                    <span class="te">సాధారణ నియమం ప్రకారం విద్యార్థికి <strong>రూపణ మరియు సంగ్రహణాత్మక మూల్యాంకనాలు రెండూ ఇవ్వాలి</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Maintain <strong>confidentiality</strong> while providing feedback to learners.</span>
+                    <span class="te">ఫలితాల ఫీడ్‌బ్యాక్ ఇచ్చేటప్పుడు <strong>రహస్యతను (Confidentiality) పాటించాలి</strong>.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 8: Types of Tests & Characteristics -->
+    <div class="card card-alt-4">
+        <h2>8. Types of Tests & Characteristics of a Good Test (పరీక్షల రకాలు & ఉత్తమ పరీక్ష లక్షణాలు)</h2>
+        <h3>Types of Tests (పరీక్షల రకాలు):</h3>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Language Tests:</strong> Used as tools for measuring learner's competence or knowledge of the language.</span>
+                    <span class="te"><strong>భాషా పరీక్షలు (Language Tests):</strong> భాషపై విద్యార్థికి ఉన్న సామర్థ్యాన్ని కొలిచేందుకు వాడతారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Achievement Tests:</strong> Aimed at finding out the quantum of language skills acquired during the course. Used for declaring success/failure and deciding future plans.</span>
+                    <span class="te"><strong>సాధనా పరీక్షలు (Achievement Tests):</strong> కోర్సులో ఎంతవరకు భాషా నైపుణ్యాలు సాధించారో కొలిచేవి. ఇవి పాస్/ఫెయిల్ మరియు భవిష్యత్తు నిర్ణయాలకు తోడ్పడతాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Proficiency Tests:</strong> Used for assessing status or readiness for a job or course. Tests general ability rather than fixed syllabus (e.g., IAS, MBA English, TOEFL for USA, IELTS for UK).</span>
+                    <span class="te"><strong>సామర్థ్య పరీక్షలు (Proficiency Tests):</strong> ఉద్యోగానికి లేదా కోర్సుకి సరిపోతాడో లేదో తెలుసుకునేవి. ఇవి నిర్దిష్ట సెలబస్ పై కాకుండా సాధారణ నైపుణ్యాన్ని కొలుస్తాయి (ఉదా: IAS, MBA ఇంగ్లీష్, TOEFL, IELTS).</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3>Characteristics of a Good Test (ఉత్తమ పరీక్షకు ఉండాల్సిన 3 ముఖ్యమైన లక్షణాలు):</h3>
+        <ul>
+            <li><span class="en"><strong>A. The test should be simple</strong> (పరీక్ష సరళంగా ఉండాలి)</span></li>
+            <li><span class="en"><strong>B. The syllabus should be teachable</strong> (సెలబస్ బోధించదగినదిగా ఉండాలి)</span></li>
+            <li><span class="en"><strong>C. The effects should be beneficial</strong> (దాని ప్రభావం ప్రయోజనకరంగా ఉండాలి)</span></li>
+        </ul>
+
+        <h3>Reliability & Validity (విశ్వసనీయత & సాధికారత):</h3>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Reliability:</strong> Refers to <strong>consistency of a measure</strong>. Getting the same result repeatedly. Chance of error must be <strong>zero</strong>.</span>
+                    <span class="te"><strong>విశ్వసనీయత (Reliability):</strong> ఫలితాల్లో <strong>స్థిరత్వం (Consistency)</strong> ఉండటం. ఎన్నిసార్లు పరీక్షించినా ఒకే రకమైన ఫలితం రావడం. పొరపాట్లకు ఆస్కారం శూన్యంగా ఉండాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Unreliability occurs at two stages: <strong>At examinee level</strong> and <strong>at examiner level</strong>.</span>
+                    <span class="te">అవిశ్వసనీయత రెండు స్థాయిల్లో జరుగుతుంది: <strong>విద్యార్థి (Examinee) స్థాయిలో</strong> మరియు <strong>పరీక్షకుడి (Examiner) స్థాయిలో</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Learners' unreliability is prevented if questions are <strong>simple and free from ambiguity</strong>.</span>
+                    <span class="te">ప్రశ్నలు <strong>సరళంగా, స్పష్టంగా (అస్పష్టత లేకుండా)</strong> ఉంటే విద్యార్థి స్థాయి అస్థిరతను నివారించవచ్చు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Examiners' unreliability is reduced by using a <strong>detailed marking scheme</strong>, introducing <strong>objective type questions</strong>, and increasing the number of questions.</span>
+                    <span class="te"><strong>ఖచ్చితమైన మూల్యాంకన విధానం (Marking Scheme)</strong>, <strong>అబ్జెక్టివ్ ప్రశ్నలు</strong> పెంచడం ద్వారా పరీక్షకుల స్థాయి ఆత్మాశ్రయతను తగ్గించవచ్చు.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 9: CCE and Examination Reforms -->
+    <div class="card card-alt-1">
+        <h2>9. CCE and Examination Reforms (నిరంతర సమగ్ర మూల్యాంకనం & పరీక్షా సంస్కరణలు)</h2>
+        <h3>What is CCE? (CCE అంటే ఏమిటి?):</h3>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">CCE refers to a system of <strong>school-based assessment</strong> that covers all aspects of students growth and development. Main aim is to find out how far curricular goals are achieved.</span>
+                    <span class="te">CCE అనేది విద్యార్థి వికాసానికి సంబంధించిన అన్ని అంశాలను కవర్ చేసే <strong>పాఠశాల ఆధారిత మూల్యాంకన విధానం</strong>. పాఠ్యాంశ లక్ష్యాలు ఎంతవరకు నెరవేరాయో తెలుసుకోవడమే ప్రధాన లక్ష్యం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Continuous:</strong> Assessment is regular and periodical, spread over the entire academic session.</span>
+                    <span class="te"><strong>నిరంతర (Continuous):</strong> మూల్యాంకనం క్రమం తప్పకుండా, విద్యా సంవత్సరం పొడవునా జరుగుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Comprehensive:</strong> Holistic approach, covers both <strong>scholastic and co-scholastic areas</strong>.</span>
+                    <span class="te"><strong>సమగ్ర (Comprehensive):</strong> విద్యా సంబంధిత (Scholastic) మరియు సహ-విద్యా (Co-scholastic) రంగాలలోని <strong>సర్వతోముఖాభివృద్ధిని</strong> కవర్ చేస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Evaluation:</strong> Shifted focus from testing to <strong>holistic learning</strong>.</span>
+                    <span class="te"><strong>మూల్యాంకనం (Evaluation):</strong> కేవలం పరీక్షించడం నుండి <strong>సమగ్ర అభ్యసనానికి ప్రాధాన్యం</strong> ఇవ్వడం.</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3>Proposed Reforms under CCE (CCE లో భాగంగా ప్రతిపాదించిన సంస్కరణలు):</h3>
+        <ul>
+            <li><span class="en">Examinations more <strong>flexible and integrated</strong> into classroom teaching.</span> <br><span class="te">పరీక్షలను సరళంగా మార్చడం మరియు తరగతి బోధనలో భాగం చేయడం.</span></li>
+            <li><span class="en">Shift learning away from <strong>rote methods</strong> to <strong>self-expression</strong>.</span> <br><span class="te">రుబ్బే పద్ధతుల (బట్టీ పద్ధతి) నుండి <strong>స్వీయ వ్యక్తపరిచే విధానానికి</strong> మారడం.</span></li>
+            <li><span class="en"><strong>Grading system</strong> in place of marks.</span> <br><span class="te">మార్కులకు బదులుగా <strong>గ్రేడింగ్ విధానం</strong>.</span></li>
+            <li><span class="en">Assessment of <strong>competencies</strong> rather than raw information.</span> <br><span class="te">సమాచారం కంటే <strong>సామర్థ్యాల/సాధనల</strong> మూల్యాంకనం.</span></li>
+            <li><span class="en"><strong>Analytical and open-ended questions</strong> that are text-independent.</span> <br><span class="te">పాఠ్యపుస్తకంతో సంబంధం లేని <strong>విశ్లేషణాత్మక మరియు స్వేచ్ఛా సమాధాన ప్రశ్నలు</strong>.</span></li>
+            <li><span class="en">Teacher maintains <strong>child-wise, subject-wise performance registers</strong>.</span> <br><span class="te">పిల్లల వారీగా, సబ్జెక్టుల వారీగా ఉపాధ్యాయుడు <strong>రిజిస్టర్లు నిర్వహించడం</strong>.</span></li>
+            <li><span class="en">Tools include oral, projects, observations, portfolios, classwork, activity reports, etc.</span> <br><span class="te">సాధనాలుగా మౌఖికం, ప్రాజెక్ట్‌లు, పోర్ట్‌ఫోలియోలు, రాతపనులు మొదలైనవి వాడటం.</span></li>
+            <li><span class="en">Co-curricular areas include <strong>Art Education, Games, Work Experience, Value Education</strong>.</span> <br><span class="te">సహ-పాఠ్యాంశ అంశాలు: <strong>కళా విద్య, ఆటలు, పని అనుభవం, నైతిక విద్య</strong>.</span></li>
+            <li><span class="en"><strong>Descriptive progress reports</strong> shared periodically with parents and SMCs.</span> <br><span class="te">తల్లిదండ్రులు, SMC లతో <strong>వివరణాత్మక ప్రోగ్రెస్ రిపోర్టుల</strong> పంపిణీ.</span></li>
+            <li><span class="en">Starts with a <strong>Baseline assessment in June</strong> to diagnose readiness and plan remedial teaching.</span> <br><span class="te">జూన్ నెలలో <strong>బేస్‌లైన్ పరీక్షతో ప్రారంభం</strong> — లోపాలను గుర్తించి నివారణ బోధన (Remedial Teaching) అందించడం.</span></li>
+        </ul>
+    </div>
+
+    <!-- Section 10: Formative and Summative Weightages -->
+    <div class="card card-alt-2">
+        <h2>10. Assessment Weightages & Guidelines (రూపణ, సంగ్రహణాత్మక భారాంశాలు & మార్గదర్శకాలు)</h2>
+        
+        <h3>Formative Assessment Tools & Weightage (Total: 50 Marks):</h3>
+        <ul>
+            <li><span class="badge">10 Marks</span> <strong>1. Observations</strong> (పరిశీలనలు)</li>
+            <li><span class="badge">10 Marks</span> <strong>2. Children written works</strong> (పిల్లల రాత పనులు/నోట్‌బుక్స్)</li>
+            <li><span class="badge">10 Marks</span> <strong>3. Projects</strong> (ప్రాజెక్ట్ పనులు)</li>
+            <li><span class="badge">20 Marks</span> <strong>4. Slip Test</strong> (అన్‌అనౌన్స్‌డ్ ఇన్ఫార్మల్ పరీక్ష/స్లిప్ టెస్ట్)</li>
+        </ul>
+
+        <h3>Summative Assessment Guidelines (100 Marks Total):</h3>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">FA is <strong>Assessment FOR Learning</strong>; SA is <strong>Assessment OF Learning</strong>.</span>
+                    <span class="te">FA అనేది <strong>అభ్యసనం కోసం మూల్యాంకనం</strong>; SA అనేది <strong>అభ్యసనం యొక్క మూల్యాంకనం</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Periodicity:</strong> SA is conducted thrice a year (<strong>SA1 - Sept, SA2 - Dec, SA3 - April</strong>).</span>
+                    <span class="te"><strong>కాలపరిమితి:</strong> SA ఏడాదికి 3 సార్లు జరుగుతుంది (<strong>SA1 - సెప్టెంబర్, SA2 - డిసెంబర్, SA3 - ఏప్రిల్</strong>).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>100 Marks Distribution:</strong> <strong>20% Oral Test</strong> and <strong>80% Written Test</strong>.</span>
+                    <span class="te"><strong>100 మార్కుల విభజన:</strong> <strong>20% మౌఖిక పరీక్ష (Oral)</strong> మరియు <strong>80% రాత పరీక్ష (Written)</strong>.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Oral Test Breakdown (20 Marks):</strong> 10% Listening & Speaking + 10% Creative Expression (Oral Discourses).</span>
+                    <span class="te"><strong>మౌఖిక పరీక్ష విభజన:</strong> 10% వినడం-మాట్లాడడం + 10% సృజనాత్మక వ్యక్తపరచడం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Test papers must be <strong>teacher-made</strong> and text-independent (never from external sources).</span>
+                    <span class="te">ప్రశ్నాపత్రాలు <strong>ఉపాధ్యాయుడే సొంతంగా తయారు చేయాలి</strong> (బయటి ఏజెన్సీల నుండి తీసుకోకూడదు).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Narratives</strong> are the best tool. Provide <strong>narrative gaps</strong> to encourage original expression (Making mistakes is OK!).</span>
+                    <span class="te"><strong>కథనాలు/లఘు కథలు (Narratives)</strong> ఉత్తమ సాధనం. పిల్లలు సొంతంగా రాసేలా అవకాశాలు ఇవ్వాలి (తప్పులు చేసినా పర్వాలేదు).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Conventions of writing and Grammar assessed through <strong>Editing tasks</strong>.</span>
+                    <span class="te">వ్యాకరణం మరియు రచన నియమాలను <strong>ఎడిటింగ్ (Editing) టాస్క్‌ల</strong> ద్వారా పరీక్షించాలి.</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3>6 Domains for English Summative Question Paper (ఆంగ్ల ప్రశ్నపత్రంలోని 6 రంగాలు):</h3>
+        <ol>
+            <li><span class="en"><strong>Listening and Speaking</strong> (వినడం మరియు మాట్లాడడం)</span></li>
+            <li><span class="en"><strong>Reading Comprehension</strong> (చదివి అర్థం చేసుకోవడం)</span></li>
+            <li><span class="en"><strong>Conventions of Writing</strong> (రచనా నియమాలు)</span></li>
+            <li><span class="en"><strong>Vocabulary</strong> (పదజాలం)</span></li>
+            <li><span class="en"><strong>Grammar</strong> (వ్యాకరణం)</span></li>
+            <li><span class="en"><strong>Creative Expressions (Discourses):</strong> (a) Oral (b) Written (సృజనాత్మక వ్యక్తపరచడం)</span></li>
+        </ol>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>

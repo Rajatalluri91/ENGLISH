@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7: Planning</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary: #0284c7;
+            --accent-1: #0d9488;
+            --accent-2: #7c3aed;
+            --accent-3: #d97706;
+            --accent-4: #dc2626;
+            --accent-5: #2563eb;
+            --accent-6: #059669;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            --table-header-bg: #0284c7;
+            --table-header-text: #ffffff;
+            --table-row-alt: #f8fafc;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+            --table-header-bg: #1e293b;
+            --table-header-text: #38bdf8;
+            --table-row-alt: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+        .card.card-alt-5 { border-left-color: var(--accent-5); }
+        .card.card-alt-6 { border-left-color: var(--accent-6); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+        .card-alt-5 h2 { color: var(--accent-5); }
+        .card-alt-6 h2 { color: var(--accent-6); }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #4b5563;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #94a3b8;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--card-border);
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-row-alt);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 7: Planning</h1>
+        <p>Complete Exhaustive Notes — English & Telugu Bilingual Study Guide</p>
+    </header>
+
+    <!-- Section 1: Introduction to Planning & Components -->
+    <div class="card card-alt-1">
+        <h2>1. Importance & Fundamentals of Planning (ప్రణాళికా రచన ప్రాముఖ్యత)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Components of language teaching:</strong> Prose, Poetry, and Supplementary Reader.</span>
+                    <span class="te"><strong>భాషా బోధనా అంశాలు:</strong> గద్యం (Prose), పద్యం (Poetry), మరియు ఉపవాచకం (Supplementary Reader).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Micro teaching definition:</strong> Micro teaching is a simulated teaching activity under controlled conditions.</span>
+                    <span class="te"><strong>మైక్రో టీచింగ్ నిర్వచనం:</strong> సూక్ష్మ బోధన (Micro teaching) అనేది నియంత్రిత పరిస్థితులలో జరిగే ఒక అనుకరింపబడిన బోధనా ప్రక్రియ (simulated teaching activity).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Planning is the secret of success:</strong> Planning is the secret of any successful endeavour. Each one of us is familiar with planning in our daily life. Planning is of unique importance in the teaching-learning process.</span>
+                    <span class="te"><strong>ప్రణాళికే విజయానికి రహస్యం:</strong> ఏ విజయవంతమైన ప్రయత్నికైనా ప్రణాళికే రహస్యం. మన దైనందిన జీవితంలో ప్రణాళికతో మనందరికీ పరిచయం ఉంది. బోధనా అభ్యసన ప్రక్రియలో ప్రణాళికకు ఒక విశిష్టమైన ప్రాముఖ్యత ఉంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Key Functions of Planning:</strong>
+                        <br>• Planning helps us divide the syllabus into <strong>workable chunks</strong>.
+                        <br>• Planning ensures that we pay attention to <strong>all the language skills</strong> in a prescribed syllabus.
+                        <br>• At the beginning of the academic year, a teacher can take stock of the teaching material available in the school and explore other sources.
+                        <br>• A teacher can calculate and assess whether the number of working hours available is sufficient for the topics to be covered (taken up when the timetable is ready).
+                    </span>
+                    <span class="te"><strong>ప్రణాళికా రచన ముఖ్య విధులు:</strong>
+                        <br>• సిలబస్‌ను <strong>నిర్వహించదగిన విభాగాలుగా (workable chunks)</strong> విభజించడానికి ప్రణాళిక సహాయపడుతుంది.
+                        <br>• నిర్దేశించిన సిలబస్‌లోని <strong>అన్ని భాషా నైపుణ్యాలపై (LSRW)</strong> దృష్టి సారించేలా ప్రణాళిక చూస్తుంది.
+                        <br>• విద్యా సంవత్సరం ప్రారంభంలో, ఉపాధ్యాయుడు పాఠశాలలో అందుబాటులో ఉన్న బోధనా సామాగ్రిని అంచనా వేసి ఇతర వనరులను అన్వేషించవచ్చు.
+                        <br>• అందుబాటులో ఉన్న పని గంటలు బోధించాల్సిన అంశాలకు సరిపోతాయో లేదో ఉపాధ్యాయుడు అంచనా వేయవచ్చు.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Progression & Characteristics of Planning:</strong>
+                        <br>• Time-oriented planning follows the School Calendar (academic year is divided into three terms, requiring content planning for each term).
+                        <br>• Progression: <strong>Year plan → Unit plan → Lesson plan</strong> (with an estimation of required teaching hours).
+                        <br>• Ensures thinking of alternative options in each situation to add variety to learning activities.
+                        <br>• Planning should be <strong>learner-centred rather than teacher-centred</strong>.
+                        <br>• Collaborative planning: Teachers teaching at the same level can share ideas and plan together, improving familiarity with topics and materials.
+                        <br>• Opportunity for self-assessment: Helps teachers understand their preparedness and improve in areas where they feel incompetent.
+                        <br>• Enables advance activity planning, makes teaching flexible, and provides a chance to review/reorganize lessons.
+                        <br>• Caters to different types of learners and allows planning of <strong>remedial classes for low achievers</strong>.
+                        <br>• Improves academic performance and provides clarity about future actions.
+                    </span>
+                    <span class="te"><strong>ప్రణాళిక క్రమం మరియు లక్షణాలు:</strong>
+                        <br>• విద్యా సంవత్సరాన్ని మూడు టర్ములుగా విభజించి విషయ ప్రణాళిక వేస్తారు.
+                        <br>• ప్రణాళికా క్రమం: <strong>వార్షిక ప్రణాళిక (Year plan) → యూనిట్ ప్రణాళిక (Unit plan) → పాఠ్యాంశ ప్రణాళిక (Lesson plan)</strong>.
+                        <br>• ప్రణాళిక ఉపాధ్యాయ కేంద్రకము కాకుండా <strong>విద్యార్థి కేంద్రకముగా (learner-centred)</strong> ఉండాలి.
+                        <br>• వెనుకబడిన విద్యార్థుల (low achievers) కోసం <strong>నివారణ బోధన (remedial classes)</strong> ప్రణాళిక చేసుకోవడానికి తోడ్పడుతుంది.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Types of Planning Schedules: Year Plan, Unit Plan -->
+    <div class="card card-alt-2">
+        <h2>2. Planning Schedules: Year Plan & Unit Plan (దీర్ఘకాలిక & స్వల్పకాలిక ప్రణాళికలు)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Long-term vs Short-term Plans:</strong>
+                        <br>• <strong>Long-term plans:</strong> Year plan and Unit plans.
+                        <br>• <strong>Short-term plan:</strong> Lesson plan (prepared on a day-to-day or weekly basis).
+                        <br>• Year plan and unit plan are regular planning activities, whereas lesson planning is a <strong>specific and specialised activity</strong>.
+                    </span>
+                    <span class="te"><strong>దీర్ఘకాలిక మరియు స్వల్పకాలిక ప్రణాళికలు:</strong>
+                        <br>• <strong>దీర్ఘకాలిక ప్రణాళికలు:</strong> వార్షిక ప్రణాళిక (Year plan) మరియు యూనిట్ ప్రణాళిక (Unit plan).
+                        <br>• <strong>స్వల్పకాలిక ప్రణాళిక:</strong> పాఠ్యాంశ ప్రణాళిక (Lesson plan - రోజువారీ లేదా వారపు ప్రాతిపదికన).
+                        <br>• ఇయర్ ప్లాన్ మరియు యూనిట్ ప్లాన్ సాధారణ ప్రణాళికలు కాగా, లెస్సన్ ప్లాన్ అనేది ఒక <strong>ప్రత్యేకమైన మరియు విశిష్టమైన ప్రక్రియ (specific and specialised activity)</strong>.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Year Plan Details (వార్షిక ప్రణాళిక):</strong>
+                        <br>• Compared to an <strong>annual budget</strong> prepared once every year.
+                        <br>• Should be equally attractive to students as it informs them about co-curricular and extra-curricular activities for different terms.
+                        <br>• Teachers can plan collaboratively to teach lessons with similar themes at the same time (promotes <strong>interdisciplinary approach</strong>).
+                        <br>• Prepared at the beginning of the academic year; essential for proportional distribution of syllabus across school terms.
+                        <br>• Subject-wise and class-wise year plan registers should be maintained.
+                        <br>• Ensures uniformity in teaching and evaluation across schools affiliated to state/central boards.
+                        <br>• Achieves aims/objectives, prevents wastage of time and repetition of topics.
+                        <br>• Generally indicated in state government printed textbooks; teachers can add details like assignments, field trips, and co-curricular activities.
+                        <br>• Balances all skill areas: literature, poetry, grammar, and oral communication.
+                    </span>
+                    <span class="te"><strong>వార్షిక ప్రణాళిక ముఖ్యాంశాలు:</strong>
+                        <br>• దీనిని ప్రతి సంవత్సరం తయారుచేసే <strong>'వార్షిక బడ్జెట్' (annual budget)</strong> తో పోల్చవచ్చు.
+                        <br>• ఒకే రకమైన ఇతివృత్తం ఉన్న పాఠాలను ఒకే సమయంలో బోధించేలా ప్రణాళిక చేయడం వల్ల <strong>అంతర్విషయ దృక్పథం (interdisciplinary approach)</strong> పెరుగుతుంది.
+                        <br>• సమయం వృధా కాకుండా, అంశాల పునరావృతం కాకుండా నిరోధిస్తుంది.
+                        <br>• సాహిత్యం, కవిత్వం, వ్యాకరణం మరియు మౌఖిక సంభాషణ నైపుణ్యాల మధ్య సమతుల్యతను సాధిస్తుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Unit Plan Details (యూనిట్ ప్రణాళిక):</strong>
+                        <br>• Syllabus is divided into units. A unit is a <strong>comprehensive block of a set of lessons related to a particular theme</strong> (the small workable section of the syllabus).
+                        <br>• Follows the <strong>principle of integration</strong>.
+                        <br>• English textbooks feature one or two prose lessons and a poem per unit, divided according to the exam schedule, with specified grammar activities.
+                        <br>• Should cover basic English skills: LSRW, grammar, vocabulary, and poetry.
+                        <br>• Units must coordinate with term activities and provide provision for <strong>revision, testing, and remedial teaching</strong>.
+                        <br>• Requires clear objectives, drawing on students' previous knowledge and experience, while considering available resources.
+                    </span>
+                    <span class="te"><strong>యూనిట్ ప్రణాళిక ముఖ్యాంశాలు:</strong>
+                        <br>• ఒకే ఇతివృత్తానికి సంబంధించిన పాఠాల సమూహాన్ని ఒక <strong>యూనిట్ (సంపూర్ణ విభాగం)</strong> అంటారు.
+                        <br>• ఇది <strong>సమైక్యతా సూత్రాన్ని (principle of integration)</strong> అనుసరిస్తుంది.
+                        <br>• ప్రతీ యూనిట్‌లో LSRW నైపుణ్యాలు, వ్యాకరణం, పదజాలం మరియు కవిత్వం కవర్ కావాలి.
+                        <br>• ఇందులో <strong>పునశ్చరణ (revision), పరీక్షలు (testing) మరియు నివారణ బోధన (remedial teaching)</strong> లకు వెసులుబాటు ఉండాలి.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Micro Teaching & BF Skinner's Operant Conditioning -->
+    <div class="card card-alt-3">
+        <h2>3. Micro Teaching & Theoretical Foundations (సూక్ష్మ బోధన)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Concept & Nature of Micro Teaching:</strong>
+                        <br>• Teaching is a unique, complex activity due to the teacher needing to learn to teach while ensuring students learn well. A wide gap exists between theory and practice in teacher training in India.
+                        <br>• Micro teaching is an <strong>innovation in teacher training programs</strong>.
+                        <br>• Teaching consists of simpler component skills (sets of teaching behaviours achieving specific objectives). Practice teaching initiates trainees into careers.
+                        <br>• Pre-service training practice starts with micro teaching.
+                        <br>• <em>Analogy:</em> A law student has a <strong>moot court</strong> — an example of micro teaching.
+                        <br>• It is a scaled-down version of the internship program in a simulated setting (rehearsal environment).
+                    </span>
+                    <span class="te"><strong>సూక్ష్మ బోధనా భావన:</strong>
+                        <br>• ఉపాధ్యాయ శిక్షణలో సిద్ధాంతానికి, ఆచరణకు ఉన్న వ్యత్యాసాన్ని తగ్గించడానికి తెచ్చిన <strong>నూతన ఆవిష్కరణ (innovation)</strong> మైక్రో టీచింగ్.
+                        <br>• <em>పోలిక:</em> లా విద్యార్థికి ఉండే <strong>మూట్ కోర్ట్ (moot court)</strong> వంటిదే ఉపాధ్యాయ శిక్షణార్థికి మైక్రో టీచింగ్.
+                        <br>• ఇది సాధారణ బోధన యొక్క <strong>కుదించబడిన రూపం (scaled-down version)</strong>.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Parameters of a Micro Lesson:</strong>
+                        <br>• Trainees teach their classmates (peers) in a safe, controlled atmosphere (<strong>simulated teaching</strong>).
+                        <br>• <strong>Class Size:</strong> 4 to 6 trainees (instead of 25-30 students).
+                        <br>• <strong>Time Duration:</strong> About 30 minutes (or scaled down period).
+                        <br>• <strong>Content:</strong> A single small concept (Micro lesson).
+                        <br>• <strong>Process Cycle:</strong> Lesson planned with supervisor → Observed/recorded → Trainee self-observes + Peer feedback + Supervisor feedback → Lesson restructured → Reteached to another peer group → Refeedback. This cycle builds confidence and competency.
+                    </span>
+                    <span class="te"><strong>సూక్ష్మ బోధనా పరిమాణాలు:</strong>
+                        <br>• <strong>విద్యార్థుల సంఖ్య:</strong> 4 నుండి 6 మంది తోటి శిక్షణార్థులు (peers).
+                        <br>• <strong>సమయం:</strong> సుమారు 30 నిమిషాలు.
+                        <br>• <strong>విషయాంశం:</strong> ఒక చిన్న భావన (micro lesson).
+                        <br>• ఫీడ్‌బ్యాక్ ఆధారంగా పాఠాన్ని పునర్నిర్మించి (restructure) మళ్లీ బోధించే సైకిల్ కొనసాగుతుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Psychological Foundation — B.F. Skinner's Operant Conditioning:</strong>
+                        <br>• Micro teaching assumes teaching can be analysed into observable behavioural components (teaching skills).
+                        <br>• Based on <strong>Operant Conditioning Theory</strong> by psychologist <strong>B.F. Skinner</strong>.
+                        <br>• <em>Principle:</em> Learning is strengthened when supported by <strong>feedback and reinforcement</strong>. Learning should go at a slow and steady pace.
+                        <br>• Skinner's concept of <strong>"successive approximations"</strong> (continuous revision of behaviour) shapes individual behaviour and is fundamental to micro teaching feedback sessions.
+                    </span>
+                    <span class="te"><strong>మానసిక శాస్త్ర పునాది — బి.ఎఫ్. స్కిన్నర్ కార్యాధార నిబంధనం:</strong>
+                        <br>• మైక్రో టీచింగ్ <strong>B.F. స్కిన్నర్ యొక్క 'కార్యాధార నిబంధన సిద్ధాంతం' (Operant Conditioning Theory)</strong> పై ఆధారపడింది.
+                        <br>• <strong>పునర్బలనం (Reinforcement) మరియు ఫీడ్‌బ్యాక్ (Feedback)</strong> లభించినప్పుడు అభ్యసనం బలపడుతుంది.
+                        <br>• <strong>"క్రమానుగత సామీప్యత" (Successive approximations)</strong> ద్వారా ప్రవర్తనను మలచవచ్చనే స్కిన్నర్ సూత్రమే ఫీడ్‌బ్యాక్ సెషన్లకు మూలం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>McDonald's 5 Steps in Micro Teaching Procedure:</strong>
+                        <br>1. Stating the behaviour in operational terms.
+                        <br>2. Setting criteria/checklist for measuring the behaviour.
+                        <br>3. Observing the lesson.
+                        <br>4. Revision of the lesson.
+                        <br>5. Reteaching the concept.
+                    </span>
+                    <span class="te"><strong>మెక్‌డోనాల్డ్ సూచించిన 5 సోపానాలు:</strong>
+                        <br>1. ప్రవర్తనను నిర్వహణాత్మక పదాలలో పేర్కొనడం.
+                        <br>2. ప్రవర్తనను కొలవడానికి తనిఖీ పట్టీ (checklist)/ప్రమాణాలు ఏర్పరచుకోవడం.
+                        <br>3. పాఠాన్ని పరిశీలించడం (Observing).
+                        <br>4. పాఠాన్ని సవరించడం (Revision).
+                        <br>5. భావనను పునర్భోధన చేయడం (Reteaching).
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>History & Development of Micro Teaching:</strong>
+                        <br>• <strong>Origin:</strong> Stanford University in 1963 as part of an experimental research project aided by the <strong>Ford Foundation</strong>.
+                        <br>• Ford Foundation project led to the <strong>"component skills approach"</strong> (identifying observable skills and using tape recorders to record classroom interaction). Spread to USA and globally.
+                        <br>• <strong>Indian Context:</strong> Large scale experimental field study undertaken in <strong>1975-76</strong> by NCERT (Department of Teacher Education) in collaboration with <strong>CASE (Centre of Advanced Study in Education) Baroda</strong> and 9 university departments.
+                        <br>• <em>Main Finding:</em> Teachers trained through micro teaching acquired higher teaching competence than those who did not.
+                        <br>• Individualises pre-service training, familiarises teachers with real classroom problems, and overcomes drawbacks. Requires high interaction between trainees and supervisors. Every institute should have a <strong>micro teaching clinic</strong> for stress-free practice.
+                    </span>
+                    <span class="te"><strong>సూక్ష్మ బోధన చరిత్ర & పరిణామం:</strong>
+                        <br>• <strong>ప్రారంభం:</strong> 1963లో స్టాన్‌ఫోర్డ్ విశ్వవిద్యాలయం (Stanford University) లో <strong>ఫోర్డ్ ఫౌండేషన్ (Ford Foundation)</strong> సహాయంతో ప్రారంభమైంది.
+                        <br>• <strong>భారతదేశంలో:</strong> 1975-76లో NCERT మరియు <strong>CASE (బరోడా)</strong> ల సంయుక్త ఆధ్వర్యంలో పరిశోధన జరిగింది.
+                        <br>• మైక్రో టీచింగ్ ద్వారా శిక్షణ పొందిన ఉపాధ్యాయులు అధిక బోధనా సామర్థ్యాన్ని ప్రదర్శించారని తేలింది.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 4: Daily Lesson Planning & Action Verbs Table -->
+    <div class="card card-alt-4">
+        <h2>4. Period/Lesson Planning & Taxonomy of Action Verbs</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Period Plan / Lesson Plan Basics:</strong>
+                        <br>• A period plan is the lesson plan prepared for each teaching hour. Beginner teachers MUST prepare daily lesson plans (experienced teachers may do term/weekly planning).
+                        <br>• Maintaining <strong>teaching diaries</strong> is a good practice.
+                        <br>• Provides structure, guides like a map, anticipates problems before they happen, organized content ensures smooth delivery, maintains attention/interest, and minimizes disturbance.
+                        <br>• Teachers balance syllabus completion pressures with making language learning fun and enjoyable.
+                        <br>• <strong>Preparation timing:</strong> Should NOT be written just before the class or the night before; must be ready long before to plan tasks, aids, sequence, and time needed.
+                        <br>• Begins with writing objectives (what learners achieve by the end of the lesson).
+                        <br>• Language skills are taught using activities. Objectives should use <strong>action verbs</strong> (e.g., identify, describe, contrast, debate).
+                    </span>
+                    <span class="te"><strong>పాఠ్యాంశ ప్రణాళిక (Lesson Plan) ప్రాథమికాంశాలు:</strong>
+                        <br>• ప్రతి బోధనా పీరియడ్‌కు తయారుచేసే దానిని <strong>పీరియడ్ ప్లాన్/లెస్సన్ ప్లాన్</strong> అంటారు. నూతన ఉపాధ్యాయులకు దైనందిన ప్రణాళిక తప్పనిసరి.
+                        <br>• <strong>టీచింగ్ డైరీలు (teaching diaries)</strong> నిర్వహించడం మంచి అలవాటు.
+                        <br>• పాఠ్యాంశ ప్రణాళికను బోధనకు ఒక <strong>మార్గదర్శి (map)</strong> లాగా పోల్చవచ్చు.
+                        <br>• లక్ష్యాలను రాయడానికి <strong>చర్యారూప క్రియలను (action verbs)</strong> ఉపయోగించాలి.
+                    </span>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Action Verbs Table -->
+        <h3>Skill / Domain Action Verbs Table (లక్ష్యాలు - చర్యారూప క్రియల పట్టిక)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Skill / Cognitive Domain (రంగము / నైపుణ్యం)</th>
+                    <th>Action Verbs Used to Write Objectives (చర్యారూప క్రియలు)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Knowledge (జ్ఞానము)</strong></td>
+                    <td>Identify, Define, List</td>
+                </tr>
+                <tr>
+                    <td><strong>Comprehension (అవగాహన)</strong></td>
+                    <td>Explain, Summarise, Predict</td>
+                </tr>
+                <tr>
+                    <td><strong>Application (వినియోగము)</strong></td>
+                    <td>Demonstrate, Produce, Show</td>
+                </tr>
+                <tr>
+                    <td><strong>Analysis (విశ్లేషణ)</strong></td>
+                    <td>Select, Differentiate, Identify</td>
+                </tr>
+                <tr>
+                    <td><strong>Synthesis (సంశ్లేషణ)</strong></td>
+                    <td>Explain, Combine, Categorise</td>
+                </tr>
+                <tr>
+                    <td><strong>Evaluation (మూల్యాంకనము)</strong></td>
+                    <td>Justify, Relate, Summarize</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Lesson Notes & Cyclical Model:</strong>
+                        <br>• After preparing the lesson plan, write <strong>lesson notes</strong> containing instructional sequences to help visualize the class.
+                        <br>• Teaching notes should contain ONLY important points to be discussed or questions to be considered.
+                        <br>• It represents a <strong>cyclical model</strong> of planning and teaching (allowing scope for planning, evaluating before/during/after teaching, and adjustments).
+                    </span>
+                    <span class="te"><strong>లెస్సన్ నోట్స్ & చక్రీయ నమూనా:</strong>
+                        <br>• లెస్సన్ ప్లాన్ తర్వాత <strong>లెస్సన్ నోట్స్ (Lesson notes)</strong> రాయాలి. ఇందులో కేవలం ముఖ్యమైన ముఖ్యాంశాలు మరియు ప్రశ్నలు మాత్రమే ఉండాలి.
+                        <br>• ఇది ప్రణాళిక మరియు బోధన యొక్క <strong>చక్రీయ నమూనాను (cyclical model)</strong> సూచిస్తుంది.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 5: Teaching of Prose -->
+    <div class="card card-alt-5">
+        <h2>5. Teaching of Prose (గద్య బోధన)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Definition of Prose:</strong>
+                        <br>• According to <strong>Coleridge</strong>: <em>"Prose is words in their best order"</em>.
+                        <br>• Prose passages are extracts from literature, science & technology, commerce, industry, personal experiences, or biographies of famous personalities.
+                    </span>
+                    <span class="te"><strong>గద్యము - నిర్వచనము:</strong>
+                        <br>• <strong>కాలరిడ్జ్ (Coleridge) ప్రకారం:</strong> <em>"ఉత్తమమైన క్రమంలో అమర్చబడిన పదాలే గద్యం" ("Prose is words in their best order")</em>.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Nature & Purpose of Prose Teaching:</strong>
+                        <br>• Prescribed prose text is meant for <strong>detailed and intensive study of language</strong> (structures, vocabulary, literary appreciation, comprehension).
+                        <br>• Comprehension section mostly contains <strong>WH-questions</strong>.
+                        <br>• Word study tasks aim to enrich active and passive vocabulary.
+                        <br>• Pronunciation, stress, and intonation taught using dictionaries.
+                        <br>• Language study section deals with grammar items (focused on form, basic grammatical meaning, and use).
+                        <br>• Text study section encourages understanding implied meaning and inference.
+                        <br>• Composition section covers writing activities (letters, paragraphs, essays, notices, telegrams).
+                        <br>• Text is divided into <strong>meaningful chunks</strong> for thorough teaching.
+                        <br>• <strong>Silent Reading (మౌన పఠనం):</strong> Should be encouraged as it improves comprehension faster and better without disturbing others.
+                    </span>
+                    <span class="te"><strong>గద్య బోధనా విధానం:</strong>
+                        <br>• గద్యం అనేది భాష యొక్క <strong>గహన/సమగ్ర అధ్యయనం (intensive study)</strong> కోసం ఉద్దేశించబడింది.
+                        <br>• అవగాహన ప్రశ్నలలో ఎక్కువగా <strong>WH-ప్రశ్నలు</strong> ఉంటాయి.
+                        <br>• <strong>మౌన పఠనం (Silent reading):</strong> ఇతరులకు ఇబ్బంది కలగకుండా, వేగంగా మరియు శీఘ్రంగా అవగాహన చేసుకోవడానికి దీనిని ప్రోత్సహించాలి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>6 Specific Objectives of Teaching Prose:</strong>
+                        <br>1. To enable learners to read English passages loudly with correct pronunciation, stress, and intonation.
+                        <br>2. To develop the ability to comprehend a given text.
+                        <br>3. To prepare students for silent reading.
+                        <br>4. To enrich active and passive vocabulary of students.
+                        <br>5. To develop their oral and written expressions.
+                        <br>6. To help them write a few meaningful sentences.
+                    </span>
+                    <span class="te"><strong>గద్య బోధన యొక్క 6 ముఖ్య లక్ష్యాలు:</strong>
+                        <br>1. సరియైన ఉచ్చారణ, ఘాతము (stress) మరియు స్వరాఘాతము (intonation) తో సస్వర పఠనం (loud reading) చేసేలా చేయడం.
+                        <br>2. ఇచ్చిన పాఠ్యాంశాన్ని అర్థం చేసుకునే (comprehend) సామర్థ్యాన్ని పెంపొందించడం.
+                        <br>3. విద్యార్థులను మౌన పఠనానికి (silent reading) సన్నద్ధం చేయడం.
+                        <br>4. విద్యార్థుల క్రియాశీల మరియు నిష్క్రియాత్మక పదజాలాన్ని (active and passive vocabulary) పెంపొందించడం.
+                        <br>5. వారి మౌఖిక మరియు రాతపూర్వక వ్యక్తీకరణలను అభివృద్ధి చేయడం.
+                        <br>6. అర్థవంతమైన వాక్యాలను సొంతంగా రాయడానికి సహాయపడడం.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 6: Teaching of Poetry & Supplementary Readers -->
+    <div class="card card-alt-6">
+        <h2>6. Teaching of Poetry & Supplementary Readers (పద్య బోధన & ఉపవాచకం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Teaching of Poetry (పద్య బోధన):</strong>
+                        <br>• Poetry touches personal feelings closely, appealing to children and adults equally due to rhythm, music, and beauty of meaning.
+                        <br>• Enriches emotions and improves <strong>aesthetic sense</strong> (సౌందర్యాత్మక స్పృహ).
+                        <br>• Increases sensitiveness to beauty of language/thought, develops imagination, appreciation, and all-round personality.
+                        <br>• Features themes common across cultures. Modern poetry's simple language allows teaching language skills.
+                        <br>• All poems require <strong>preparation activities</strong> to motivate learners.
+                        <br>• Making poetry interesting: Ask students to draw pictures for themes or backdrops described in the poem.
+                    </span>
+                    <span class="te"><strong>పద్య బోధన ప్రాముఖ్యత:</strong>
+                        <br>• పద్యం మన <strong>భావోద్వేగాలను మరియు సౌందర్యాత్మక స్పృహను (aesthetic sense)</strong> పెంపొందిస్తుంది.
+                        <br>• ఇది లయబద్ధంగా, సంగీతాత్మకంగా ఉండి ఊహాశక్తిని పెంచుతుంది.
+                        <br>• విద్యార్థులతో పద్యంలోని ఇతివృత్తానికి తగిన బొమ్మలు వేయించడం ద్వారా పద్య బోధనను ఆసక్తికరంగా మార్చవచ్చు.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Objectives of Teaching Poetry:</strong>
+                        <br>• To enable students to appreciate ideas and experiences related through poems.
+                        <br>• To develop imaginative and creative abilities of children.
+                        <br>• To develop language skills and enable them to enjoy reading poems.
+                        <br>• To help students understand beauty, rhyme, and style of the poem.
+                        <br>• To help students recite the poem with proper pauses and rhythm.
+                        <br>• To familiarize students with the culture of the people described in the poem.
+                    </span>
+                    <span class="te"><strong>పద్య బోధన లక్ష్యాలు:</strong>
+                        <br>• పద్యంలోని ఊహలు, అనుభవాలను ఆస్వాదించేలా చేయడం.
+                        <br>• సృజనాత్మకత, ఊహాశక్తిని పెంపొందించడం.
+                        <br>• యతి, ప్రాస (rhyme) మరియు శైలిని అర్థం చేసుకుని, తగిన విరామాలు (pauses) మరియు లయతో (rhythm) ఆలపించేలా చేయడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Supplementary Readers (ఉపవాచకం / విశాల పఠనం):</strong>
+                        <br>• Assists literary understanding gained in intensive reading. Read mainly for <strong>pleasure and information</strong>.
+                        <br>• Prescribed for <strong>Extensive Reading (విశాల పఠనం)</strong>.
+                        <br>• Helps students grasp meanings of new words in context and develops <strong>rapid reading habits</strong>.
+                        <br>• Enhances comprehension skills and vocabulary. Prescribed considering age, ability, and needs of children.
+                        <br>• Contains stories, incidents, descriptions of people, places, or discoveries.
+                        <br>• Aligns with <strong>Communicative Language Teaching (CLT)</strong> by promoting interaction and participation.
+                        <br>• Content can be made discussion-oriented (group discussions, Q&A).
+                        <br>• Ideal for <strong>role play and play acting</strong> (as most lessons are short stories/novels). Stories with morals can be used for problem-solving tasks.
+                    </span>
+                    <span class="te"><strong>ఉపవాచకం (Supplementary Reader):</strong>
+                        <br>• ఇది <strong>విశాల పఠనం (Extensive Reading)</strong> కోసం మరియు <strong>ఆనందం/సమాచారం (pleasure and information)</strong> కోసం ఉద్దేశించబడింది.
+                        <br>• ఇది <strong>వేగవంతమైన పఠన అలవాటును (rapid reading habits)</strong> పెంపొందిస్తుంది.
+                        <br>• భావప్రసార భాషా బోధన (CLT) కి అనుగుణంగా <strong>పాత్ర అభినయం (Role play)</strong> మరియు సమూహ చర్చలకు ఉపయోగపడుతుంది.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4: Approaches, Methods and Techniques</title>
+    <!-- Google Fonts: Mandali for Telugu, Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary: #0284c7;
+            --secondary: #0369a1;
+            --accent-1: #0d9488;
+            --accent-2: #7c3aed;
+            --accent-3: #d97706;
+            --accent-4: #dc2626;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --header-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+            --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-family: 'Mandali', sans-serif;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .card.card-alt-1 { border-left-color: var(--accent-1); }
+        .card.card-alt-2 { border-left-color: var(--accent-2); }
+        .card.card-alt-3 { border-left-color: var(--accent-3); }
+        .card.card-alt-4 { border-left-color: var(--accent-4); }
+
+        h2 {
+            font-family: 'Mandali', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .card-alt-1 h2 { color: var(--accent-1); }
+        .card-alt-2 h2 { color: var(--accent-2); }
+        .card-alt-3 h2 { color: var(--accent-3); }
+        .card-alt-4 h2 { color: var(--accent-4); }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .bilingual-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .en {
+            font-weight: 400;
+        }
+
+        .te {
+            font-family: 'Mandali', sans-serif;
+            color: #4b5563;
+            font-size: 0.98rem;
+        }
+
+        [data-theme="dark"] .te {
+            color: #94a3b8;
+        }
+
+        strong {
+            color: #d9534f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff7675;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { padding: 20px; }
+            header h1 { font-size: 1.6rem; }
+            .theme-toggle { position: static; margin: 10px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+        </button>
+        <h1>Chapter 4: Approaches, Methods and Techniques</h1>
+        <p>Complete Exhaustive Notes — English & Telugu Bilingual Study Guide</p>
+    </header>
+
+    <!-- Section 1: Introduction & Conceptual Hierarchy -->
+    <div class="card card-alt-1">
+        <h2>1. Introduction & Conceptual Hierarchy (పరిచయం మరియు భావనాత్మక వర్గీకరణ)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">English is a second language for Indian learners and as such makes it hard for them to master the language.</span>
+                    <span class="te">భారతీయ విద్యార్థులకు ఇంగ్లీష్ అనేది రెండవ భాష కావడం వలన దానిపై పట్టు సాధించడం వారికి కష్టంగా మారుతుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The teachers should meticulously help the learners to attain proficiency in the language.</span>
+                    <span class="te">విద్యార్థులు భాషలో ప్రావీణ్యం సాధించేందుకు ఉపాధ్యాయులు ఎంతో శ్రద్ధతో సహాయం చేయాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">This chapter directs the teacher to be flexible in order to make an eclectic use of methods and techniques for learners' success.</span>
+                    <span class="te">విద్యార్థుల విజయం కోసం వివిధ రకాల పద్ధతులు మరియు యుక్తులను అనుకూలంగా (Eclectic usage) ఉపయోగించడంలో ఉపాధ్యాయుడు వశ్యతతో (flexible) ఉండాలని ఈ అధ్యాయం నిర్దేశిస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The linguists of the late 19th century sought to improve the quality of language teaching by interpreting general principles and theories related to learning of language, its structure, knowledge and organisation in memory.</span>
+                    <span class="te">19వ శతాబ్దపు చివరి కాలానికి చెందిన భాషాశాస్త్రవేత్తలు భాషా అభ్యసనం, దాని నిర్మాణం, పరిజ్ఞానం మరియు జ్ఞాపకశక్తిలోని అమరికకు సంబంధించిన సిద్ధాంతాలను వివరించడం ద్వారా భాషా బోధనా గుణాత్మకతను పెంచడానికి ప్రయత్నించారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The early applied linguists elaborated these principles and approaches to the design of language programmes, courses and materials:
+                        <br>• <strong>Henry Sweet</strong> (1845-1912)
+                        <br>• <strong>Otto Jespersen</strong> (1860-1943)
+                        <br>• <strong>Harold Palmer</strong> (1877-1949)
+                    </span>
+                    <span class="te">తొలి అనువర్తిత భాషాశాస్త్రవేత్తలు భాషా ప్రోగ్రామ్‌లు, కోర్సులు మరియు బోధనా సామగ్రి రూపకల్పనకు ఈ సూత్రాలను సమగ్రంగా వివరించారు:
+                        <br>• <strong>హెన్రీ స్వీట్</strong> (1845-1912)
+                        <br>• <strong>ఒట్టో జెస్పర్సన్</strong> (1860-1943)
+                        <br>• <strong>హెరాల్డ్ పామర్</strong> (1877-1949)
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">These three linguists made a broad distinction of approaches and methods based on the philosophy and nature of language and a set of procedures framed to teach a language.</span>
+                    <span class="te">ఈ ముగ్గురు భాషాశాస్త్రవేత్తలు భాష యొక్క తత్త్వం, స్వభావం మరియు బోధనా పద్ధతుల ఆధారంగా 'అప్రోచ్' మరియు 'మెథడ్'ల మధ్య స్పష్టమైన వ్యత్యాసాన్ని చూపారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Edward Anthony</strong> identified three levels of conceptualization which he termed <strong>Approach, Method, and Technique</strong>.</span>
+                    <span class="te"><strong>ఎడ్వర్డ్ ఆంథోనీ</strong> భావనాత్మకతను మూడు స్థాయిలుగా వర్గీకరించారు. వాటినే <strong>అప్రోచ్ (విధానం), మెథడ్ (పద్ధతి), టెక్నిక్ (యుక్తి)</strong> అని పిలిచారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Approach:</strong> An approach is a set of correlative assumptions dealing with the language and learning. It describes the nature of the subject matter to be taught. (బోధించవలసిన విషయం యొక్క స్వభావం)</span>
+                    <span class="te"><strong>అప్రోచ్ (విధానం):</strong> ఇది భాష మరియు అభ్యసన స్వభావానికి సంబంధించిన సిద్ధాంతాలు లేదా అంచనాల సమాహారం. ఇది బోధించవలసిన విషయం యొక్క స్వభావాన్ని వివరిస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">An approach deals with different theories about the nature of language and how languages are learnt. These theories are based on a set of assumptions which deal with linguistic and psychological factors that are crucial for the acquisition of languages. (e.g., Aural-oral approach, Natural approach, Communicative approach).</span>
+                    <span class="te">అప్రోచ్ అనేది భాష స్వభావం మరియు భాషలు ఎలా అభ్యసించబడతాయి అనే విభిన్న సిద్ధాంతాలతో వ్యవహరిస్తుంది. ఇవి భాషా మరియు మానసిక అంశాల ఆధారంగా రూపుదిద్దుకుంటాయి. (ఉదా: ఆరల్-ఓరల్ అప్రోచ్, నేచురల్ అప్రోచ్, కమ్యూనికేటివ్ అప్రోచ్).</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Method:</strong> A method is an overall plan for the orderly presentation of language material. It is procedural. Within one approach, there can be many methods.</span>
+                    <span class="te"><strong>మెథడ్ (పద్ధతి):</strong> ఇది భాషాంశాలను క్రమబద్ధంగా అందించడానికి రూపొందించిన సమగ్ర ప్రణాళిక. ఇది కార్యాచరణ రూపంలో (Procedural) ఉంటుంది. ఒకే అప్రోచ్ పరిధిలో అనేక మెథడ్స్ ఉండవచ్చు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">A method is a set of procedures; a plan that tells us how to teach a language. All the methods involve principles like selection, gradation, presentation and repetition. (e.g., The Grammar Translation Method, The Direct Method, The Reading Method).</span>
+                    <span class="te">మెథడ్ అనేది బోధనా నియమాల సమాహారం; ఒక భాషను ఎలా బోధించాలో తెలిపే ప్రణాళిక. అన్ని పద్ధతుల్లోనూ ఎంపిక (selection), శ్రేణీకరణ (gradation), సమర్పణ (presentation), పునరావృతం (repetition) అనే సూత్రాలు ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Technique:</strong> A technique is implementation that which actually takes place in a classroom. It is a particular trick, stratagem, or contrivance used to accomplish an immediate objective. Technique is 'how' a thing is done in the classroom.</span>
+                    <span class="te"><strong>టెక్నిక్ (యుక్తి):</strong> ఇది తరగతి గదిలో ప్రత్యక్షంగా అమలు జరిగే అంశం. తక్షణ లక్ష్యాన్ని సాధించడానికి ఉపయోగించే ఒక ప్రత్యేక ఉపాయం లేదా చిట్కా. ఇది తరగతి గదిలో ఒక పని 'ఎలా' చేయబడుతుందో వివరిస్తుంది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Techniques must be consistent with a method, and therefore in harmony with an approach as well. (Anthony Edward). Whatever technique we use, it should conform to the method under which it is used.</span>
+                    <span class="te">టెక్నిక్స్ అనేవి మెథడ్‌కు అనుగుణంగా ఉండాలి, తద్వారా అవి అప్రోచ్‌తో కూడా సమన్వయం అవుతాయి (ఆంథోనీ ఎడ్వర్డ్). మనం ఏ టెక్నిక్ ఉపయోగించినా అది ఎంచుకున్న మెథడ్‌కు లోబడి ఉండాలి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Examples of Techniques:
+                        <br>• Substitution tables are used in teaching pattern practice (method).
+                        <br>• Reading techniques are used in West's Reading Method and dramatisation.
+                        <br>• Language games are used in the Direct Method.
+                    </span>
+                    <span class="te">యుక్తులకు (Techniques) ఉదాహరణలు:
+                        <br>• ప్యాటర్న్ ప్రాక్టీస్ బోధనలో సబ్‌స్టిట్యూషన్ పట్టికలను వాడటం.
+                        <br>• వెస్ట్స్ రీడింగ్ మెథడ్‌లో రీడింగ్ టెక్నిక్స్ మరియు నాటకీకరణ (dramatisation) వాడటం.
+                        <br>• డైరెక్ట్ మెథడ్‌లో భాషా క్రీడలను (language games) వాడటం.
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Structural - Oral - Situational (S-O-S) Approach -->
+    <div class="card card-alt-2">
+        <h2>2. Structural - Oral - Situational (S-O-S) Approach</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>S-O-S approach</strong> (Structural - Oral - Situational approach) came into practice as an alternative to the Direct Method.</span>
+                    <span class="te"><strong>S-O-S అప్రోచ్</strong> (స్ట్రక్చరల్ - ఓరల్ - సిచ్యుయేషనల్ విధానం) డైరెక్ట్ మెథడ్‌కు ప్రత్యామ్నాయంగా వాడుకలోకి వచ్చింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">During World War II, both the American government and the students who visited the United States for higher studies required training in English. So, linguists were involved in the programme to develop a suitable method to teach and learn English. This resulted in the high demand of trained English teachers in America as well as elsewhere.</span>
+                    <span class="te">రెండవ ప్రపంచ యుద్ధ సమయంలో, అమెరికా ప్రభుత్వం మరియు ఉన్నత చదువులకై అమెరికా వచ్చిన విద్యార్థులకు ఇంగ్లీష్ శిక్షణ అవసరమైంది. దాంతో ఆంగ్ల బోధనకు తగిన పద్ధతిని రూపొందించేందుకు భాషాశాస్త్రవేత్తలు నియోగింపబడ్డారు. ఇది అమెరికాలోనూ ఇతర ప్రాంతాల్లోనూ శిక్షణ పొందిన ఇంగ్లీష్ ఉపాధ్యాయుల డిమాండ్‌ను పెంచింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Charles Fries</strong>, an American linguist, applied structural linguistics principles to teaching of language. This led to the emergence of the structural approach in America. Charles Fries adopted <strong>structure as the starting point</strong> in teaching/learning of a language.</span>
+                    <span class="te">అమెరికన్ భాషావేత్త <strong>చార్లెస్ ఫ్రైస్</strong> భాషా బోధనకు స్ట్రక్చరల్ లింగ్విస్టిక్స్ సూత్రాలను వర్తింపజేశారు. ఇది అమెరికాలో 'స్ట్రక్చరల్ అప్రోచ్' ఆవిర్భావానికి దారితీసింది. భాషా బోధనకు <strong>నిర్మాణాన్ని (structure) ప్రారంభ బిందువుగా</strong> ఫ్రైస్ ఎంచుకున్నారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Similarly, British linguists evolved the oral approach to teaching of English based on the <strong>habit formation theory of the behaviourists</strong>.</span>
+                    <span class="te">అదేవిధంగా, బ్రిటీష్ భాషాశాస్త్రవేత్తలు <strong>ప్రవర్తనావాదుల అలవాటు ఏర్పాటు సిద్ధాంతం (habit formation theory)</strong> ఆధారంగా 'ఓరల్ అప్రోచ్'ను అభివృద్ధి చేశారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Harold Palmer and A.S. Hornby</strong> were the two most important advocates of the oral approach of teaching English. They recommended systematic principles of selection, gradation, and presentation, and believed in <strong>intensive oral drilling</strong> of sentence patterns and pronunciation.</span>
+                    <span class="te"><strong>హెరాల్డ్ పామర్ మరియు A.S. హార్న్‌బై</strong>లు ఓరల్ అప్రోచ్ యొక్క ప్రధాన మద్దతుదారులు. వీరు ఎంపిక, శ్రేణీకరణ మరియు సమర్పణ అనే శాస్త్రీయ సూత్రాలను సిఫార్సు చేశారు. వాక్య నమూనాలు, ఉచ్చారణలలో <strong>తీవ్రమైన మౌఖిక సాధన (intensive oral drilling)</strong>ను వారు విశ్వసించారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Thus, a more scientific foundation for teaching/learning was encouraged which was not seen in the direct method.</span>
+                    <span class="te">ఈ విధంగా డైరెక్ట్ మెథడ్‌లో లేని శాస్త్రీయ పునాదిని ఈ అప్రోచ్ అందించింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>A.S. Hornby</strong> took the approach a step forward and suggested that structures are not to be presented in isolation but have to be practised in a context, <strong>situational</strong>.</span>
+                    <span class="te"><strong>A.S. హార్న్‌బై</strong> దీనిని మరింత ముందుకు తీసుకెళ్లి, వాక్య నిర్మాణాలను విడిగా కాకుండా <strong>సన్నివేశాలతో (situational context)</strong> అనుసంధానించి అభ్యసించాలని సూచించారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">S-O-S approach came into vogue in <strong>1950s in India</strong> and still remains popular as many teachers adopt S-O-S approach to teach English.</span>
+                    <span class="te">భారతదేశంలో S-O-S అప్రోచ్ <strong>1950ల కాలంలో</strong> ప్రాచుర్యంలోకి వచ్చింది మరియు ఇప్పటికీ అనేకమంది ఉపాధ్యాయులు దీనిని ఉపయోగిస్తున్నారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Features / Principles of S-O-S approach:</strong>
+                        <br>1. Language teaching should begin with the spoken language.
+                        <br>2. Vocabulary selection should follow procedures that ensure coverage of essential general service vocabulary.
+                        <br>3. Items of grammar should follow the principles that simple forms should be taught before complex ones.
+                        <br>4. Teaching/learning methods should consider language as a habit formation process (influenced by behavioural psychology of B.F. Skinner).
+                        <br>5. The process of learning should regard reinforcement as an important element.
+                        <br>6. New language points should be meaningfully introduced in situational practice.
+                        <br>7. Reading and writing should be introduced after establishing sufficient lexical and grammatical basis.
+                    </span>
+                    <span class="te"><strong>S-O-S అప్రోచ్ యొక్క ముఖ్య లక్షణాలు / సూత్రాలు:</strong>
+                        <br>1. భాషా బోధన మాట్లాడే భాషతో (spoken language) ప్రారంభం కావాలి.
+                        <br>2. నిత్యజీవితానికి అవసరమైన జనరల్ సర్వీస్ వొకాబులరీని ఎంపిక చేసుకోవాలి.
+                        <br>3. క్లిష్టమైన వ్యాకరణ రూపాల కంటే ముందు సరళమైన రూపాలను బోధించాలి.
+                        <br>4. భాషా అభ్యసనాన్ని ఒక <strong>అలవాటు ఏర్పాటు ప్రక్రియగా (habit formation)</strong> చూడాలి (బి.ఎఫ్. స్కిన్నర్ ప్రవర్తనావాద ప్రభావం).
+                        <br>5. పునర్బలనాన్ని (reinforcement) అభ్యసనంలో ముఖ్యమైన అంశంగా భావించాలి.
+                        <br>6. కొత్త భాషాంశాలను సందర్భోచిత సాధన (situational practice) ద్వారా పరిచయం చేయాలి.
+                        <br>7. తగినంత పదజాలం మరియు వ్యాకరణ పునాది మౌఖికంగా ఏర్పడిన తర్వాతే పఠనం మరియు లేఖనాన్ని పరిచయం చేయాలి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Three processes of language learning advocated by Harold Palmer in S-O-S approach:</strong>
+                        <br>1. Receiving the knowledge
+                        <br>2. Fixing it in the memory
+                        <br>3. Practising it till learning is internalised
+                    </span>
+                    <span class="te"><strong>S-O-S అప్రోచ్‌లో హెరాల్డ్ పామర్ పేర్కొన్న 3 అభ్యసన ప్రక్రియలు:</strong>
+                        <br>1. జ్ఞానాన్ని గ్రహించడం (Receiving knowledge)
+                        <br>2. దానిని జ్ఞాపకశక్తిలో నిక్షిప్తం చేయడం (Fixing in memory)
+                        <br>3. అభ్యసనం అంతర్గతమయ్యే వరకు సాధన చేయడం (Practising till internalised)
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Structures are presented in meaningful situations and practiced first orally and then in reading and writing. Drills form an important technique of the approach.</span>
+                    <span class="te">వాక్య నిర్మాణాలు అర్థవంతమైన సన్నివేశాలలో ప్రదర్శించబడి, మొదట మౌఖికంగా, ఆ తర్వాత పఠన, లేఖనాల్లో సాధన చేయించబడతాయి. ఇందులో 'సాధనలు' (Drills) ఒక ముఖ్యమైన టెక్నిక్.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Language is encoded as elements of phonemes, morphemes, word structure and sentence types and taught by creating situations. Situations are created by using objects, pictures, dialogues, questions and answers, gestures, actions etc.</span>
+                    <span class="te">భాష అనేది వర్ణాలు (phonemes), రూపాలు (morphemes), పద నిర్మాణాలు మరియు వాక్య రకాలుగా విడదీయబడి సన్నివేశాల ద్వారా బోధించబడుతుంది. వస్తువులు, బొమ్మలు, సంభాషణలు, ప్రశ్నోత్తరాలు, సైగలు మరియు చర్యల ద్వారా సన్నివేశాలను సృష్టిస్తారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The language which is, thus, learnt in the class is used in outside world. Practice of language is generally given by the use of drills such as substitution tables, completion of sentence by using meaningful expression, call word technique, chaining technique etc.</span>
+                    <span class="te">తరగతిలో నేర్చుకున్న భాషను బయటి ప్రపంచంలో ఉపయోగిస్తారు. సబ్‌స్టిట్యూషన్ పట్టికలు, వాక్య పూర్తి చేయడాలు, కాల్ వర్డ్ టెక్నిక్, చైనింగ్ టెక్నిక్ వంటి డ్రిల్స్ ద్వారా సాధన ఇస్తారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Objectives of S-O-S approach:</strong>
+                        <br>1. Command of the four language skills through structures
+                        <br>2. Mastery of both pronunciation and grammar
+                        <br>3. Ability to express in speech situations
+                        <br>4. Ability to use structures and sentence patterns
+                    </span>
+                    <span class="te"><strong>S-O-S అప్రోచ్ యొక్క లక్ష్యాలు:</strong>
+                        <br>1. వాక్య నిర్మాణాల ద్వారా నాలుగు భాషా నైపుణ్యాలపై పట్టు సాధించడం
+                        <br>2. ఉచ్చారణ మరియు వ్యాకరణం రెండింటిలోనూ ప్రావీణ్యం పొందుట
+                        <br>3. సంభాషణ సందర్భాలలో భావాలను వ్యక్తపరిచే సామర్థ్యం
+                        <br>4. వాక్య నిర్మాణాలు మరియు నమూనాలను ఉపయోగించే సామర్థ్యం
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>S-O-S approach - Advantages:</strong>
+                        <br>1. Oral presentation and practice of structures and vocabulary enable learners to gain mastery.
+                        <br>2. Systematic presentation enables learners to perform easily.
+                        <br>3. Difficult areas of language are identified and practiced thoroughly.
+                        <br>4. Drills and repetition minimise mistakes.
+                        <br>5. Right habits of language practice help learners retain expression.
+                        <br>6. Meaningful and situational learning helps learners perform better in the outside world.
+                    </span>
+                    <span class="te"><strong>S-O-S అప్రోచ్ - ప్రయోజనాలు:</strong>
+                        <br>1. మౌఖిక ప్రదర్శన మరియు సాధన ద్వారా విద్యార్థులు భాషపై పట్టు సాధిస్తారు.
+                        <br>2. క్రమబద్ధమైన సమర్పణ వలన విద్యార్థులు సులభంగా అభ్యసిస్తారు.
+                        <br>3. కష్టమైన అంశాలను గుర్తించి క్షుణ్ణంగా సాధన చేయిస్తారు.
+                        <br>4. డ్రిల్స్ మరియు పునరావృతం తప్పులను తగ్గిస్తాయి.
+                        <br>5. సరైన భాషా అలవాట్లు భావవ్యక్తీకరణను గుర్తుంచుకోవడానికి సహాయపడతాయి.
+                        <br>6. అర్థవంతమైన సన్నివేశాల ద్వారా నేర్చుకోవడం బయటి ప్రపంచంలో ఉపయోగపడుతుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>S-O-S approach - Limitations:</strong>
+                        <br>1. Teachers need a lot of training and guidance to teach structures; difficult for an average teacher to cope.
+                        <br>2. A greater emphasis is placed on oral language than on written form.
+                        <br>3. Situational practice is not convenient for learning some language items.
+                        <br>4. Situational learning results in a very slow rate of vocabulary building as materials concentrate on only a few structures; learning becomes dull and uninteresting.
+                        <br>5. The approach is unable to account for the fundamental aspect of language i.e., <strong>creativity and uniqueness of the infinite number of sentences</strong> which an individual can practise.
+                    </span>
+                    <span class="te"><strong>S-O-S అప్రోచ్ - పరిమితులు:</strong>
+                        <br>1. ఉపాధ్యాయులకు విపరీతమైన శిక్షణ అవసరం; సాధారణ ఉపాధ్యాయునికి ఇది కష్టం.
+                        <br>2. రాత రూపం కంటే మౌఖిక భాషకే ఎక్కువ ప్రాధాన్యత ఇవ్వబడుతుంది.
+                        <br>3. అన్ని భాషా అంశాలను సన్నివేశాల ద్వారా నేర్పించడం వీలుపడదు.
+                        <br>4. పరిమిత వాక్యాలపైనే దృష్టి పెట్టడం వల్ల పదజాల అభివృద్ధి చాలా నెమ్మదిగా జరుగుతుంది; బోధన నిస్తేజంగా మారుతుంది.
+                        <br>5. భాష యొక్క ప్రాథమిక లక్షణమైన <strong>'సృజనాత్మకత' (creativity) మరియు అపరిమిత వాక్యాల ఉత్పత్తిని</strong> ఇది వివరించలేకపోయింది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The S-O-S approach was questioned in the 1960s. However, with its strong emphasis on oral practice of grammar and sentence patterns, it still continues to be widely used in many parts of the world.</span>
+                    <span class="te">1960లలో S-O-S అప్రోచ్‌పై విమర్శలు వచ్చినా, మౌఖిక సాధనపై ఉన్న ప్రాధాన్యత కారణంగా ప్రపంచవ్యాప్తంగా నేటికీ విస్తృతంగా ఉపయోగించబడుతోంది.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Communicative Approach -->
+    <div class="card card-alt-3">
+        <h2>3. Communicative Approach (కమ్యూనికేటివ్ విధానం)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Communicative approach has been a response to the Audio-Lingual method. This approach is an extension of the <strong>notional - functional syllabus</strong>.</span>
+                    <span class="te">కమ్యూనికేటివ్ అప్రోచ్ అనేది ఆడియో-లింగ్వల్ మెథడ్‌కు ప్రతిస్పందనగా వచ్చింది. ఇది <strong>నోషనల్ - ఫంక్షనల్ సిలబస్</strong> యొక్క విస్తరణ.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">New goals set as global village needs extended:
+                        <br>1. Language teaching begins with the spoken language.
+                        <br>2. Importance is given to the communication aspects of language.
+                        <br>3. Interest is shown in meaningful learning.
+                        <br>4. Prominence is given more on functional aspects of language than to structural aspects.
+                    </span>
+                    <span class="te">ప్రపంచ అవసరాలకు అనుగుణంగా కొత్త లక్ష్యాలు ఏర్పడ్డాయి:
+                        <br>1. భాషా బోధన మౌఖిక భాషతో ప్రారంభమవుతుంది.
+                        <br>2. భావప్రసార (communication) అంశాలకు ప్రాధాన్యత.
+                        <br>3. అర్థవంతమైన అభ్యసనానికి ఆసక్తి.
+                        <br>4. నిర్మాణాల (structural) కంటే భాషా విధులకు (functional aspects) ఎక్కువ ప్రాధాన్యం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">By the mid 1960s, situational language teaching was criticised that structural theories of language were incapable of accounting for the creativity and uniqueness of individual sentences.</span>
+                    <span class="te">1960ల మధ్య కాలంలో, వాక్యాల సృజనాత్మకతను విశ్లేషించలేకపోతోందని సిచుయేషనల్ లాంగ్వేజ్ టీచింగ్‌పై విమర్శలు వచ్చాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The communicative approach to language teaching starts from a theory of language as communication. The main goal of the communicative approach is to develop <strong>communicative competence</strong>.</span>
+                    <span class="te">కమ్యూనికేటివ్ అప్రోచ్ 'భాష అంటే భావప్రసారం' అనే సిద్ధాంతం ఆధారంగా ప్రారంభమవుతుంది. దీని ప్రధాన లక్ష్యం <strong>'కమ్యూనికేటివ్ కాంపిటెన్స్' (సంభాషణా సామర్థ్యం)</strong>ను పెంపొందించడం.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Dell Hymes</strong> coined the term <strong>'communicative competence'</strong> in order to contrast Chomsky's theory of competence.</span>
+                    <span class="te">చోమ్‌స్కీ యొక్క కాంపిటెన్స్ సిద్ధాంతానికి భిన్నంగా <strong>డెల్ హైమ్స్ (Hymes)</strong> అనే శాస్త్రవేత్త <strong>'కమ్యూనికేటివ్ కాంపిటెన్స్'</strong> అనే పదాన్ని ప్రతిపాదించారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Noam Chomsky (1959):</strong> Developed Transformational Generative Grammar, which emphasised the acquisition of <strong>systematic competence</strong> (the ability to form grammatically correct sentences).</span>
+                    <span class="te"><strong>నోమ్ చోమ్‌స్కీ (1959):</strong> ట్రాన్స్‌ఫార్మేషనల్ జెనరేటివ్ గ్రామార్‌ను అభివృద్ధి చేశారు. వీరు <strong>సిస్టమాటిక్ కాంపిటెన్స్</strong> (వ్యాకరణబద్ధమైన వాక్యాలను తయారు చేసే సామర్థ్యం) పై దృష్టి పెట్టారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">In 1965, Chomsky introduced a distinction between <strong>Competence</strong> and <strong>Performance</strong>:
+                        <br>• <strong>Competence:</strong> Mastery of abstract system of rules.
+                        <br>• <strong>Performance:</strong> Actual use of language identified with the criterion of acceptability.
+                    </span>
+                    <span class="te">1965లో చోమ్‌స్కీ <strong>కాంపిటెన్స్</strong> మరియు <strong>పెర్ఫార్మెన్స్</strong> మధ్య తేడాను తెచ్చారు:
+                        <br>• <strong>కాంపిటెన్స్:</strong> వ్యాకరణ నియమాల అమూర్త వ్యవస్థపై పట్టు.
+                        <br>• <strong>పెర్ఫార్మెన్స్:</strong> ఆమోదయోగ్యత ఆధారంగా భాషను ప్రత్యక్షంగా ఉపయోగించడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Canale and Swain:</strong> Analysed communicative competence into 4 dimensions:
+                        <br>1. <strong>Grammatical competence:</strong> Refers to linguistic competence.
+                        <br>2. <strong>Socio-linguistic competence:</strong> Refers to understanding the social context in which communication takes place.
+                        <br>3. <strong>Discourse competence:</strong> Refers to the interpretation of individual message and text.
+                        <br>4. <strong>Strategic competence:</strong> Refers to coping strategies used to maintain communication.
+                    </span>
+                    <span class="te"><strong>కెనాల్ మరియు స్వైన్:</strong> కమ్యూనికేటివ్ కాంపిటెన్స్‌ను 4 కోణాలుగా విశ్లేషించారు:
+                        <br>1. <strong>గ్రామాటికల్ కాంపిటెన్స్:</strong> భాగాషా/వ్యాకరణ పరిజ్ఞానం.
+                        <br>2. <strong>సోషియో-లింగ్విస్టిక్ కాంపిటెన్స్:</strong> సామాజిక సందర్భాన్ని బట్టి సంభాషించే సామర్థ్యం.
+                        <br>3. <strong>డిస్కోర్స్ కాంపిటెన్స్:</strong> సందేశాలు మరియు పాఠ్యాంశాలను విశ్లేషించడం.
+                        <br>4. <strong>స్ట్రాటజిక్ కాంపిటెన్స్:</strong> సంభాషణ ఆగిపోకుండా నిర్వహించే వ్యూహాత్మక సామర్థ్యం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Canale and Swain (1980) - Five Guiding Characteristics:</strong>
+                        <br>1. Facilitate integration of grammatical, sociolinguistic, and strategic competence.
+                        <br>2. Base on and respond to learner's communication needs and interests.
+                        <br>3. Provide opportunities to take part in meaningful communicative interaction.
+                        <br>4. Optimal use of communication skills of native language common to second language.
+                        <br>5. Provide information, practice, and experience needed to meet communication needs.
+                    </span>
+                    <span class="te"><strong>కెనాల్ మరియు స్వైన్ (1980) - 5 మార్గదర్శక లక్షణాలు:</strong>
+                        <br>1. వ్యాకరణ, సామాజిక మరియు వ్యూహాత్మక సామర్థ్యాల సమన్వయం.
+                        <br>2. విద్యార్థుల అవసరాలు, ఆసక్తుల ఆధారంగా బోధన.
+                        <br>3. అర్థవంతమైన సంభాషణల్లో పాల్గొనే అవకాశం కల్పించడం.
+                        <br>4. మాతృభాషలోని భావప్రసార నైపుణ్యాలను రెండవ భాషలో తగిన విధంగా వాడుకోవడం.
+                        <br>5. విద్యార్థుల భావప్రసార అవసరాలకు కావలసిన అనుభవాన్ని అందించడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Keith Morrow (1981) - Five Principles for Classroom Communication:</strong>
+                        <br>1. Know what you are doing.
+                        <br>2. The whole is more than the sum of the parts.
+                        <br>3. The processes are as important as the form.
+                        <br>4. To learn it, do it.
+                        <br>5. Mistakes are not always mistakes.
+                    </span>
+                    <span class="te"><strong>కీత్ మోరో (1981) - తరగతి గది భావప్రసారానికి 5 సూత్రాలు:</strong>
+                        <br>1. మీరు ఏమి చేస్తున్నారో తెలుసుకోండి.
+                        <br>2. మొత్తం అనేది భాగాల మొత్తం కంటే విలువైనది.
+                        <br>3. రూపంతో పాటు ప్రక్రియ కూడా సమాన ముఖ్యం.
+                        <br>4. నేర్చుకోవాలంటే, చేసి చూడండి.
+                        <br>5. తప్పులు ఎల్లప్పుడూ తప్పులు కావు.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Communicative Approach - Principles in Teaching/Learning Process:</strong>
+                        <br>1. <strong>Communication:</strong> Activities involving real communication promote learning.
+                        <br>2. <strong>Tasks:</strong> Language activities carrying out meaningful tasks support learning.
+                        <br>3. <strong>Meaning:</strong> Language meaningful and authentic to the learner boosts learning.
+                    </span>
+                    <span class="te"><strong>కమ్యూనికేటివ్ అప్రోచ్ - బోధనా ప్రక్రియలోని సూత్రాలు:</strong>
+                        <br>1. <strong>కమ్యూనికేషన్:</strong> నిజమైన సంభాషణలు అభ్యసనాన్ని పెంపొందిస్తాయి.
+                        <br>2. <strong>టాస్క్‌లు:</strong> అర్థవంతమైన పనులు (tasks) చేయడం ద్వారా భాష వస్తుంది.
+                        <br>3. <strong>అర్థం (Meaning):</strong> ప్రామాణికమైన మరియు అర్థవంతమైన భాష అభ్యసనాన్ని వేగవంతం చేస్తుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Communicative Approach - Syllabus & Classroom Dynamics:</strong>
+                        <br>• Organises teaching according to <strong>notional and functional categories</strong> (e.g., greetings, introducing people, expressing joy, invitations, appointments, agreeing/disagreeing, promises, suggestions) rather than structures.
+                        <br>• <strong>Teacher's Role:</strong> No longer an instructor/driller, but a discussion leader, promoter of participation, and directive facilitator for cooperative learning.
+                        <br>• <strong>Learner's Role:</strong> Develop own styles of expression in peer collaboration and adjust to requests for clarification.
+                        <br>• Exercises designed with <strong>information gap, information transfer, and communicative drill</strong> principles.
+                        <br>• Learners start with choral repetition and move into individual responses.
+                    </span>
+                    <span class="te"><strong>సిలబస్ మరియు తరగతి గది వాతావరణం:</strong>
+                        <br>• నిర్మాణాలు కాకుండా విధులను బట్టి (గ్రీటింగ్స్, పరిచయం చేయడం, ఆహ్వానించడం, అంగీకరించడం/నిరాకరించడం, సలహాలు ఇవ్వడం) సిలబస్ ఉంటుంది.
+                        <br>• <strong>ఉపాధ్యాయుని పాత్ర:</strong> ఆదేశించే వ్యక్తి కాదు; చర్చా నాయకుడు మరియు ప్రోత్సహించే సహాయకారి (Facilitator).
+                        <br>• <strong>విద్యార్థి పాత్ర:</strong> తోటి విద్యార్థులతో కలిసి సొంత శైలిని పెంపొందించుకోవడం.
+                        <br>• అభ్యాసాలు ఇన్ఫర్మేషన్ గ్యాప్ (సమాచార లోటు), ఇన్ఫర్మేషన్ ట్రాన్స్‌ఫర్ సూత్రాలపై ఆధారపడతాయి.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Communicative Approach - Advantages:</strong>
+                        <br>1. Holistic approach considering structural and communicative dimensions.
+                        <br>2. Generates interest and motivates the learner.
+                        <br>3. Learner-centred, built on the needs of learners.
+                    </span>
+                    <span class="te"><strong>ప్రయోజనాలు:</strong> సమగ్రమైనది (Holistic), ప్రేరణ కలిగిస్తుంది, పూర్తిగా విద్యార్థి కేంద్రీకృతమైనది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Communicative Approach - Disadvantages / Limitations:</strong>
+                        <br>1. Notional syllabus criticized as merely another list of grammatical structures.
+                        <br>2. Language functions are not systematically graded.
+                        <br>3. Concentrates on everyday situations and neglects formal structures.
+                        <br>4. Priority given to meanings/use rules rather than grammar rules.
+                        <br>5. Places heavy demand on learners.
+                        <br>6. Implies every teacher should modify syllabus for learner needs.
+                        <br>7. Large class strengths are not feasible for group work and peer activities.
+                    </span>
+                    <span class="te"><strong>পরিమితులు:</strong> నిబంధనలు శ్రేణీకరించబడవు, ఆకృతి/వ్యాకరణానికి ప్రాధాన్యం తక్కువ, ఉపాధ్యాయులపై ఎక్కువ భారం పడుతుంది, <strong>ఎక్కువ మంది విద్యార్థులున్న తరగతుల్లో గ్రూప్ వర్క్ చేయడం కష్టం</strong>.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 4: The Grammar Translation Method -->
+    <div class="card card-alt-4">
+        <h2>4. The Grammar Translation Method (GTM)</h2>
+        <ul>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Evolution of approaches gave way to different methods. The Grammar Translation Method is an old method originally used to teach classical languages like <strong>Greek and Latin</strong>.</span>
+                    <span class="te">వివిధ అప్రోచ్‌ల పరిణామం కొత్త పద్ధతులకు దారితీసింది. గ్రామర్ ట్రాన్స్‌లేషన్ మెథడ్ అనేది అత్యంత పురాతన పద్ధతి. దీనిని మొదట <strong>గ్రీక్ మరియు లాటిన్</strong> భాషలను బోధించడానికి వాడేవారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">GTM dominated language teaching for nearly a century from <strong>1840s to 1940s</strong>. Priority is given to <strong>accuracy and completeness of sentences</strong>, while <strong>oral fluency is totally neglected</strong>.</span>
+                    <span class="te">ఈ పద్ధతి <strong>1840 నుండి 1940 వరకు</strong> ఒక శతాబ్దం పాటు ఆధిపత్యం చెలాయించింది. వాక్యాల <strong>ఖచ్చితత్వానికి (accuracy) ప్రాధాన్యం</strong> ఇవ్వగా, <strong>మౌఖిక ధారాళత (oral fluency) పూర్తిగా నిర్లక్ష్యం</strong> చేయబడింది.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">Syllabus consists of a few prose pieces, poems, non-detailed text, grammar, and written work.</span>
+                    <span class="te">సిలబస్‌లో కొన్ని గద్య పాఠాలు, పద్యాలు, నాన్-డిటైల్డ్, వ్యాకరణం మరియు రాత పనులు ఉంటాయి.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>Features of GTM:</strong>
+                        <br>1. Elaborate explanations of grammar.
+                        <br>2. Teaching of vocabulary items in the form of word lists.
+                        <br>3. Reading of difficult text.
+                        <br>4. Translation of sentences or texts.
+                        <br>5. Use of mother tongue.
+                    </span>
+                    <span class="te"><strong>GTM ముఖ్య లక్షణాలు:</strong>
+                        <br>1. వ్యాకరణ నియమాల వివరణాత్మక వివరణ.
+                        <br>2. పదాల పట్టికల (word lists) రూపంలో పదజాల బోధన.
+                        <br>3. కష్టమైన పాఠాలను చదవడం.
+                        <br>4. వాక్యాలు లేదా పాఠాలను అనువదించడం.
+                        <br>5. మాతృభాషను విస్తృతంగా ఉపయోగించడం.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en">The student is expected to master grammar rules and apply them while translating, reading, or writing. Target language is interpreted in terms of the first language (L1) for easy acquisition. Meanings are given in English or mother tongue based on classroom need.</span>
+                    <span class="te">విద్యార్థి వ్యాకరణ నియమాలను నేర్చుకుని అనువాదం, పఠనం, లేఖనాల్లో వర్తింపజేయాలి. లక్ష్య భాషను మాతృభాష ద్వారా అర్థం చేసుకుంటారు.</span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>GTM - Advantages:</strong>
+                        <br>1. Students acquire vocabulary easily and effectively as target language is translated into L1.
+                        <br>2. Easy understanding, interpreting, and assimilating of texts.
+                        <br>3. Saves teacher's time and labour; teaching and testing are easy.
+                        <br>4. Easy method to teach as focus is on limited aspects (reading and writing).
+                    </span>
+                    <span class="te"><strong>GTM - ప్రయోజనాలు:</strong>
+                        <br>1. మాతృభాషలోకి అనువదించడం వల్ల పదజాలం సులభంగా వస్తుంది.
+                        <br>2. పాఠ్యాంశాలు సులభంగా అర్థమవుతాయి.
+                        <br>3. ఉపాధ్యాయునికి సమయం మరియు శ్రమ ఆదా అవుతుంది; పరీక్షించడం సులభం.
+                        <br>4. కేవలం పఠనం, లేఖనాలపైనే దృష్టి ఉంటుంది కాబట్టి బోధించడం తేలిక.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><strong>GTM - Limitations:</strong>
+                        <br>1. Emphasis is on mechanical rule-learning, not spontaneous use.
+                        <br>2. No focus on listening and speaking; hardly any language exposure.
+                        <br>3. Oriented towards <strong>'teaching ABOUT the language' and not 'teaching the language'</strong>.
+                        <br>4. Unsuitable for classes with diverse language backgrounds due to mother tongue usage.
+                        <br>5. Learners become passive; no active role.
+                        <br>6. Literal translation is sometimes misleading.
+                        <br>7. Does not create a bond between thought and expression; hinders speech/writing fluency.
+                        <br>8. Mechanical drilling of rules results in fatigue during learning.
+                    </span>
+                    <span class="te"><strong>GTM - పరిమితులు:</strong>
+                        <br>1. యంత్రవత్ నియమాలు నేర్చుకోవడంపైనే దృష్టి; స్వచ్ఛంద వినియోగం ఉండదు.
+                        <br>2. వినడం, మాట్లాడడం లేకపోవడం వల్ల భాషా ఎక్స్‌పోజర్ ఉండదు.
+                        <br>3. ఇది <strong>'భాషను బోధించడం' కాకుండా 'భాష గురించి బోధించడం' (Teaching ABOUT the language)</strong> గా మారుతుంది.
+                        <br>4. విభిన్న భాషలు మాట్లాడే తరగతులకు ఇది పనికిరాదు.
+                        <br>5. విద్యార్థులు నిష్క్రియాత్మక (passive) అభ్యసకులుగా మారతారు.
+                        <br>6. యథాతథ అనువాదం ఒక్కోసారి తప్పుదోవ పట్టిస్తుంది.
+                        <br>7. ఆలోచనకు, వ్యక్తపరచడానికి మధ్య బంధాన్ని ఏర్పరచదు; ధారాళత్వాన్ని దెబ్బతీస్తుంది.
+                        <br>8. నియమాల సాధన విసుగు (fatigue) కలిగిస్తుంది.
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="bilingual-item">
+                    <span class="en"><em>The search for a better way to teach a second language eventually resulted in the foundation of the <strong>Direct Method</strong>.</em></span>
+                    <span class="te"><em>రెండవ భాషను బోధించడానికి ఇంతకంటే మంచి పద్ధతి కోసం జరిగిన అన్వేషణే <strong>'డైరెక్ట్ మెథడ్'</strong> ఆవిర్భావానికి దారితీసింది.</em></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcon.textContent = '🌙';
+            toggleText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcon.textContent = '☀️';
+            toggleText.textContent = 'Light Mode';
+        }
+    });
+</script>
+
+</body>
+</html>
